@@ -67,12 +67,16 @@ namespace QLThuVien.APP
                 if(tbuser_name.Text == "admin")
                 {
                     adminForm a = new adminForm();
-                    a.Show();
+                    this.Hide();
+                    a.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
-                    //normalUserForm normalUserForm = new normalUserForm();
-                    //normalUserForm.Show();
+                    basicForm a = new basicForm();
+                    this.Hide();
+                    a.ShowDialog();
+                    this.Close();
                 }
                 tbuser_name.Text = "";
                 tbpassword.Text = "";

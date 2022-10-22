@@ -45,7 +45,6 @@
             this.btDelete = new System.Windows.Forms.Button();
             this.tbNoiDungTimKiem = new System.Windows.Forms.TextBox();
             this.btUpdate = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.tbDesignation = new System.Windows.Forms.TextBox();
             this.btInsert = new System.Windows.Forms.Button();
             this.tbDesignation_id = new System.Windows.Forms.TextBox();
@@ -53,10 +52,8 @@
             this.dataView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.designationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
-            this.tbStaff_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.designationTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.designationTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -91,7 +88,7 @@
             // btRefresh
             // 
             this.btRefresh.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btRefresh.Location = new System.Drawing.Point(244, 97);
+            this.btRefresh.Location = new System.Drawing.Point(244, 79);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(101, 58);
             this.btRefresh.TabIndex = 199;
@@ -218,15 +215,6 @@
             this.btUpdate.UseVisualStyleBackColor = true;
             this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 108);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 181;
-            this.label7.Text = "Mã Nhân Viên";
-            // 
             // tbDesignation
             // 
             this.tbDesignation.Location = new System.Drawing.Point(83, 58);
@@ -267,13 +255,12 @@
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn2});
             this.dataView.DataSource = this.designationBindingSource;
-            this.dataView.Location = new System.Drawing.Point(375, 12);
+            this.dataView.Location = new System.Drawing.Point(351, 12);
             this.dataView.Name = "dataView";
             this.dataView.ReadOnly = true;
-            this.dataView.Size = new System.Drawing.Size(344, 409);
+            this.dataView.Size = new System.Drawing.Size(243, 374);
             this.dataView.TabIndex = 174;
             // 
             // dataGridViewTextBoxColumn1
@@ -290,13 +277,6 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "staff_id";
-            this.dataGridViewTextBoxColumn3.HeaderText = "staff_id";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
             // designationBindingSource
             // 
             this.designationBindingSource.DataMember = "designation";
@@ -306,13 +286,6 @@
             // 
             this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
             this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbStaff_id
-            // 
-            this.tbStaff_id.Location = new System.Drawing.Point(83, 105);
-            this.tbStaff_id.Name = "tbStaff_id";
-            this.tbStaff_id.Size = new System.Drawing.Size(124, 20);
-            this.tbStaff_id.TabIndex = 185;
             // 
             // label9
             // 
@@ -329,15 +302,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tbStaff_id);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.tbDesignation_id);
             this.groupBox1.Controls.Add(this.tbDesignation);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 131);
+            this.groupBox1.Size = new System.Drawing.Size(213, 96);
             this.groupBox1.TabIndex = 202;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
@@ -360,7 +331,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btTimFile);
             this.groupBox2.Controls.Add(this.cbbSheet);
-            this.groupBox2.Location = new System.Drawing.Point(12, 196);
+            this.groupBox2.Location = new System.Drawing.Point(12, 161);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(333, 225);
             this.groupBox2.TabIndex = 204;
@@ -381,7 +352,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 425);
+            this.ClientSize = new System.Drawing.Size(604, 386);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
@@ -421,13 +392,11 @@
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.TextBox tbNoiDungTimKiem;
         private System.Windows.Forms.Button btUpdate;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbDesignation;
         private System.Windows.Forms.Button btInsert;
         private System.Windows.Forms.TextBox tbDesignation_id;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dataView;
-        private System.Windows.Forms.TextBox tbStaff_id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn designationidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
@@ -435,11 +404,10 @@
         private QLThuVienDataSet qLThuVienDataSet;
         private System.Windows.Forms.BindingSource designationBindingSource;
         private QLThuVienDataSetTableAdapters.designationTableAdapter designationTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

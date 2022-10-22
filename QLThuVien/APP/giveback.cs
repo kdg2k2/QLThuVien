@@ -35,7 +35,7 @@ namespace QLThuVien.APP
             dt.Load(dr);
             dataView.DataSource = dt;
         }
-        int dem = 0;
+        int dieuKien = 0;
         private void KiemTraMa(string TenBang, string TenField, string DieuKien)
         {
             DataSet ds = new DataSet();
@@ -50,7 +50,7 @@ namespace QLThuVien.APP
 
             foreach (DataRow row in table.Rows)
             {
-                dem++;
+                dieuKien++;
             }
         }
         private void return_Load(object sender, EventArgs e)
@@ -75,13 +75,28 @@ namespace QLThuVien.APP
             }
 
             KiemTraMa("giveback", "return_id", tbReturn_id.Text);
-            if (dem > 0)
+            if (dieuKien > 0)
             {
-                MessageBox.Show("Mã đã tồn tại");
+                MessageBox.Show("Mã trả đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
-                dem = 0;
+                dieuKien = 0;
                 return;
             }
+
+            KiemTraMa("borrow", "issue_id", tbIssue_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã mượn tồn tại");
+                return;
+            }
+
+            KiemTraMa("books", "book_id", tbBook_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã sách không tồn tại");
+                return;
+            }
+
             else
             {
                 string sqlThem = "INSERT INTO giveback " +
@@ -93,6 +108,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
                 cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
                 cmd.ExecuteNonQuery();
+                dieuKien = 0;
                 HienThi();
             }
         }
@@ -105,17 +121,35 @@ namespace QLThuVien.APP
                 return;
             }
 
-            string sqlThem = "update giveback " +
-                                "set return_id=@return_id, issue_id=@issue_id, date_return=@date_return, staff_id=@staff_id, book_id=@book_id " +
-                                "where return_id=@return_id";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("return_id", tbReturn_id.Text);
-            cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
-            cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
-            cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
-            cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
-            cmd.ExecuteNonQuery();
-            HienThi();
+            KiemTraMa("borrow", "issue_id", tbIssue_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã mượn không tồn tại");
+                return;
+            }
+
+            KiemTraMa("books", "book_id", tbBook_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã sách không tồn tại");
+                return;
+            }
+
+            else
+            {
+                string sqlThem = "update giveback " +
+                                    "set return_id=@return_id, issue_id=@issue_id, date_return=@date_return, staff_id=@staff_id, book_id=@book_id " +
+                                    "where return_id=@return_id";
+                SqlCommand cmd = new SqlCommand(sqlThem, con);
+                cmd.Parameters.AddWithValue("return_id", tbReturn_id.Text);
+                cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
+                cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
+                cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
+                cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
+                cmd.ExecuteNonQuery();
+                HienThi();
+                dieuKien = 0;
+            }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -233,7 +267,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported successfully");
+                    MessageBox.Show("Imported thành công");
                     HienThi();
                 }
             }

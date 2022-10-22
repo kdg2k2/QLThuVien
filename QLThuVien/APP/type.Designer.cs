@@ -257,10 +257,10 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.dataView.DataSource = this.typeBindingSource;
-            this.dataView.Location = new System.Drawing.Point(392, 12);
+            this.dataView.Location = new System.Drawing.Point(360, 12);
             this.dataView.Name = "dataView";
             this.dataView.ReadOnly = true;
-            this.dataView.Size = new System.Drawing.Size(263, 400);
+            this.dataView.Size = new System.Drawing.Size(245, 400);
             this.dataView.TabIndex = 174;
             // 
             // dataGridViewTextBoxColumn1
@@ -344,17 +344,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(54, 18);
+            this.label5.Location = new System.Drawing.Point(83, 22);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(274, 29);
+            this.label5.Size = new System.Drawing.Size(180, 29);
             this.label5.TabIndex = 175;
-            this.label5.Text = "Quản Lý Phân Loại Sách";
+            this.label5.Text = "Phân Loại Sách";
             // 
             // type
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 416);
+            this.ClientSize = new System.Drawing.Size(614, 416);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);

@@ -249,7 +249,7 @@
             this.tbTenSach.Location = new System.Drawing.Point(97, 62);
             this.tbTenSach.Name = "tbTenSach";
             this.tbTenSach.Size = new System.Drawing.Size(124, 20);
-            this.tbTenSach.TabIndex = 155;
+            this.tbTenSach.TabIndex = 1;
             this.tbTenSach.TextChanged += new System.EventHandler(this.tbTenSach_TextChanged);
             // 
             // btInsert
@@ -267,7 +267,7 @@
             this.tbMaSach.Location = new System.Drawing.Point(97, 36);
             this.tbMaSach.Name = "tbMaSach";
             this.tbMaSach.Size = new System.Drawing.Size(124, 20);
-            this.tbMaSach.TabIndex = 152;
+            this.tbMaSach.TabIndex = 0;
             this.tbMaSach.TextChanged += new System.EventHandler(this.tbMaSach_TextChanged);
             // 
             // label10
@@ -348,7 +348,7 @@
             this.tbMaLoai.Location = new System.Drawing.Point(97, 88);
             this.tbMaLoai.Name = "tbMaLoai";
             this.tbMaLoai.Size = new System.Drawing.Size(124, 20);
-            this.tbMaLoai.TabIndex = 157;
+            this.tbMaLoai.TabIndex = 2;
             this.tbMaLoai.TextChanged += new System.EventHandler(this.tbMaLoai_TextChanged);
             // 
             // label9
@@ -366,7 +366,7 @@
             this.tbISBN.Location = new System.Drawing.Point(97, 114);
             this.tbISBN.Name = "tbISBN";
             this.tbISBN.Size = new System.Drawing.Size(124, 20);
-            this.tbISBN.TabIndex = 157;
+            this.tbISBN.TabIndex = 3;
             this.tbISBN.TextChanged += new System.EventHandler(this.tbISBN_TextChanged);
             // 
             // label5
@@ -384,7 +384,7 @@
             this.tbTenTacGia.Location = new System.Drawing.Point(97, 140);
             this.tbTenTacGia.Name = "tbTenTacGia";
             this.tbTenTacGia.Size = new System.Drawing.Size(124, 20);
-            this.tbTenTacGia.TabIndex = 157;
+            this.tbTenTacGia.TabIndex = 4;
             this.tbTenTacGia.TextChanged += new System.EventHandler(this.tbTenTacGia_TextChanged);
             // 
             // label8

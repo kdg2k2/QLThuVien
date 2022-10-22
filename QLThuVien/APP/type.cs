@@ -36,7 +36,7 @@ namespace QLThuVien.APP
             dataView.DataSource = dt;
         }
 
-        int dem = 0;
+        int dieuKien = 0;
         private void KiemTraMa(string TenBang, string TenField, string DieuKien)
         {
             DataSet ds = new DataSet();
@@ -51,7 +51,7 @@ namespace QLThuVien.APP
 
             foreach (DataRow row in table.Rows)
             {
-                dem++;
+                dieuKien++;
             }
         }
         private void type_Load(object sender, EventArgs e)
@@ -70,11 +70,11 @@ namespace QLThuVien.APP
             }
 
             KiemTraMa("type", "type_id", tbMaLoai.Text);
-            if (dem > 0)
+            if (dieuKien > 0)
             {
                 MessageBox.Show("Mã đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
-                dem = 0;
+                dieuKien = 0;
                 return;
             }
             else
@@ -212,7 +212,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported successfully");
+                    MessageBox.Show("Imported thành công");
                     HienThi();
                 }
             }

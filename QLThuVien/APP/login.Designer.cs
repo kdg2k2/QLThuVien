@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.label1 = new System.Windows.Forms.Label();
             this.tbuser_name = new System.Windows.Forms.TextBox();
             this.btDangNhap = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tbpassword = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 34);
+            this.label1.Location = new System.Drawing.Point(152, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 0;
@@ -46,14 +49,14 @@
             // 
             // tbuser_name
             // 
-            this.tbuser_name.Location = new System.Drawing.Point(75, 34);
+            this.tbuser_name.Location = new System.Drawing.Point(214, 35);
             this.tbuser_name.Name = "tbuser_name";
             this.tbuser_name.Size = new System.Drawing.Size(200, 20);
             this.tbuser_name.TabIndex = 0;
             // 
             // btDangNhap
             // 
-            this.btDangNhap.Location = new System.Drawing.Point(200, 108);
+            this.btDangNhap.Location = new System.Drawing.Point(339, 118);
             this.btDangNhap.Name = "btDangNhap";
             this.btDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btDangNhap.TabIndex = 2;
@@ -65,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 72);
+            this.label2.Location = new System.Drawing.Point(152, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 0;
@@ -73,17 +76,27 @@
             // 
             // tbpassword
             // 
-            this.tbpassword.Location = new System.Drawing.Point(75, 72);
+            this.tbpassword.Location = new System.Drawing.Point(214, 81);
             this.tbpassword.Name = "tbpassword";
             this.tbpassword.PasswordChar = 'x';
             this.tbpassword.Size = new System.Drawing.Size(200, 20);
             this.tbpassword.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 134);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 137);
+            this.ClientSize = new System.Drawing.Size(427, 153);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btDangNhap);
             this.Controls.Add(this.tbpassword);
             this.Controls.Add(this.label2);
@@ -93,6 +106,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.Enter += new System.EventHandler(this.btDangNhap_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +119,6 @@
         private System.Windows.Forms.Button btDangNhap;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbpassword;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

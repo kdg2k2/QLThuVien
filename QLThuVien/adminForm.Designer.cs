@@ -251,6 +251,7 @@
             this.Name = "adminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QLTV";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.adminForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.PicStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBooks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrow)).EndInit();

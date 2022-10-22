@@ -36,7 +36,7 @@ namespace QLThuVien.APP
             dt.Load(dr);
             dataView.DataSource = dt;
         }
-        int dem = 0;
+        int dieuKien = 0;
         private void KiemTraMa(string TenBang, string TenField, string DieuKien)
         {
             DataSet ds = new DataSet();
@@ -51,7 +51,7 @@ namespace QLThuVien.APP
 
             foreach (DataRow row in table.Rows)
             {
-                dem++;
+                dieuKien++;
             }
         }
         private void staff_Load(object sender, EventArgs e)
@@ -76,11 +76,17 @@ namespace QLThuVien.APP
             }
 
             KiemTraMa("staff", "staff_id", tbStaff_id.Text);
-            if (dem > 0)
+            if (dieuKien > 0)
             {
-                MessageBox.Show("Mã đã tồn tại");
+                MessageBox.Show("Mã nhân viên đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
-                dem = 0;
+                dieuKien = 0;
+                return;
+            }
+            KiemTraMa("designation", "designation_id", tbDesignation_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã chức vụ tồn tại");
                 return;
             }
             else
@@ -96,6 +102,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("phone", tbPhone.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
+                dieuKien = 0;
             }
         }
 
@@ -107,18 +114,29 @@ namespace QLThuVien.APP
                 return;
             }
 
-            string sqlThem = "update staff " +
-                                "set staff_id=@staff_id, name=@name, gender=@gender, designation_id=@designation_id, address=@address, phone=@phone " +
-                                "where staff_id=@staff_id";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
-            cmd.Parameters.AddWithValue("name", tbName.Text);
-            cmd.Parameters.AddWithValue("gender", tbGender.Text);
-            cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
-            cmd.Parameters.AddWithValue("address", tbAddress.Text);
-            cmd.Parameters.AddWithValue("phone", tbPhone.Text);
-            cmd.ExecuteNonQuery();
-            HienThi();
+            KiemTraMa("designation", "designation_id", tbDesignation_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã chức vụ tồn tại");
+                return;
+            }
+
+            else
+            {
+                string sqlThem = "update staff " +
+                                    "set staff_id=@staff_id, name=@name, gender=@gender, designation_id=@designation_id, address=@address, phone=@phone " +
+                                    "where staff_id=@staff_id";
+                SqlCommand cmd = new SqlCommand(sqlThem, con);
+                cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
+                cmd.Parameters.AddWithValue("name", tbName.Text);
+                cmd.Parameters.AddWithValue("gender", tbGender.Text);
+                cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
+                cmd.Parameters.AddWithValue("address", tbAddress.Text);
+                cmd.Parameters.AddWithValue("phone", tbPhone.Text);
+                cmd.ExecuteNonQuery();
+                HienThi();
+                dieuKien = 0;
+            }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -239,7 +257,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported successfully");
+                    MessageBox.Show("Imported thành công");
                     HienThi();
                 }
             }

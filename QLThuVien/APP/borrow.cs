@@ -36,7 +36,7 @@ namespace QLThuVien.APP
             dataView.DataSource = dt;
         }
 
-        int dem = 0;
+        int dieuKien = 0;
         private void KiemTraMa(string TenBang, string TenField, string DieuKien)
         {
             DataSet ds = new DataSet();
@@ -51,7 +51,7 @@ namespace QLThuVien.APP
 
             foreach (DataRow row in table.Rows)
             {
-                dem++;
+                dieuKien++;
             }
         }
 
@@ -75,14 +75,37 @@ namespace QLThuVien.APP
                 MessageBox.Show("Bạn phải nhập đầy đủ dữ liệu vào");
                 return;
             }
+
             KiemTraMa("borrow", "issue_id", tbIssue_id.Text);
-            if(dem > 0)
+            if (dieuKien > 0)
             {
-                MessageBox.Show("Mã đã tồn tại");
+                MessageBox.Show("Mã mượn đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
-                dem = 0;
+                dieuKien = 0;
                 return;
             }
+
+            KiemTraMa("books", "book_id", tbBook_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã sách không tồn tại");
+                return;
+            }
+
+            KiemTraMa("student", "student_id", tbStudent_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã sinh viên ko tồn tại");
+                return;
+            }
+
+            KiemTraMa("staff", "staff_id", tbStaff_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã nhân viên ko tồn tại");
+                return;
+            }
+
             else
             {
                 string sqlThem = "INSERT INTO borrow " +
@@ -96,29 +119,55 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
+                dieuKien = 0;
             }
         }
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(tbIssue_id.Text) || String.IsNullOrEmpty(tbBook_id.Text) ||  String.IsNullOrEmpty(tbStudent_id.Text) || String.IsNullOrEmpty(tbStaff_id.Text))
+            if (String.IsNullOrEmpty(tbIssue_id.Text) || String.IsNullOrEmpty(tbBook_id.Text) || String.IsNullOrEmpty(tbStudent_id.Text) || String.IsNullOrEmpty(tbStaff_id.Text))
             {
                 MessageBox.Show("Bạn phải nhập đầy đủ dữ liệu vào");
                 return;
             }
 
-            string sqlThem = "update borrow " +
-                                "set issue_id=@issue_id, book_id=@book_id, date_issue=@date_issue, date_expirary=@date_expirary, student_id=@student_id, staff_id=@staff_id " +
-                                "where issue_id=@issue_id";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
-            cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
-            cmd.Parameters.AddWithValue("date_issue", dateIssue.Value);
-            cmd.Parameters.AddWithValue("date_expirary", dateExpirary.Value);
-            cmd.Parameters.AddWithValue("student_id", tbStudent_id.Text);
-            cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
-            cmd.ExecuteNonQuery();
-            HienThi();
+            KiemTraMa("books", "book_id", tbBook_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã sách không tồn tại");
+                return;
+            }
+
+            KiemTraMa("student", "student_id", tbStudent_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã sinh viên tồn tại");
+                return;
+            }
+
+            KiemTraMa("staff", "staff_id", tbStaff_id.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã nhân viên tồn tại");
+                return;
+            }
+
+            else
+            {
+                string sqlThem = "update borrow " +
+                                    "set issue_id=@issue_id, book_id=@book_id, date_issue=@date_issue, date_expirary=@date_expirary, student_id=@student_id, staff_id=@staff_id " +
+                                    "where issue_id=@issue_id";
+                SqlCommand cmd = new SqlCommand(sqlThem, con);
+                cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
+                cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
+                cmd.Parameters.AddWithValue("date_issue", dateIssue.Value);
+                cmd.Parameters.AddWithValue("date_expirary", dateExpirary.Value);
+                cmd.Parameters.AddWithValue("student_id", tbStudent_id.Text);
+                cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
+                cmd.ExecuteNonQuery();
+                HienThi();
+                dieuKien = 0;
+            }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -239,7 +288,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported successfully");
+                    MessageBox.Show("Imported thành công");
                     HienThi();
                 }
             }

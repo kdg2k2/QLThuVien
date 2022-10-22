@@ -64,5 +64,12 @@ namespace QLThuVien
             report_muontra re = new report_muontra();
             re.ShowDialog();
         }
+
+        private void adminForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            login l = new login();
+            this.Hide();
+            l.ShowDialog();
+        }
     }
 }

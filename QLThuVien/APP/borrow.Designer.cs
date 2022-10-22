@@ -272,7 +272,7 @@
             this.tbIssue_id.Location = new System.Drawing.Point(84, 17);
             this.tbIssue_id.Name = "tbIssue_id";
             this.tbIssue_id.Size = new System.Drawing.Size(190, 20);
-            this.tbIssue_id.TabIndex = 204;
+            this.tbIssue_id.TabIndex = 0;
             // 
             // label10
             // 
@@ -360,7 +360,7 @@
             this.tbStudent_id.Location = new System.Drawing.Point(84, 120);
             this.tbStudent_id.Name = "tbStudent_id";
             this.tbStudent_id.Size = new System.Drawing.Size(190, 20);
-            this.tbStudent_id.TabIndex = 214;
+            this.tbStudent_id.TabIndex = 4;
             // 
             // label9
             // 
@@ -376,14 +376,14 @@
             this.tbBook_id.Location = new System.Drawing.Point(84, 43);
             this.tbBook_id.Name = "tbBook_id";
             this.tbBook_id.Size = new System.Drawing.Size(190, 20);
-            this.tbBook_id.TabIndex = 207;
+            this.tbBook_id.TabIndex = 1;
             // 
             // tbStaff_id
             // 
             this.tbStaff_id.Location = new System.Drawing.Point(84, 146);
             this.tbStaff_id.Name = "tbStaff_id";
             this.tbStaff_id.Size = new System.Drawing.Size(190, 20);
-            this.tbStaff_id.TabIndex = 214;
+            this.tbStaff_id.TabIndex = 5;
             // 
             // label12
             // 
@@ -396,21 +396,21 @@
             // 
             // dateIssue
             // 
-            this.dateIssue.CustomFormat = "m/d/yyyy";
-            this.dateIssue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateIssue.CustomFormat = "dd/MM/yyyy";
+            this.dateIssue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateIssue.Location = new System.Drawing.Point(84, 69);
             this.dateIssue.Name = "dateIssue";
             this.dateIssue.Size = new System.Drawing.Size(190, 20);
-            this.dateIssue.TabIndex = 232;
+            this.dateIssue.TabIndex = 2;
             // 
             // dateExpirary
             // 
-            this.dateExpirary.CustomFormat = "m/d/yyyy";
-            this.dateExpirary.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateExpirary.CustomFormat = "dd/MM/yyyy";
+            this.dateExpirary.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateExpirary.Location = new System.Drawing.Point(84, 94);
             this.dateExpirary.Name = "dateExpirary";
             this.dateExpirary.Size = new System.Drawing.Size(190, 20);
-            this.dateExpirary.TabIndex = 232;
+            this.dateExpirary.TabIndex = 3;
             // 
             // borrowTableAdapter
             // 

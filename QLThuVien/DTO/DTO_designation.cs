@@ -10,6 +10,5 @@ namespace QLThuVien.DTO
     {
         public string designation_id { get; set; }
         public string designation { get; set; }
-        public string staff_id { get; set; }
     }
 }

@@ -79,12 +79,12 @@
             // 
             // dateReturn
             // 
-            this.dateReturn.CustomFormat = "m/d/yyyy";
-            this.dateReturn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateReturn.CustomFormat = "dd/MM/yyyy";
+            this.dateReturn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateReturn.Location = new System.Drawing.Point(87, 69);
             this.dateReturn.Name = "dateReturn";
             this.dateReturn.Size = new System.Drawing.Size(190, 20);
-            this.dateReturn.TabIndex = 263;
+            this.dateReturn.TabIndex = 2;
             // 
             // btExport
             // 
@@ -108,9 +108,9 @@
             // btRefresh
             // 
             this.btRefresh.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btRefresh.Location = new System.Drawing.Point(663, 256);
+            this.btRefresh.Location = new System.Drawing.Point(309, 77);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(104, 40);
+            this.btRefresh.Size = new System.Drawing.Size(154, 133);
             this.btRefresh.TabIndex = 260;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
@@ -268,7 +268,7 @@
             this.tbReturn_id.Location = new System.Drawing.Point(87, 14);
             this.tbReturn_id.Name = "tbReturn_id";
             this.tbReturn_id.Size = new System.Drawing.Size(190, 20);
-            this.tbReturn_id.TabIndex = 235;
+            this.tbReturn_id.TabIndex = 0;
             // 
             // label10
             // 
@@ -291,10 +291,10 @@
             this.staffidDataGridViewTextBoxColumn,
             this.bookidDataGridViewTextBoxColumn});
             this.dataView.DataSource = this.givebackBindingSource;
-            this.dataView.Location = new System.Drawing.Point(12, 256);
+            this.dataView.Location = new System.Drawing.Point(483, 12);
             this.dataView.Name = "dataView";
             this.dataView.ReadOnly = true;
-            this.dataView.Size = new System.Drawing.Size(772, 213);
+            this.dataView.Size = new System.Drawing.Size(545, 399);
             this.dataView.TabIndex = 233;
             // 
             // returnidDataGridViewTextBoxColumn
@@ -347,7 +347,7 @@
             this.tbBook_id.Location = new System.Drawing.Point(87, 121);
             this.tbBook_id.Name = "tbBook_id";
             this.tbBook_id.Size = new System.Drawing.Size(190, 20);
-            this.tbBook_id.TabIndex = 246;
+            this.tbBook_id.TabIndex = 4;
             // 
             // label9
             // 
@@ -363,14 +363,14 @@
             this.tbIssue_id.Location = new System.Drawing.Point(87, 40);
             this.tbIssue_id.Name = "tbIssue_id";
             this.tbIssue_id.Size = new System.Drawing.Size(190, 20);
-            this.tbIssue_id.TabIndex = 238;
+            this.tbIssue_id.TabIndex = 1;
             // 
             // tbStaff
             // 
             this.tbStaff.Location = new System.Drawing.Point(87, 95);
             this.tbStaff.Name = "tbStaff";
             this.tbStaff.Size = new System.Drawing.Size(190, 20);
-            this.tbStaff.TabIndex = 246;
+            this.tbStaff.TabIndex = 3;
             // 
             // label8
             // 
@@ -422,7 +422,7 @@
             this.groupBox2.Controls.Add(this.btTimFile);
             this.groupBox2.Controls.Add(this.tbFileName);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(309, 56);
+            this.groupBox2.Location = new System.Drawing.Point(8, 216);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(457, 176);
             this.groupBox2.TabIndex = 265;
@@ -432,11 +432,12 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox2);
+            this.groupBox3.Controls.Add(this.btRefresh);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(772, 238);
+            this.groupBox3.Size = new System.Drawing.Size(469, 399);
             this.groupBox3.TabIndex = 266;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " ";
@@ -445,7 +446,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(253, 16);
+            this.label11.Location = new System.Drawing.Point(109, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(233, 31);
             this.label11.TabIndex = 234;
@@ -455,9 +456,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 471);
+            this.ClientSize = new System.Drawing.Size(1038, 413);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.dataView);
             this.Name = "@return";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

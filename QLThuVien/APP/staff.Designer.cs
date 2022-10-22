@@ -69,6 +69,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.staffTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.staffTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
@@ -101,7 +102,7 @@
             // btRefresh
             // 
             this.btRefresh.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btRefresh.Location = new System.Drawing.Point(653, 244);
+            this.btRefresh.Location = new System.Drawing.Point(665, 244);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(75, 43);
             this.btRefresh.TabIndex = 199;
@@ -231,7 +232,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 120);
+            this.label8.Location = new System.Drawing.Point(6, 120);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 180;
@@ -240,7 +241,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 94);
+            this.label5.Location = new System.Drawing.Point(6, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 182;
@@ -249,7 +250,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 68);
+            this.label7.Location = new System.Drawing.Point(6, 68);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 13);
             this.label7.TabIndex = 181;
@@ -260,7 +261,7 @@
             this.tbName.Location = new System.Drawing.Point(87, 39);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(124, 20);
-            this.tbName.TabIndex = 179;
+            this.tbName.TabIndex = 3;
             // 
             // btInsert
             // 
@@ -277,17 +278,17 @@
             this.tbStaff_id.Location = new System.Drawing.Point(87, 13);
             this.tbStaff_id.Name = "tbStaff_id";
             this.tbStaff_id.Size = new System.Drawing.Size(124, 20);
-            this.tbStaff_id.TabIndex = 176;
+            this.tbStaff_id.TabIndex = 2;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(192, 16);
+            this.label10.Location = new System.Drawing.Point(223, 16);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(364, 31);
+            this.label10.Size = new System.Drawing.Size(255, 31);
             this.label10.TabIndex = 175;
-            this.label10.Text = "Quản Lý Nhân Viên Thư Viện";
+            this.label10.Text = "Nhân Viên Thư Viện";
             // 
             // dataView
             // 
@@ -365,26 +366,26 @@
             this.tbAddress.Location = new System.Drawing.Point(87, 117);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(124, 20);
-            this.tbAddress.TabIndex = 184;
+            this.tbAddress.TabIndex = 6;
             // 
             // tbDesignation_id
             // 
             this.tbDesignation_id.Location = new System.Drawing.Point(87, 91);
             this.tbDesignation_id.Name = "tbDesignation_id";
             this.tbDesignation_id.Size = new System.Drawing.Size(124, 20);
-            this.tbDesignation_id.TabIndex = 183;
+            this.tbDesignation_id.TabIndex = 5;
             // 
             // tbGender
             // 
             this.tbGender.Location = new System.Drawing.Point(87, 65);
             this.tbGender.Name = "tbGender";
             this.tbGender.Size = new System.Drawing.Size(124, 20);
-            this.tbGender.TabIndex = 185;
+            this.tbGender.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 42);
+            this.label9.Location = new System.Drawing.Point(6, 42);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 13);
             this.label9.TabIndex = 178;
@@ -395,12 +396,12 @@
             this.tbPhone.Location = new System.Drawing.Point(87, 143);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(124, 20);
-            this.tbPhone.TabIndex = 184;
+            this.tbPhone.TabIndex = 7;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 146);
+            this.label11.Location = new System.Drawing.Point(6, 146);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 13);
             this.label11.TabIndex = 180;
@@ -413,6 +414,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbPhone);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbGender);
             this.groupBox1.Controls.Add(this.tbDesignation_id);
@@ -429,6 +431,15 @@
             this.groupBox1.TabIndex = 202;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 13);
+            this.label12.TabIndex = 178;
+            this.label12.Text = "Mã Nhân Viên";
             // 
             // groupBox2
             // 
@@ -542,5 +553,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label12;
     }
 }

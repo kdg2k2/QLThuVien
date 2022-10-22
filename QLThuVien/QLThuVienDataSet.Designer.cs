@@ -1140,8 +1140,6 @@ namespace QLThuVien {
             
             private global::System.Data.DataColumn columndesignation;
             
-            private global::System.Data.DataColumn columnstaff_id;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public designationDataTable() {
@@ -1193,14 +1191,6 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn staff_idColumn {
-                get {
-                    return this.columnstaff_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1236,12 +1226,11 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public designationRow AdddesignationRow(string designation_id, string designation, string staff_id) {
+            public designationRow AdddesignationRow(string designation_id, string designation) {
                 designationRow rowdesignationRow = ((designationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         designation_id,
-                        designation,
-                        staff_id};
+                        designation};
                 rowdesignationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdesignationRow);
                 return rowdesignationRow;
@@ -1273,7 +1262,6 @@ namespace QLThuVien {
             internal void InitVars() {
                 this.columndesignation_id = base.Columns["designation_id"];
                 this.columndesignation = base.Columns["designation"];
-                this.columnstaff_id = base.Columns["staff_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1283,15 +1271,12 @@ namespace QLThuVien {
                 base.Columns.Add(this.columndesignation_id);
                 this.columndesignation = new global::System.Data.DataColumn("designation", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndesignation);
-                this.columnstaff_id = new global::System.Data.DataColumn("staff_id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstaff_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columndesignation_id}, true));
                 this.columndesignation_id.AllowDBNull = false;
                 this.columndesignation_id.Unique = true;
                 this.columndesignation_id.MaxLength = 50;
                 this.columndesignation.MaxLength = 50;
-                this.columnstaff_id.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2977,22 +2962,6 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string staff_id {
-                get {
-                    try {
-                        return ((string)(this[this.tabledesignation.staff_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'staff_id\' in table \'designation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledesignation.staff_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsdesignationNull() {
                 return this.IsNull(this.tabledesignation.designationColumn);
             }
@@ -3001,18 +2970,6 @@ namespace QLThuVien {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdesignationNull() {
                 this[this.tabledesignation.designationColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isstaff_idNull() {
-                return this.IsNull(this.tabledesignation.staff_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setstaff_idNull() {
-                this[this.tabledesignation.staff_idColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4716,39 +4673,34 @@ SELECT issue_id, book_id, date_issue, date_expirary, student_id, staff_id FROM b
             tableMapping.DataSetTable = "designation";
             tableMapping.ColumnMappings.Add("designation_id", "designation_id");
             tableMapping.ColumnMappings.Add("designation", "designation");
-            tableMapping.ColumnMappings.Add("staff_id", "staff_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[designation] WHERE (([designation_id] = @Original_designation_id) AND ((@IsNull_designation = 1 AND [designation] IS NULL) OR ([designation] = @Original_designation)) AND ((@IsNull_staff_id = 1 AND [staff_id] IS NULL) OR ([staff_id] = @Original_staff_id)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [designation] WHERE (([designation_id] = @Original_designation_id) AN" +
+                "D ((@IsNull_designation = 1 AND [designation] IS NULL) OR ([designation] = @Orig" +
+                "inal_designation)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_designation_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_designation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_designation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[designation] ([designation_id], [designation], [staff_id]) VAL" +
-                "UES (@designation_id, @designation, @staff_id);\r\nSELECT designation_id, designat" +
-                "ion, staff_id FROM designation WHERE (designation_id = @designation_id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [designation] ([designation_id], [designation]) VALUES (@designation_" +
+                "id, @designation);\r\nSELECT designation_id, designation FROM designation WHERE (d" +
+                "esignation_id = @designation_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@designation_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@designation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[designation] SET [designation_id] = @designation_id, [designation] = @designation, [staff_id] = @staff_id WHERE (([designation_id] = @Original_designation_id) AND ((@IsNull_designation = 1 AND [designation] IS NULL) OR ([designation] = @Original_designation)) AND ((@IsNull_staff_id = 1 AND [staff_id] IS NULL) OR ([staff_id] = @Original_staff_id)));
-SELECT designation_id, designation, staff_id FROM designation WHERE (designation_id = @designation_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [designation] SET [designation_id] = @designation_id, [designation] = @designation WHERE (([designation_id] = @Original_designation_id) AND ((@IsNull_designation = 1 AND [designation] IS NULL) OR ([designation] = @Original_designation)));
+SELECT designation_id, designation FROM designation WHERE (designation_id = @designation_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@designation_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@designation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staff_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_designation_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_designation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_designation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "designation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_staff_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_staff_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staff_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4764,7 +4716,7 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT designation_id, designation, staff_id FROM dbo.designation";
+            this._commandCollection[0].CommandText = "SELECT designation_id, designation FROM designation";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4825,7 +4777,7 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_designation_id, string Original_designation, string Original_staff_id) {
+        public virtual int Delete(string Original_designation_id, string Original_designation) {
             if ((Original_designation_id == null)) {
                 throw new global::System.ArgumentNullException("Original_designation_id");
             }
@@ -4839,14 +4791,6 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_designation));
-            }
-            if ((Original_staff_id == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_staff_id));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4868,7 +4812,7 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string designation_id, string designation, string staff_id) {
+        public virtual int Insert(string designation_id, string designation) {
             if ((designation_id == null)) {
                 throw new global::System.ArgumentNullException("designation_id");
             }
@@ -4880,12 +4824,6 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(designation));
-            }
-            if ((staff_id == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(staff_id));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4907,7 +4845,7 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string designation_id, string designation, string staff_id, string Original_designation_id, string Original_designation, string Original_staff_id) {
+        public virtual int Update(string designation_id, string designation, string Original_designation_id, string Original_designation) {
             if ((designation_id == null)) {
                 throw new global::System.ArgumentNullException("designation_id");
             }
@@ -4920,33 +4858,19 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(designation));
             }
-            if ((staff_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(staff_id));
-            }
             if ((Original_designation_id == null)) {
                 throw new global::System.ArgumentNullException("Original_designation_id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_designation_id));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_designation_id));
             }
             if ((Original_designation == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_designation));
-            }
-            if ((Original_staff_id == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_staff_id));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_designation));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4968,8 +4892,8 @@ SELECT designation_id, designation, staff_id FROM designation WHERE (designation
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string designation, string staff_id, string Original_designation_id, string Original_designation, string Original_staff_id) {
-            return this.Update(Original_designation_id, designation, staff_id, Original_designation_id, Original_designation, Original_staff_id);
+        public virtual int Update(string designation, string Original_designation_id, string Original_designation) {
+            return this.Update(Original_designation_id, designation, Original_designation_id, Original_designation);
         }
     }
     

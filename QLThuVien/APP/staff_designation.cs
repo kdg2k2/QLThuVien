@@ -82,6 +82,7 @@ namespace QLThuVien.APP
                 dieuKien = 0;
                 return;
             }
+
             else
             {
                 string sqlThem = "INSERT INTO designation " +
@@ -90,6 +91,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
                 cmd.Parameters.AddWithValue("designation", tbDesignation.Text);
                 cmd.ExecuteNonQuery();
+                dieuKien = 0;
                 HienThi();
             }
         }
@@ -102,14 +104,28 @@ namespace QLThuVien.APP
                 return;
             }
 
-            string sqlThem = "update designation " +
+            KiemTraMa("designation", "designation_id", tbDesignation_id.Text);
+            if (dieuKien > 0)
+            {
+                MessageBox.Show("Mã chức vụ đã tồn tại");
+                MessageBox.Show("Hãy nhập mã khác");
+                dieuKien = 0;
+                return;
+            }
+
+            else
+            {
+                string sqlThem = "update designation " +
                                 "set designation_id=@designation_id, designation=@designation " +
                                 "where designation_id=@designation_id";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
-            cmd.Parameters.AddWithValue("designation", tbDesignation.Text);
-            cmd.ExecuteNonQuery();
-            HienThi();
+                SqlCommand cmd = new SqlCommand(sqlThem, con);
+                cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
+                cmd.Parameters.AddWithValue("designation", tbDesignation.Text);
+                cmd.ExecuteNonQuery();
+                HienThi();
+                dieuKien = 0;
+            }
+            
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -218,7 +234,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported thành công");
+                    MessageBox.Show("Imported successfully");
                     HienThi();
                 }
             }

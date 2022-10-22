@@ -40,7 +40,7 @@ namespace QLThuVien.APP
             dataView.DataSource = dt;
         }
 
-        int dem = 0;
+        int dieuKien = 0;
         private void KiemTraMa(string TenBang, string TenField, string DieuKien)
         {
             DataSet ds = new DataSet();
@@ -55,7 +55,7 @@ namespace QLThuVien.APP
 
             foreach (DataRow row in table.Rows)
             {
-                dem++;
+                dieuKien++;
             }
         }
 
@@ -76,11 +76,18 @@ namespace QLThuVien.APP
             }
 
             KiemTraMa("books", "book_id", tbMaSach.Text);
-            if (dem > 0)
+            if (dieuKien > 0)
             {
                 MessageBox.Show("Mã đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
-                dem = 0;
+                dieuKien = 0;
+                return;
+            }
+
+            KiemTraMa("type", "type_id", tbMaLoai.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã loại sách không tồn tại !");
                 return;
             }
             else
@@ -95,6 +102,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
+                dieuKien = 0;
             }
             
         }
@@ -107,17 +115,28 @@ namespace QLThuVien.APP
                 return;
             }
 
-            string sqlThem = "update books " +
+            KiemTraMa("type", "type_id", tbMaLoai.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã loại sách không tồn tại !");
+                return;
+            }
+
+            else
+            {
+                string sqlThem = "update books " +
                                 "set book_id=@book_id, book_name=@book_name, type_id=@type_id, isbn=@isbn, author_name=@author_name " +
                                 "where book_id=@book_id";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
-            cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
-            cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-            cmd.Parameters.AddWithValue("isbn", tbISBN.Text);
-            cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
-            cmd.ExecuteNonQuery();
-            HienThi();
+                SqlCommand cmd = new SqlCommand(sqlThem, con);
+                cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
+                cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
+                cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
+                cmd.Parameters.AddWithValue("isbn", tbISBN.Text);
+                cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
+                cmd.ExecuteNonQuery();
+                HienThi();
+                dieuKien = 0;
+            }
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -235,7 +254,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported successfully");
+                    MessageBox.Show("Imported thành công");
                     HienThi();
                 }
             }
@@ -276,6 +295,7 @@ namespace QLThuVien.APP
             this.tbFileName.Clear();
             this.tbISBN.Clear();
             this.tbMaLoai.Clear();
+            this.tbNoiDungTimKiem.Clear();
             HienThi();
         }
 

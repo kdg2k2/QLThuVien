@@ -94,12 +94,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APP\add_user.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="APP\add_user.Designer.cs">
-      <DependentUpon>add_user.cs</DependentUpon>
-    </Compile>
     <Compile Include="APP\books.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +148,12 @@
     <Compile Include="APP\student.Designer.cs">
       <DependentUpon>student.cs</DependentUpon>
     </Compile>
+    <Compile Include="basicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="basicForm.Designer.cs">
+      <DependentUpon>basicForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="DTO\DTO_books.cs" />
     <Compile Include="DTO\DTO_type.cs" />
@@ -181,9 +181,6 @@
       <DependentUpon>QLThuVienDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="APP\add_user.resx">
-      <DependentUpon>add_user.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="APP\books.resx">
       <DependentUpon>books.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="adminForm.resx">
       <DependentUpon>adminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="basicForm.resx">
+      <DependentUpon>basicForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
