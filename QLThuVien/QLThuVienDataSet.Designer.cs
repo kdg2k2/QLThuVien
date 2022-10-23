@@ -38,6 +38,22 @@ namespace QLThuVien {
         
         private typeDataTable tabletype;
         
+        private global::System.Data.DataRelation relationbooks_borrow;
+        
+        private global::System.Data.DataRelation relationgiveback_books;
+        
+        private global::System.Data.DataRelation relationgiveback_borrow;
+        
+        private global::System.Data.DataRelation relationstaff_borrow;
+        
+        private global::System.Data.DataRelation relationstaff_giveback;
+        
+        private global::System.Data.DataRelation relationdesignation_staff;
+        
+        private global::System.Data.DataRelation relationtype_books;
+        
+        private global::System.Data.DataRelation relationstudent_borrow;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -338,6 +354,14 @@ namespace QLThuVien {
                     this.tabletype.InitVars();
                 }
             }
+            this.relationbooks_borrow = this.Relations["books_borrow"];
+            this.relationgiveback_books = this.Relations["giveback_books"];
+            this.relationgiveback_borrow = this.Relations["giveback_borrow"];
+            this.relationstaff_borrow = this.Relations["staff_borrow"];
+            this.relationstaff_giveback = this.Relations["staff_giveback"];
+            this.relationdesignation_staff = this.Relations["designation_staff"];
+            this.relationtype_books = this.Relations["type_books"];
+            this.relationstudent_borrow = this.Relations["student_borrow"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +386,38 @@ namespace QLThuVien {
             base.Tables.Add(this.tablestudent);
             this.tabletype = new typeDataTable();
             base.Tables.Add(this.tabletype);
+            this.relationbooks_borrow = new global::System.Data.DataRelation("books_borrow", new global::System.Data.DataColumn[] {
+                        this.tablebooks.book_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableborrow.book_idColumn}, false);
+            this.Relations.Add(this.relationbooks_borrow);
+            this.relationgiveback_books = new global::System.Data.DataRelation("giveback_books", new global::System.Data.DataColumn[] {
+                        this.tablegiveback.book_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablebooks.book_idColumn}, false);
+            this.Relations.Add(this.relationgiveback_books);
+            this.relationgiveback_borrow = new global::System.Data.DataRelation("giveback_borrow", new global::System.Data.DataColumn[] {
+                        this.tablegiveback.issue_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableborrow.issue_idColumn}, false);
+            this.Relations.Add(this.relationgiveback_borrow);
+            this.relationstaff_borrow = new global::System.Data.DataRelation("staff_borrow", new global::System.Data.DataColumn[] {
+                        this.tablestaff.staff_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableborrow.staff_idColumn}, false);
+            this.Relations.Add(this.relationstaff_borrow);
+            this.relationstaff_giveback = new global::System.Data.DataRelation("staff_giveback", new global::System.Data.DataColumn[] {
+                        this.tablestaff.staff_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablegiveback.staff_idColumn}, false);
+            this.Relations.Add(this.relationstaff_giveback);
+            this.relationdesignation_staff = new global::System.Data.DataRelation("designation_staff", new global::System.Data.DataColumn[] {
+                        this.tabledesignation.designation_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablestaff.designation_idColumn}, false);
+            this.Relations.Add(this.relationdesignation_staff);
+            this.relationtype_books = new global::System.Data.DataRelation("type_books", new global::System.Data.DataColumn[] {
+                        this.tabletype.type_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablebooks.type_idColumn}, false);
+            this.Relations.Add(this.relationtype_books);
+            this.relationstudent_borrow = new global::System.Data.DataRelation("student_borrow", new global::System.Data.DataColumn[] {
+                        this.tablestudent.student_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableborrow.student_idColumn}, false);
+            this.Relations.Add(this.relationstudent_borrow);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -609,14 +665,20 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public booksRow AddbooksRow(short book_id, string book_name, string type_id, short isbn, string author_name) {
+            public booksRow AddbooksRow(givebackRow parentgivebackRowBygiveback_books, string book_name, typeRow parenttypeRowBytype_books, short isbn, string author_name) {
                 booksRow rowbooksRow = ((booksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        book_id,
+                        null,
                         book_name,
-                        type_id,
+                        null,
                         isbn,
                         author_name};
+                if ((parentgivebackRowBygiveback_books != null)) {
+                    columnValuesArray[0] = parentgivebackRowBygiveback_books[4];
+                }
+                if ((parenttypeRowBytype_books != null)) {
+                    columnValuesArray[2] = parenttypeRowBytype_books[0];
+                }
                 rowbooksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowbooksRow);
                 return rowbooksRow;
@@ -936,15 +998,27 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public borrowRow AddborrowRow(short issue_id, short book_id, System.DateTime date_issue, System.DateTime date_expirary, string student_id, string staff_id) {
+            public borrowRow AddborrowRow(givebackRow parentgivebackRowBygiveback_borrow, booksRow parentbooksRowBybooks_borrow, System.DateTime date_issue, System.DateTime date_expirary, studentRow parentstudentRowBystudent_borrow, staffRow parentstaffRowBystaff_borrow) {
                 borrowRow rowborrowRow = ((borrowRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        issue_id,
-                        book_id,
+                        null,
+                        null,
                         date_issue,
                         date_expirary,
-                        student_id,
-                        staff_id};
+                        null,
+                        null};
+                if ((parentgivebackRowBygiveback_borrow != null)) {
+                    columnValuesArray[0] = parentgivebackRowBygiveback_borrow[1];
+                }
+                if ((parentbooksRowBybooks_borrow != null)) {
+                    columnValuesArray[1] = parentbooksRowBybooks_borrow[0];
+                }
+                if ((parentstudentRowBystudent_borrow != null)) {
+                    columnValuesArray[4] = parentstudentRowBystudent_borrow[0];
+                }
+                if ((parentstaffRowBystaff_borrow != null)) {
+                    columnValuesArray[5] = parentstaffRowBystaff_borrow[0];
+                }
                 rowborrowRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowborrowRow);
                 return rowborrowRow;
@@ -1530,14 +1604,17 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public givebackRow AddgivebackRow(short return_id, short issue_id, System.DateTime date_return, string staff_id, short book_id) {
+            public givebackRow AddgivebackRow(short return_id, short issue_id, System.DateTime date_return, staffRow parentstaffRowBystaff_giveback, short book_id) {
                 givebackRow rowgivebackRow = ((givebackRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         return_id,
                         issue_id,
                         date_return,
-                        staff_id,
+                        null,
                         book_id};
+                if ((parentstaffRowBystaff_giveback != null)) {
+                    columnValuesArray[3] = parentstaffRowBystaff_giveback[0];
+                }
                 rowgivebackRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgivebackRow);
                 return rowgivebackRow;
@@ -1855,15 +1932,18 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public staffRow AddstaffRow(string staff_id, string name, string gender, string designation_id, string address, string phone) {
+            public staffRow AddstaffRow(string staff_id, string name, string gender, designationRow parentdesignationRowBydesignation_staff, string address, string phone) {
                 staffRow rowstaffRow = ((staffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         staff_id,
                         name,
                         gender,
-                        designation_id,
+                        null,
                         address,
                         phone};
+                if ((parentdesignationRowBydesignation_staff != null)) {
+                    columnValuesArray[3] = parentdesignationRowBydesignation_staff[0];
+                }
                 rowstaffRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstaffRow);
                 return rowstaffRow;
@@ -2706,6 +2786,28 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public givebackRow givebackRow {
+                get {
+                    return ((givebackRow)(this.GetParentRow(this.Table.ParentRelations["giveback_books"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["giveback_books"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public typeRow typeRow {
+                get {
+                    return ((typeRow)(this.GetParentRow(this.Table.ParentRelations["type_books"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["type_books"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isbook_nameNull() {
                 return this.IsNull(this.tablebooks.book_nameColumn);
             }
@@ -2750,6 +2852,17 @@ namespace QLThuVien {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setauthor_nameNull() {
                 this[this.tablebooks.author_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public borrowRow[] GetborrowRows() {
+                if ((this.Table.ChildRelations["books_borrow"] == null)) {
+                    return new borrowRow[0];
+                }
+                else {
+                    return ((borrowRow[])(base.GetChildRows(this.Table.ChildRelations["books_borrow"])));
+                }
             }
         }
         
@@ -2855,6 +2968,50 @@ namespace QLThuVien {
                 }
                 set {
                     this[this.tableborrow.staff_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public booksRow booksRow {
+                get {
+                    return ((booksRow)(this.GetParentRow(this.Table.ParentRelations["books_borrow"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["books_borrow"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public givebackRow givebackRow {
+                get {
+                    return ((givebackRow)(this.GetParentRow(this.Table.ParentRelations["giveback_borrow"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["giveback_borrow"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public staffRow staffRow {
+                get {
+                    return ((staffRow)(this.GetParentRow(this.Table.ParentRelations["staff_borrow"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["staff_borrow"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public studentRow studentRow {
+                get {
+                    return ((studentRow)(this.GetParentRow(this.Table.ParentRelations["student_borrow"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["student_borrow"]);
                 }
             }
             
@@ -2971,6 +3128,17 @@ namespace QLThuVien {
             public void SetdesignationNull() {
                 this[this.tabledesignation.designationColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public staffRow[] GetstaffRows() {
+                if ((this.Table.ChildRelations["designation_staff"] == null)) {
+                    return new staffRow[0];
+                }
+                else {
+                    return ((staffRow[])(base.GetChildRows(this.Table.ChildRelations["designation_staff"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3064,6 +3232,17 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public staffRow staffRow {
+                get {
+                    return ((staffRow)(this.GetParentRow(this.Table.ParentRelations["staff_giveback"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["staff_giveback"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isissue_idNull() {
                 return this.IsNull(this.tablegiveback.issue_idColumn);
             }
@@ -3108,6 +3287,28 @@ namespace QLThuVien {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setbook_idNull() {
                 this[this.tablegiveback.book_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public booksRow[] GetbooksRows() {
+                if ((this.Table.ChildRelations["giveback_books"] == null)) {
+                    return new booksRow[0];
+                }
+                else {
+                    return ((booksRow[])(base.GetChildRows(this.Table.ChildRelations["giveback_books"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public borrowRow[] GetborrowRows() {
+                if ((this.Table.ChildRelations["giveback_borrow"] == null)) {
+                    return new borrowRow[0];
+                }
+                else {
+                    return ((borrowRow[])(base.GetChildRows(this.Table.ChildRelations["giveback_borrow"])));
+                }
             }
         }
         
@@ -3218,6 +3419,17 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public designationRow designationRow {
+                get {
+                    return ((designationRow)(this.GetParentRow(this.Table.ParentRelations["designation_staff"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["designation_staff"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnameNull() {
                 return this.IsNull(this.tablestaff.nameColumn);
             }
@@ -3274,6 +3486,28 @@ namespace QLThuVien {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetphoneNull() {
                 this[this.tablestaff.phoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public borrowRow[] GetborrowRows() {
+                if ((this.Table.ChildRelations["staff_borrow"] == null)) {
+                    return new borrowRow[0];
+                }
+                else {
+                    return ((borrowRow[])(base.GetChildRows(this.Table.ChildRelations["staff_borrow"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public givebackRow[] GetgivebackRows() {
+                if ((this.Table.ChildRelations["staff_giveback"] == null)) {
+                    return new givebackRow[0];
+                }
+                else {
+                    return ((givebackRow[])(base.GetChildRows(this.Table.ChildRelations["staff_giveback"])));
+                }
             }
         }
         
@@ -3357,6 +3591,17 @@ namespace QLThuVien {
             public void SetphoneNull() {
                 this[this.tablestudent.phoneColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public borrowRow[] GetborrowRows() {
+                if ((this.Table.ChildRelations["student_borrow"] == null)) {
+                    return new borrowRow[0];
+                }
+                else {
+                    return ((borrowRow[])(base.GetChildRows(this.Table.ChildRelations["student_borrow"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3410,6 +3655,17 @@ namespace QLThuVien {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Settype_nameNull() {
                 this[this.tabletype.type_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public booksRow[] GetbooksRows() {
+                if ((this.Table.ChildRelations["type_books"] == null)) {
+                    return new booksRow[0];
+                }
+                else {
+                    return ((booksRow[])(base.GetChildRows(this.Table.ChildRelations["type_books"])));
+                }
             }
         }
         
@@ -6769,39 +7025,12 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(QLThuVienDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._booksTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.books.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._booksTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._borrowTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.borrow.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._borrowTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._designationTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.designation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._designationTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._givebackTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.giveback.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._givebackTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6814,12 +7043,12 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._studentTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.student.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._givebackTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.giveback.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._studentTableAdapter.Update(updatedRows));
+                    result = (result + this._givebackTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6829,6 +7058,33 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._typeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._booksTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.books.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._booksTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._studentTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.student.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._studentTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._borrowTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.borrow.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._borrowTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6842,35 +7098,11 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(QLThuVienDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._booksTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.books.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._booksTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._borrowTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.borrow.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._borrowTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._designationTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.designation.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._designationTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._givebackTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.giveback.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._givebackTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6882,11 +7114,11 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._studentTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.student.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._givebackTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.giveback.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._studentTableAdapter.Update(addedRows));
+                    result = (result + this._givebackTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6895,6 +7127,30 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._typeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._booksTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.books.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._booksTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._studentTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.student.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._studentTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._borrowTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.borrow.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._borrowTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6908,11 +7164,11 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(QLThuVienDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._typeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.type.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._borrowTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.borrow.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._typeTableAdapter.Update(deletedRows));
+                    result = (result + this._borrowTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6924,11 +7180,19 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._staffTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.staff.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._booksTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.books.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._staffTableAdapter.Update(deletedRows));
+                    result = (result + this._booksTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._typeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.type.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._typeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6940,27 +7204,19 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._staffTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.staff.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._staffTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._designationTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.designation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._designationTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._borrowTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.borrow.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._borrowTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._booksTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.books.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._booksTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

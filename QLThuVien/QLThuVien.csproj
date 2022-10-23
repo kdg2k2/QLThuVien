@@ -236,7 +236,6 @@
     </None>
     <None Include="QLThuVienDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLThuVienDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="QLThuVienDataSet.xss">

@@ -37,7 +37,7 @@ namespace QLThuVien.APP
             AES_algorithm aes = new AES_algorithm();
             foreach (DataRow row in dt.Rows)
             {
-                row["staff_id"] = aes.Decrypt(row["staff_id"].ToString());
+                //row["staff_id"] = aes.Decrypt(row["staff_id"].ToString());
                 row["name"] = aes.Decrypt(row["name"].ToString());
                 row["gender"] = aes.Decrypt(row["gender"].ToString());
                 row["designation_id"] = aes.Decrypt(row["designation_id"].ToString());
@@ -68,7 +68,7 @@ namespace QLThuVien.APP
         private void staff_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.staff' table. You can move, or remove it, as needed.
-            this.staffTableAdapter.Fill(this.qLThuVienDataSet.staff);
+            //this.staffTableAdapter.Fill(this.qLThuVienDataSet.staff);
             con.Open();
             HienThi();
         }
@@ -107,7 +107,7 @@ namespace QLThuVien.APP
                 string sqlThem = "INSERT INTO staff " +
                                 "VALUES (@staff_id, @name, @gender, @designation_id, @address, @phone)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
-                cmd.Parameters.AddWithValue("staff_id", aes.Encrypt(tbStaff_id.Text));
+                cmd.Parameters.AddWithValue("staff_id", /*aes.Encrypt(*/tbStaff_id.Text/*)*/);
                 cmd.Parameters.AddWithValue("name", aes.Encrypt(tbName.Text));
                 cmd.Parameters.AddWithValue("gender", aes.Encrypt(tbGender.Text));
                 cmd.Parameters.AddWithValue("designation_id", aes.Encrypt(tbDesignation_id.Text));
