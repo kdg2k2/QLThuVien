@@ -27,23 +27,5 @@ namespace QLThuVien.DAL
             string password = "a12345678";
             return CreateConnect(datasource, database, username, password);
         }
-
-        //SqlConnection con = new SqlConnection();
-        //public void GetDBConnection()
-        //{
-        //    try
-        //    {
-        //        if (con.State == ConnectionState.Closed || con.State == ConnectionState.Broken)
-        //        {
-        //            con.ConnectionString = @"Data Source=DG;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=a12345678";
-        //            con.Open();
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        // Hiện ra hộp thoại thông báo
-        //        MessageBox.Show("Kết nối không thành công ");
-        //    }
-        //}
     }
 }

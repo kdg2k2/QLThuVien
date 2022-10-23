@@ -154,6 +154,7 @@
     <Compile Include="basicForm.Designer.cs">
       <DependentUpon>basicForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\AES_algorithm.cs" />
     <Compile Include="DAL\DBConnect.cs" />
     <Compile Include="DTO\DTO_books.cs" />
     <Compile Include="DTO\DTO_type.cs" />

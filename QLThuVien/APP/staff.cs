@@ -34,6 +34,17 @@ namespace QLThuVien.APP
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
+            AES_algorithm aes = new AES_algorithm();
+            foreach (DataRow row in dt.Rows)
+            {
+                row["staff_id"] = aes.Decrypt(row["staff_id"].ToString());
+                row["name"] = aes.Decrypt(row["name"].ToString());
+                row["gender"] = aes.Decrypt(row["gender"].ToString());
+                row["designation_id"] = aes.Decrypt(row["designation_id"].ToString());
+                row["address"] = aes.Decrypt(row["address"].ToString());
+                row["phone"] = aes.Decrypt(row["phone"].ToString());
+
+            }
             dataView.DataSource = dt;
         }
         int dieuKien = 0;
@@ -91,15 +102,17 @@ namespace QLThuVien.APP
             }
             else
             {
+                AES_algorithm aes = new AES_algorithm();
+
                 string sqlThem = "INSERT INTO staff " +
                                 "VALUES (@staff_id, @name, @gender, @designation_id, @address, @phone)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
-                cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
-                cmd.Parameters.AddWithValue("name", tbName.Text);
-                cmd.Parameters.AddWithValue("gender", tbGender.Text);
-                cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
-                cmd.Parameters.AddWithValue("address", tbAddress.Text);
-                cmd.Parameters.AddWithValue("phone", tbPhone.Text);
+                cmd.Parameters.AddWithValue("staff_id", aes.Encrypt(tbStaff_id.Text));
+                cmd.Parameters.AddWithValue("name", aes.Encrypt(tbName.Text));
+                cmd.Parameters.AddWithValue("gender", aes.Encrypt(tbGender.Text));
+                cmd.Parameters.AddWithValue("designation_id", aes.Encrypt(tbDesignation_id.Text));
+                cmd.Parameters.AddWithValue("address", aes.Encrypt(tbAddress.Text));
+                cmd.Parameters.AddWithValue("phone", aes.Encrypt(tbPhone.Text));
                 cmd.ExecuteNonQuery();
                 HienThi();
                 dieuKien = 0;
@@ -173,11 +186,11 @@ namespace QLThuVien.APP
                                     "WHERE staff_id=@staff_id";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("name", tbName.Text);
-            cmd.Parameters.AddWithValue("gender", tbGender.Text);
-            cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
-            cmd.Parameters.AddWithValue("address", tbAddress.Text);
-            cmd.Parameters.AddWithValue("phone", tbPhone.Text);
+            //cmd.Parameters.AddWithValue("name", tbName.Text);
+            //cmd.Parameters.AddWithValue("gender", tbGender.Text);
+            //cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
+            //cmd.Parameters.AddWithValue("address", tbAddress.Text);
+            //cmd.Parameters.AddWithValue("phone", tbPhone.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
