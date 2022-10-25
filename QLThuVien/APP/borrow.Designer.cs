@@ -52,14 +52,6 @@
             this.tbIssue_id = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.borrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbStudent_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbBook_id = new System.Windows.Forms.TextBox();
@@ -67,18 +59,25 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dateIssue = new System.Windows.Forms.DateTimePicker();
             this.dateExpirary = new System.Windows.Forms.DateTimePicker();
-            this.borrowTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.borrowTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
+            this.borrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.borrowTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.borrowTableAdapter();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btExport
@@ -285,74 +284,23 @@
             // 
             // dataView
             // 
+            this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
             this.dataView.AutoGenerateColumns = false;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
             this.dataView.DataSource = this.borrowBindingSource;
             this.dataView.Location = new System.Drawing.Point(15, 280);
             this.dataView.Name = "dataView";
             this.dataView.ReadOnly = true;
             this.dataView.Size = new System.Drawing.Size(645, 194);
             this.dataView.TabIndex = 202;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "issue_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "issue_id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "book_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "book_id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "date_issue";
-            this.dataGridViewTextBoxColumn4.HeaderText = "date_issue";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "date_expirary";
-            this.dataGridViewTextBoxColumn5.HeaderText = "date_expirary";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "student_id";
-            this.dataGridViewTextBoxColumn6.HeaderText = "student_id";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "staff_id";
-            this.dataGridViewTextBoxColumn7.HeaderText = "staff_id";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // borrowBindingSource
-            // 
-            this.borrowBindingSource.DataMember = "borrow";
-            this.borrowBindingSource.DataSource = this.qLThuVienDataSet;
-            // 
-            // qLThuVienDataSet
-            // 
-            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
-            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbStudent_id
             // 
@@ -411,10 +359,6 @@
             this.dateExpirary.Name = "dateExpirary";
             this.dateExpirary.Size = new System.Drawing.Size(190, 20);
             this.dateExpirary.TabIndex = 3;
-            // 
-            // borrowTableAdapter
-            // 
-            this.borrowTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox1
             // 
@@ -484,6 +428,62 @@
             this.label13.TabIndex = 203;
             this.label13.Text = "Quản Lý Mượn Sách";
             // 
+            // qLThuVienDataSet
+            // 
+            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
+            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // borrowBindingSource
+            // 
+            this.borrowBindingSource.DataMember = "borrow";
+            this.borrowBindingSource.DataSource = this.qLThuVienDataSet;
+            // 
+            // borrowTableAdapter
+            // 
+            this.borrowTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "issue_id";
+            this.dataGridViewTextBoxColumn3.HeaderText = "issue_id";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "book_id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "book_id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "date_issue";
+            this.dataGridViewTextBoxColumn9.HeaderText = "date_issue";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "date_expirary";
+            this.dataGridViewTextBoxColumn10.HeaderText = "date_expirary";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "student_id";
+            this.dataGridViewTextBoxColumn11.HeaderText = "student_id";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "staff_id";
+            this.dataGridViewTextBoxColumn12.HeaderText = "staff_id";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
             // borrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,14 +498,14 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.issue_FormClosing);
             this.Load += new System.EventHandler(this.issue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -548,11 +548,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn studentidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dateExpirary;
-        private QLThuVienDataSet qLThuVienDataSet;
-        private System.Windows.Forms.BindingSource borrowBindingSource;
-        private QLThuVienDataSetTableAdapters.borrowTableAdapter borrowTableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label13;
@@ -562,5 +558,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private QLThuVienDataSet qLThuVienDataSet;
+        private System.Windows.Forms.BindingSource borrowBindingSource;
+        private QLThuVienDataSetTableAdapters.borrowTableAdapter borrowTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
     }
 }

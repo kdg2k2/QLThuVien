@@ -51,17 +51,17 @@
             this.tbMaSV = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbSDT = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.studentTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.studentTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.studentTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.studentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -262,13 +262,14 @@
             // 
             // dataView
             // 
+            this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
             this.dataView.AutoGenerateColumns = false;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
             this.dataView.DataSource = this.studentBindingSource;
             this.dataView.Location = new System.Drawing.Point(355, 26);
             this.dataView.Name = "dataView";
@@ -276,26 +277,26 @@
             this.dataView.Size = new System.Drawing.Size(344, 412);
             this.dataView.TabIndex = 124;
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "student_id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "student_id";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "student_id";
+            this.dataGridViewTextBoxColumn7.HeaderText = "student_id";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "studentname";
-            this.dataGridViewTextBoxColumn5.HeaderText = "studentname";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "studentname";
+            this.dataGridViewTextBoxColumn8.HeaderText = "studentname";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "phone";
-            this.dataGridViewTextBoxColumn6.HeaderText = "phone";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "phone";
+            this.dataGridViewTextBoxColumn9.HeaderText = "phone";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // studentBindingSource
             // 
@@ -322,10 +323,6 @@
             this.label9.Size = new System.Drawing.Size(74, 13);
             this.label9.TabIndex = 128;
             this.label9.Text = "Tên Sinh Viên";
-            // 
-            // studentTableAdapter
-            // 
-            this.studentTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox1
             // 
@@ -376,6 +373,10 @@
             this.label5.Size = new System.Drawing.Size(115, 29);
             this.label5.TabIndex = 125;
             this.label5.Text = "Sinh Viên";
+            // 
+            // studentTableAdapter
+            // 
+            this.studentTableAdapter.ClearBeforeFill = true;
             // 
             // student
             // 
@@ -436,14 +437,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private QLThuVienDataSet qLThuVienDataSet;
-        private System.Windows.Forms.BindingSource studentBindingSource;
-        private QLThuVienDataSetTableAdapters.studentTableAdapter studentTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
+        private QLThuVienDataSet qLThuVienDataSet;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private QLThuVienDataSetTableAdapters.studentTableAdapter studentTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

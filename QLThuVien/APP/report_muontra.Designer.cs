@@ -31,31 +31,16 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.borrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
-            this.givebackBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
+            this.borrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.borrowTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.borrowTableAdapter();
+            this.givebackBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // borrowBindingSource
-            // 
-            this.borrowBindingSource.DataMember = "borrow";
-            this.borrowBindingSource.DataSource = this.qLThuVienDataSet;
-            // 
-            // qLThuVienDataSet
-            // 
-            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
-            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // givebackBindingSource
-            // 
-            this.givebackBindingSource.DataMember = "giveback";
-            this.givebackBindingSource.DataSource = this.qLThuVienDataSet;
             // 
             // reportViewer1
             // 
@@ -73,9 +58,24 @@
             this.reportViewer1.Size = new System.Drawing.Size(1165, 330);
             this.reportViewer1.TabIndex = 0;
             // 
+            // qLThuVienDataSet
+            // 
+            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
+            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // borrowBindingSource
+            // 
+            this.borrowBindingSource.DataMember = "borrow";
+            this.borrowBindingSource.DataSource = this.qLThuVienDataSet;
+            // 
             // borrowTableAdapter
             // 
             this.borrowTableAdapter.ClearBeforeFill = true;
+            // 
+            // givebackBindingSource
+            // 
+            this.givebackBindingSource.DataMember = "giveback";
+            this.givebackBindingSource.DataSource = this.qLThuVienDataSet;
             // 
             // givebackTableAdapter
             // 
@@ -91,8 +91,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "report_muontra";
             this.Load += new System.EventHandler(this.report_muontra_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).EndInit();
             this.ResumeLayout(false);
 

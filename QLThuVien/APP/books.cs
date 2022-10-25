@@ -62,7 +62,7 @@ namespace QLThuVien.APP
         private void books_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.books' table. You can move, or remove it, as needed.
-            this.booksTableAdapter.Fill(this.qLThuVienDataSet.books);
+            //this.booksTableAdapter.Fill(this.qLThuVienDataSet.books);
             con.Open();
             HienThi();
         }
@@ -93,12 +93,12 @@ namespace QLThuVien.APP
             else
             {
                 string sqlThem = "INSERT INTO books " +
-                                                "VALUES (@book_id, @book_name, @type_id, @isbn, @author_name)";
+                                                "VALUES (@book_id, @book_name, @type_id, @amount, @author_name)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
                 cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
                 cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-                cmd.Parameters.AddWithValue("isbn", tbISBN.Text);
+                cmd.Parameters.AddWithValue("amount", tbISBN.Text);
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
@@ -125,13 +125,13 @@ namespace QLThuVien.APP
             else
             {
                 string sqlThem = "update books " +
-                                "set book_id=@book_id, book_name=@book_name, type_id=@type_id, isbn=@isbn, author_name=@author_name " +
+                                "set book_id=@book_id, book_name=@book_name, type_id=@type_id, amount=@amount, author_name=@author_name " +
                                 "where book_id=@book_id";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
                 cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
                 cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-                cmd.Parameters.AddWithValue("isbn", tbISBN.Text);
+                cmd.Parameters.AddWithValue("amount", tbISBN.Text);
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
@@ -153,7 +153,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
             cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
             cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-            cmd.Parameters.AddWithValue("isbn", tbISBN.Text);
+            cmd.Parameters.AddWithValue("amount", tbISBN.Text);
             cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
             cmd.ExecuteNonQuery();
             HienThi();
@@ -174,7 +174,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("book_id", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
             cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-            cmd.Parameters.AddWithValue("isbn", tbISBN.Text);
+            cmd.Parameters.AddWithValue("amount", tbISBN.Text);
             cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -227,7 +227,7 @@ namespace QLThuVien.APP
                     obj.book_id = dt.Rows[i]["book_id"].ToString();
                     obj.book_name = dt.Rows[i]["book_name"].ToString();
                     obj.type_id = dt.Rows[i]["type_id"].ToString();
-                    obj.isbn = dt.Rows[i]["isbn"].ToString();
+                    obj.amount = dt.Rows[i]["amount"].ToString();
                     obj.author_name = dt.Rows[i]["author_name"].ToString();
                     list.Add(obj);
                 }

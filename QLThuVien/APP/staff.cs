@@ -34,15 +34,14 @@ namespace QLThuVien.APP
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
-            AES_algorithm aes = new AES_algorithm();
+            MD5_algorithm md5 = new MD5_algorithm();
             foreach (DataRow row in dt.Rows)
             {
-                //row["staff_id"] = aes.Decrypt(row["staff_id"].ToString());
-                row["name"] = aes.Decrypt(row["name"].ToString());
-                row["gender"] = aes.Decrypt(row["gender"].ToString());
-                row["designation_id"] = aes.Decrypt(row["designation_id"].ToString());
-                row["address"] = aes.Decrypt(row["address"].ToString());
-                row["phone"] = aes.Decrypt(row["phone"].ToString());
+                row["name"] = md5.GiaiMaSring(row["name"].ToString(), "NguyenKhaDang");
+                row["gender"] = md5.GiaiMaSring(row["gender"].ToString(), "NguyenKhaDang");
+                row["designation_id"] = md5.GiaiMaSring(row["designation_id"].ToString(), "NguyenKhaDang");
+                row["address"] = md5.GiaiMaSring(row["address"].ToString(), "NguyenKhaDang");
+                row["phone"] = md5.GiaiMaSring(row["phone"].ToString(), "NguyenKhaDang");
 
             }
             dataView.DataSource = dt;
@@ -102,17 +101,17 @@ namespace QLThuVien.APP
             }
             else
             {
-                AES_algorithm aes = new AES_algorithm();
+                MD5_algorithm md5 = new MD5_algorithm();
 
                 string sqlThem = "INSERT INTO staff " +
                                 "VALUES (@staff_id, @name, @gender, @designation_id, @address, @phone)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
-                cmd.Parameters.AddWithValue("staff_id", /*aes.Encrypt(*/tbStaff_id.Text/*)*/);
-                cmd.Parameters.AddWithValue("name", aes.Encrypt(tbName.Text));
-                cmd.Parameters.AddWithValue("gender", aes.Encrypt(tbGender.Text));
-                cmd.Parameters.AddWithValue("designation_id", aes.Encrypt(tbDesignation_id.Text));
-                cmd.Parameters.AddWithValue("address", aes.Encrypt(tbAddress.Text));
-                cmd.Parameters.AddWithValue("phone", aes.Encrypt(tbPhone.Text));
+                cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
+                cmd.Parameters.AddWithValue("name", md5.MaHoaString((tbName.Text), "NguyenKhaDang"));
+                cmd.Parameters.AddWithValue("gender", md5.MaHoaString((tbGender.Text), "NguyenKhaDang"));
+                cmd.Parameters.AddWithValue("designation_id", md5.MaHoaString((tbDesignation_id.Text), "NguyenKhaDang"));
+                cmd.Parameters.AddWithValue("address", md5.MaHoaString((tbAddress.Text), "NguyenKhaDang"));
+                cmd.Parameters.AddWithValue("phone", md5.MaHoaString((tbPhone.Text), "NguyenKhaDang"));
                 cmd.ExecuteNonQuery();
                 HienThi();
                 dieuKien = 0;

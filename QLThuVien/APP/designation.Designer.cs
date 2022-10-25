@@ -50,15 +50,15 @@
             this.tbDesignation_id = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.designationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.label9 = new System.Windows.Forms.Label();
-            this.designationTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.designationTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.designationTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.designationTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.designationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -250,12 +250,13 @@
             // 
             // dataView
             // 
+            this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
             this.dataView.AutoGenerateColumns = false;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
             this.dataView.DataSource = this.designationBindingSource;
             this.dataView.Location = new System.Drawing.Point(351, 12);
             this.dataView.Name = "dataView";
@@ -263,19 +264,19 @@
             this.dataView.Size = new System.Drawing.Size(243, 374);
             this.dataView.TabIndex = 174;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "designation_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "designation_id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "designation_id";
+            this.dataGridViewTextBoxColumn3.HeaderText = "designation_id";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "designation";
-            this.dataGridViewTextBoxColumn2.HeaderText = "designation";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "designation";
+            this.dataGridViewTextBoxColumn4.HeaderText = "designation";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // designationBindingSource
             // 
@@ -295,10 +296,6 @@
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 178;
             this.label9.Text = "Tên chức vụ";
-            // 
-            // designationTableAdapter
-            // 
-            this.designationTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox1
             // 
@@ -347,6 +344,10 @@
             this.label5.Size = new System.Drawing.Size(251, 31);
             this.label5.TabIndex = 175;
             this.label5.Text = "Chức Vụ Nhân Viên";
+            // 
+            // designationTableAdapter
+            // 
+            this.designationTableAdapter.ClearBeforeFill = true;
             // 
             // designation
             // 
@@ -401,13 +402,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn designationidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffidDataGridViewTextBoxColumn;
-        private QLThuVienDataSet qLThuVienDataSet;
-        private System.Windows.Forms.BindingSource designationBindingSource;
-        private QLThuVienDataSetTableAdapters.designationTableAdapter designationTableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private QLThuVienDataSet qLThuVienDataSet;
+        private System.Windows.Forms.BindingSource designationBindingSource;
+        private QLThuVienDataSetTableAdapters.designationTableAdapter designationTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

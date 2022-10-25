@@ -52,11 +52,11 @@
             this.tbReturn_id = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.returnidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issueidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datereturnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.givebackBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbBook_id = new System.Windows.Forms.TextBox();
@@ -64,11 +64,11 @@
             this.tbIssue_id = new System.Windows.Forms.TextBox();
             this.tbStaff = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -281,15 +281,16 @@
             // 
             // dataView
             // 
+            this.dataView.AllowUserToAddRows = false;
             this.dataView.AllowUserToDeleteRows = false;
             this.dataView.AutoGenerateColumns = false;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.returnidDataGridViewTextBoxColumn,
-            this.issueidDataGridViewTextBoxColumn,
-            this.datereturnDataGridViewTextBoxColumn,
-            this.staffidDataGridViewTextBoxColumn,
-            this.bookidDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
             this.dataView.DataSource = this.givebackBindingSource;
             this.dataView.Location = new System.Drawing.Point(483, 12);
             this.dataView.Name = "dataView";
@@ -297,40 +298,40 @@
             this.dataView.Size = new System.Drawing.Size(545, 399);
             this.dataView.TabIndex = 233;
             // 
-            // returnidDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.returnidDataGridViewTextBoxColumn.DataPropertyName = "return_id";
-            this.returnidDataGridViewTextBoxColumn.HeaderText = "return_id";
-            this.returnidDataGridViewTextBoxColumn.Name = "returnidDataGridViewTextBoxColumn";
-            this.returnidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "return_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "return_id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // issueidDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.issueidDataGridViewTextBoxColumn.DataPropertyName = "issue_id";
-            this.issueidDataGridViewTextBoxColumn.HeaderText = "issue_id";
-            this.issueidDataGridViewTextBoxColumn.Name = "issueidDataGridViewTextBoxColumn";
-            this.issueidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "issue_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "issue_id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // datereturnDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.datereturnDataGridViewTextBoxColumn.DataPropertyName = "date_return";
-            this.datereturnDataGridViewTextBoxColumn.HeaderText = "date_return";
-            this.datereturnDataGridViewTextBoxColumn.Name = "datereturnDataGridViewTextBoxColumn";
-            this.datereturnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "date_return";
+            this.dataGridViewTextBoxColumn3.HeaderText = "date_return";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // staffidDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.staffidDataGridViewTextBoxColumn.DataPropertyName = "staff_id";
-            this.staffidDataGridViewTextBoxColumn.HeaderText = "staff_id";
-            this.staffidDataGridViewTextBoxColumn.Name = "staffidDataGridViewTextBoxColumn";
-            this.staffidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "staff_id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "staff_id";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // bookidDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn5
             // 
-            this.bookidDataGridViewTextBoxColumn.DataPropertyName = "book_id";
-            this.bookidDataGridViewTextBoxColumn.HeaderText = "book_id";
-            this.bookidDataGridViewTextBoxColumn.Name = "bookidDataGridViewTextBoxColumn";
-            this.bookidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "book_id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "book_id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // givebackBindingSource
             // 
@@ -380,10 +381,6 @@
             this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 242;
             this.label8.Text = "Mã Nhân Viên";
-            // 
-            // givebackTableAdapter
-            // 
-            this.givebackTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox1
             // 
@@ -452,6 +449,10 @@
             this.label11.TabIndex = 234;
             this.label11.Text = "Quản Lý Trả Sách";
             // 
+            // givebackTableAdapter
+            // 
+            this.givebackTableAdapter.ClearBeforeFill = true;
+            // 
             // @return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,9 +507,6 @@
         private System.Windows.Forms.TextBox tbIssue_id;
         private System.Windows.Forms.TextBox tbStaff;
         private System.Windows.Forms.Label label8;
-        private QLThuVienDataSet qLThuVienDataSet;
-        private System.Windows.Forms.BindingSource givebackBindingSource;
-        private QLThuVienDataSetTableAdapters.givebackTableAdapter givebackTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn issueidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datereturnDataGridViewTextBoxColumn;
@@ -518,5 +516,13 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label11;
+        private QLThuVienDataSet qLThuVienDataSet;
+        private System.Windows.Forms.BindingSource givebackBindingSource;
+        private QLThuVienDataSetTableAdapters.givebackTableAdapter givebackTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

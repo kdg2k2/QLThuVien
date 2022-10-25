@@ -56,7 +56,7 @@ namespace QLThuVien.APP
         private void designation_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.designation' table. You can move, or remove it, as needed.
-            this.designationTableAdapter.Fill(this.qLThuVienDataSet.designation);
+            //this.designationTableAdapter.Fill(this.qLThuVienDataSet.designation);
             con.Open();
             HienThi();
         }

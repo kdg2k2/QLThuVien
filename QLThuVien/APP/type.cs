@@ -57,7 +57,7 @@ namespace QLThuVien.APP
         private void type_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.type' table. You can move, or remove it, as needed.
-            this.typeTableAdapter.Fill(this.qLThuVienDataSet.type);
+            //this.typeTableAdapter.Fill(this.qLThuVienDataSet.type);
             con.Open();
             HienThi();
         }

@@ -11,7 +11,7 @@ namespace QLThuVien.DTO
         public string book_id { get; set; }
         public string book_name { get; set; }
         public string type_id { get; set; }
-        public string isbn { get; set; }
+        public string amount { get; set; }
         public string author_name { get; set; }
     }
 }

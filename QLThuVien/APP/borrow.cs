@@ -58,7 +58,7 @@ namespace QLThuVien.APP
         private void issue_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.borrow' table. You can move, or remove it, as needed.
-            this.borrowTableAdapter.Fill(this.qLThuVienDataSet.borrow);
+            //this.borrowTableAdapter.Fill(this.qLThuVienDataSet.borrow);
             con.Open();
             HienThi();
         }
