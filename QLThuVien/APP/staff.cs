@@ -35,15 +35,15 @@ namespace QLThuVien.APP
             DataTable dt = new DataTable();
             dt.Load(dr);
             MD5_algorithm md5 = new MD5_algorithm();
-            foreach (DataRow row in dt.Rows)
-            {
-                row["name"] = md5.GiaiMaSring(row["name"].ToString(), "NguyenKhaDang");
-                row["gender"] = md5.GiaiMaSring(row["gender"].ToString(), "NguyenKhaDang");
-                row["designation_id"] = md5.GiaiMaSring(row["designation_id"].ToString(), "NguyenKhaDang");
-                row["address"] = md5.GiaiMaSring(row["address"].ToString(), "NguyenKhaDang");
-                row["phone"] = md5.GiaiMaSring(row["phone"].ToString(), "NguyenKhaDang");
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    row["name"] = md5.GiaiMaSring(row["name"].ToString(), "NguyenKhaDang");
+            //    row["gender"] = md5.GiaiMaSring(row["gender"].ToString(), "NguyenKhaDang");
+            //    row["designation_id"] = md5.GiaiMaSring(row["designation_id"].ToString(), "NguyenKhaDang");
+            //    row["address"] = md5.GiaiMaSring(row["address"].ToString(), "NguyenKhaDang");
+            //    row["phone"] = md5.GiaiMaSring(row["phone"].ToString(), "NguyenKhaDang");
 
-            }
+            //}
             dataView.DataSource = dt;
         }
         int dieuKien = 0;
@@ -107,11 +107,19 @@ namespace QLThuVien.APP
                                 "VALUES (@staff_id, @name, @gender, @designation_id, @address, @phone)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
-                cmd.Parameters.AddWithValue("name", md5.MaHoaString((tbName.Text), "NguyenKhaDang"));
-                cmd.Parameters.AddWithValue("gender", md5.MaHoaString((tbGender.Text), "NguyenKhaDang"));
-                cmd.Parameters.AddWithValue("designation_id", md5.MaHoaString((tbDesignation_id.Text), "NguyenKhaDang"));
-                cmd.Parameters.AddWithValue("address", md5.MaHoaString((tbAddress.Text), "NguyenKhaDang"));
-                cmd.Parameters.AddWithValue("phone", md5.MaHoaString((tbPhone.Text), "NguyenKhaDang"));
+                cmd.Parameters.AddWithValue("name", tbName.Text);
+                cmd.Parameters.AddWithValue("gender", tbGender.Text);
+                cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
+                cmd.Parameters.AddWithValue("address", tbAddress.Text);
+                cmd.Parameters.AddWithValue("phone", tbPhone.Text);
+
+                //Mã Hoá
+                //cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
+                //cmd.Parameters.AddWithValue("name", md5.MaHoaString((tbName.Text), "NguyenKhaDang"));
+                //cmd.Parameters.AddWithValue("gender", md5.MaHoaString((tbGender.Text), "NguyenKhaDang"));
+                //cmd.Parameters.AddWithValue("designation_id", md5.MaHoaString((tbDesignation_id.Text), "NguyenKhaDang"));
+                //cmd.Parameters.AddWithValue("address", md5.MaHoaString((tbAddress.Text), "NguyenKhaDang"));
+                //cmd.Parameters.AddWithValue("phone", md5.MaHoaString((tbPhone.Text), "NguyenKhaDang"));
                 cmd.ExecuteNonQuery();
                 HienThi();
                 dieuKien = 0;
@@ -180,12 +188,15 @@ namespace QLThuVien.APP
                 return;
             }
 
+            //string sqlThem = "SELECT * " +
+            //                        "FROM staff " +
+            //                        "WHERE staff_id=@staff_id";
             string sqlThem = "SELECT * " +
                                     "FROM staff " +
-                                    "WHERE staff_id=@staff_id";
+                                    "WHERE staff_id like N'%" + tbNoiDungTimKiem.Text + "%' or name like N'%" + tbNoiDungTimKiem.Text + "%'";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
-            //cmd.Parameters.AddWithValue("name", tbName.Text);
+            cmd.Parameters.AddWithValue("name", tbNoiDungTimKiem.Text);
             //cmd.Parameters.AddWithValue("gender", tbGender.Text);
             //cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
             //cmd.Parameters.AddWithValue("address", tbAddress.Text);
