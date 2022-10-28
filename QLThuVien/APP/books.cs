@@ -43,6 +43,7 @@ namespace QLThuVien.APP
         int dieuKien = 0;
         private void KiemTraMa(string TenBang, string TenField, string DieuKien)
         {
+            dieuKien = 0;
             DataSet ds = new DataSet();
             string strSQL = " Select * From " + TenBang;
             if (TenField != "" && DieuKien != "")
@@ -80,7 +81,6 @@ namespace QLThuVien.APP
             {
                 MessageBox.Show("Mã đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
-                dieuKien = 0;
                 return;
             }
 
@@ -102,7 +102,6 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
-                dieuKien = 0;
             }
             
         }
