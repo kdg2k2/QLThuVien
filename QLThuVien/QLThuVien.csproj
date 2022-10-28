@@ -197,6 +197,7 @@
     <EmbeddedResource Include="APP\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="APP\Report_Muon_Tra.rdlc" />
     <EmbeddedResource Include="APP\report_muontra.resx">
       <DependentUpon>report_muontra.cs</DependentUpon>
     </EmbeddedResource>

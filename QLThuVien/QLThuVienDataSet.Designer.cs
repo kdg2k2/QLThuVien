@@ -644,7 +644,7 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public booksRow AddbooksRow(short book_id, string book_name, string type_id, short amount, string author_name) {
+            public booksRow AddbooksRow(string book_id, string book_name, string type_id, short amount, string author_name) {
                 booksRow rowbooksRow = ((booksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         book_id,
@@ -659,7 +659,7 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public booksRow FindBybook_id(short book_id) {
+            public booksRow FindBybook_id(string book_id) {
                 return ((booksRow)(this.Rows.Find(new object[] {
                             book_id})));
             }
@@ -691,7 +691,7 @@ namespace QLThuVien {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnbook_id = new global::System.Data.DataColumn("book_id", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnbook_id = new global::System.Data.DataColumn("book_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbook_id);
                 this.columnbook_name = new global::System.Data.DataColumn("book_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbook_name);
@@ -971,7 +971,7 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public borrowRow AddborrowRow(short issue_id, short book_id, System.DateTime date_issue, System.DateTime date_expirary, string student_id, string staff_id) {
+            public borrowRow AddborrowRow(string issue_id, string book_id, System.DateTime date_issue, System.DateTime date_expirary, string student_id, string staff_id) {
                 borrowRow rowborrowRow = ((borrowRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         issue_id,
@@ -987,7 +987,7 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public borrowRow FindByissue_id(short issue_id) {
+            public borrowRow FindByissue_id(string issue_id) {
                 return ((borrowRow)(this.Rows.Find(new object[] {
                             issue_id})));
             }
@@ -1020,9 +1020,9 @@ namespace QLThuVien {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnissue_id = new global::System.Data.DataColumn("issue_id", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnissue_id = new global::System.Data.DataColumn("issue_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnissue_id);
-                this.columnbook_id = new global::System.Data.DataColumn("book_id", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnbook_id = new global::System.Data.DataColumn("book_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbook_id);
                 this.columndate_issue = new global::System.Data.DataColumn("date_issue", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_issue);
@@ -1565,7 +1565,7 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public givebackRow AddgivebackRow(short return_id, short issue_id, System.DateTime date_return, string staff_id, short book_id) {
+            public givebackRow AddgivebackRow(string return_id, string issue_id, System.DateTime date_return, string staff_id, string book_id) {
                 givebackRow rowgivebackRow = ((givebackRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         return_id,
@@ -1580,7 +1580,7 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public givebackRow FindByreturn_id(short return_id) {
+            public givebackRow FindByreturn_id(string return_id) {
                 return ((givebackRow)(this.Rows.Find(new object[] {
                             return_id})));
             }
@@ -1612,15 +1612,15 @@ namespace QLThuVien {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnreturn_id = new global::System.Data.DataColumn("return_id", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnreturn_id = new global::System.Data.DataColumn("return_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreturn_id);
-                this.columnissue_id = new global::System.Data.DataColumn("issue_id", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnissue_id = new global::System.Data.DataColumn("issue_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnissue_id);
                 this.columndate_return = new global::System.Data.DataColumn("date_return", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_return);
                 this.columnstaff_id = new global::System.Data.DataColumn("staff_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstaff_id);
-                this.columnbook_id = new global::System.Data.DataColumn("book_id", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnbook_id = new global::System.Data.DataColumn("book_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbook_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnreturn_id}, true));
@@ -2975,9 +2975,9 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short book_id {
+            public string book_id {
                 get {
-                    return ((short)(this[this.tablebooks.book_idColumn]));
+                    return ((string)(this[this.tablebooks.book_idColumn]));
                 }
                 set {
                     this[this.tablebooks.book_idColumn] = value;
@@ -3113,9 +3113,9 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short issue_id {
+            public string issue_id {
                 get {
-                    return ((short)(this[this.tableborrow.issue_idColumn]));
+                    return ((string)(this[this.tableborrow.issue_idColumn]));
                 }
                 set {
                     this[this.tableborrow.issue_idColumn] = value;
@@ -3124,10 +3124,10 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short book_id {
+            public string book_id {
                 get {
                     try {
-                        return ((short)(this[this.tableborrow.book_idColumn]));
+                        return ((string)(this[this.tableborrow.book_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'book_id\' in table \'borrow\' is DBNull.", e);
@@ -3333,9 +3333,9 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short return_id {
+            public string return_id {
                 get {
-                    return ((short)(this[this.tablegiveback.return_idColumn]));
+                    return ((string)(this[this.tablegiveback.return_idColumn]));
                 }
                 set {
                     this[this.tablegiveback.return_idColumn] = value;
@@ -3344,10 +3344,10 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short issue_id {
+            public string issue_id {
                 get {
                     try {
-                        return ((short)(this[this.tablegiveback.issue_idColumn]));
+                        return ((string)(this[this.tablegiveback.issue_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'issue_id\' in table \'giveback\' is DBNull.", e);
@@ -3392,10 +3392,10 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short book_id {
+            public string book_id {
                 get {
                     try {
-                        return ((short)(this[this.tablegiveback.book_idColumn]));
+                        return ((string)(this[this.tablegiveback.book_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'book_id\' in table \'giveback\' is DBNull.", e);

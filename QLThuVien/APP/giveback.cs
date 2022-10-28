@@ -86,7 +86,14 @@ namespace QLThuVien.APP
             KiemTraMa("borrow", "issue_id", tbIssue_id.Text);
             if (dieuKien == 0)
             {
-                MessageBox.Show("Mã mượn tồn tại");
+                MessageBox.Show("Mã mượn ko tồn tại");
+                return;
+            }
+
+            KiemTraMa("staff", "staff_id", tbStaff.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã nhân viên ko tồn tại");
                 return;
             }
 
@@ -123,7 +130,14 @@ namespace QLThuVien.APP
             KiemTraMa("borrow", "issue_id", tbIssue_id.Text);
             if (dieuKien == 0)
             {
-                MessageBox.Show("Mã mượn không tồn tại");
+                MessageBox.Show("Mã mượn ko tồn tại");
+                return;
+            }
+
+            KiemTraMa("staff", "staff_id", tbStaff.Text);
+            if (dieuKien == 0)
+            {
+                MessageBox.Show("Mã nhân viên ko tồn tại");
                 return;
             }
 

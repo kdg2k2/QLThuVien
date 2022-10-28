@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLThuVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="books">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="book_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="type_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="amount" Type="smallint" />
+          <Property Name="author_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="borrow">
+          <Key>
+            <PropertyRef Name="issue_id" />
+          </Key>
+          <Property Name="issue_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="book_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_issue" Type="date" />
+          <Property Name="date_expirary" Type="date" />
+          <Property Name="student_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="staff_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="giveback">
+          <Key>
+            <PropertyRef Name="return_id" />
+          </Key>
+          <Property Name="return_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="issue_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_return" Type="date" />
+          <Property Name="staff_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="book_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="QLThuVienModelStoreContainer">
+          <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="borrow" EntityType="Self.borrow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="giveback" EntityType="Self.giveback" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLThuVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="book">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="book_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Int16" />
+          <Property Name="author_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="borrow">
+          <Key>
+            <PropertyRef Name="issue_id" />
+          </Key>
+          <Property Name="issue_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="book_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_issue" Type="DateTime" Precision="0" />
+          <Property Name="date_expirary" Type="DateTime" Precision="0" />
+          <Property Name="student_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="staff_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="giveback">
+          <Key>
+            <PropertyRef Name="return_id" />
+          </Key>
+          <Property Name="return_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="issue_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_return" Type="DateTime" Precision="0" />
+          <Property Name="staff_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="book_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="QLThuVienEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="books" EntityType="Self.book" />
+          <EntitySet Name="borrows" EntityType="Self.borrow" />
+          <EntitySet Name="givebacks" EntityType="Self.giveback" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLThuVienModelStoreContainer" CdmEntityContainer="QLThuVienEntities">
+          <EntitySetMapping Name="books">
+            <EntityTypeMapping TypeName="QLThuVienModel.book">
+              <MappingFragment StoreEntitySet="books">
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="book_name" ColumnName="book_name" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="author_name" ColumnName="author_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="borrows">
+            <EntityTypeMapping TypeName="QLThuVienModel.borrow">
+              <MappingFragment StoreEntitySet="borrow">
+                <ScalarProperty Name="issue_id" ColumnName="issue_id" />
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="date_issue" ColumnName="date_issue" />
+                <ScalarProperty Name="date_expirary" ColumnName="date_expirary" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="givebacks">
+            <EntityTypeMapping TypeName="QLThuVienModel.giveback">
+              <MappingFragment StoreEntitySet="giveback">
+                <ScalarProperty Name="return_id" ColumnName="return_id" />
+                <ScalarProperty Name="issue_id" ColumnName="issue_id" />
+                <ScalarProperty Name="date_return" ColumnName="date_return" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
