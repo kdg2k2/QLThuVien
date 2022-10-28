@@ -150,103 +150,33 @@ namespace QLThuVien.APP
             dataView.DataSource = dt;
         }
 
-        DataTableCollection tables;
-        private void btTimFile_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel File|*.xls;*.xlsx" })
-            {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    tbFileName.Text = ofd.FileName;
-                    using (var stream = File.Open(ofd.FileName, FileMode.Open, FileAccess.Read))
-                    {
-                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
-                        {
-                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                            {
-                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-                                {
-                                    UseHeaderRow = true
-                                }
-                            });
-                            tables = result.Tables;
-                            cbbSheet.Items.Clear();
-
-                            foreach (DataTable table in tables)
-                                cbbSheet.Items.Add(table.TableName);//add sheet
-
-                            this.cbbSheet.Text = "designation";//Mặc định
-                        }
-                    }
-                }
-            }
-        }
-
-        private void cbbSheet_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataTable dt = tables[cbbSheet.SelectedItem.ToString()];
-            if (dt != null)
-            {
-                List<DTO_designation> list = new List<DTO_designation>();
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    DTO_designation obj = new DTO_designation();
-                    obj.designation_id = dt.Rows[i]["designation_id"].ToString();
-                    obj.designation = dt.Rows[i]["designation"].ToString();
-                    list.Add(obj);
-                }
-                designationBindingSource.DataSource = list;
-            }
-        }
-
-        private void btImport_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(tbFileName.Text))
-            {
-                MessageBox.Show("Bạn phải chọn tệp dữ liệu để nhập vào");
-                return;
-            }
-
-            try
-            {
-                string connecionString = "Server=DG;Database=QLThuVien;User Id=sa;Password=a12345678;";
-                DapperPlusManager.Entity<DTO_designation>().Table("designation");
-                List<DTO_designation> temp = designationBindingSource.DataSource as List<DTO_designation>;
-                if (temp != null)
-                {
-                    using (IDbConnection db = new SqlConnection(connecionString))
-                    {
-                        db.BulkInsert(temp);
-                    }
-                    MessageBox.Show("Imported thành công");
-                    HienThi();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btExport_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel File|*.xlsx" })
+            // creating Excel Application  
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            // creating new WorkBook within Excel application  
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            // creating new Excelsheet in workbook  
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            // see the excel sheet behind the program  
+            app.Visible = true;
+            // get the reference of first sheet. By default its name is Sheet1.  
+            // store its reference to worksheet  
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            // changing the name of active sheet  
+            worksheet.Name = "designation";
+            // storing header part in Excel  
+            for (int i = 1; i < dataView.Columns.Count + 1; i++)
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
+                worksheet.Cells[1, i] = dataView.Columns[i - 1].HeaderText;
+            }
+            // storing Each row and column value to excel sheet  
+            for (int i = 0; i < dataView.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataView.Columns.Count; j++)
                 {
-                    try
-                    {
-                        using (XLWorkbook workbook = new XLWorkbook())
-                        {
-                            workbook.Worksheets.Add(this.qLThuVienDataSet.designation.CopyToDataTable(), "designation");
-                            workbook.SaveAs(sfd.FileName);
-                        }
-                        MessageBox.Show("Xuất tệp Excel thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    worksheet.Cells[i + 2, j + 1] = dataView.Rows[i].Cells[j].Value.ToString();
                 }
             }
         }
@@ -255,7 +185,6 @@ namespace QLThuVien.APP
         {
             this.tbDesignation_id.Clear();
             this.tbDesignation.Clear();
-            this.tbFileName.Clear();
             HienThi();
         }
     }

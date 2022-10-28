@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,6 +33,14 @@ namespace QLThuVien.APP
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
+            //Giải Mã
+            MD5_algorithm md5 = new MD5_algorithm();
+            foreach (DataRow row in dt.Rows)
+            {
+                //row["student_id"] = md5.GiaiMaSring(row["student_id"].ToString(), "NguyenKhaDang");
+                row["studentname"] = md5.GiaiMaSring(row["studentname"].ToString(), "NguyenKhaDang");
+                row["phone"] = md5.GiaiMaSring(row["phone"].ToString(), "NguyenKhaDang");
+            }
             dataView.DataSource = dt;
         }
         int dieuKien = 0;
@@ -81,9 +90,17 @@ namespace QLThuVien.APP
                 string sqlThem = "INSERT INTO student " +
                                 "VALUES (@student_id, @studentname, @phone)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
+                //cmd.Parameters.AddWithValue("student_id", tbMaSV.Text);
+                //cmd.Parameters.AddWithValue("studentname", tbTenSV.Text);
+                //cmd.Parameters.AddWithValue("phone", tbSDT.Text);
+                
+
+                //Mã Hoá
+                MD5_algorithm md5 = new MD5_algorithm();
+                //cmd.Parameters.AddWithValue("student_id", md5.MaHoaString(tbMaSV.Text,"NguyenKhaDang"));
                 cmd.Parameters.AddWithValue("student_id", tbMaSV.Text);
-                cmd.Parameters.AddWithValue("studentname", tbTenSV.Text);
-                cmd.Parameters.AddWithValue("phone", tbSDT.Text);
+                cmd.Parameters.AddWithValue("studentname", md5.MaHoaString(tbTenSV.Text, "NguyenKhaDang"));
+                cmd.Parameters.AddWithValue("phone", md5.MaHoaString(tbSDT.Text, "NguyenKhaDang"));
                 cmd.ExecuteNonQuery();
                 HienThi();
             }
@@ -101,9 +118,15 @@ namespace QLThuVien.APP
                                 "set student_id=@student_id, studentname=@studentname, phone=@phone " +
                                 "where student_id=@student_id";
             SqlCommand cmd = new SqlCommand(sqlSua, con);
-            cmd.Parameters.AddWithValue("student_id", tbMaSV.Text);
-            cmd.Parameters.AddWithValue("studentname", tbTenSV.Text);
-            cmd.Parameters.AddWithValue("phone", tbSDT.Text);
+            //cmd.Parameters.AddWithValue("student_id", tbMaSV.Text);
+            //cmd.Parameters.AddWithValue("studentname", tbTenSV.Text);
+            //cmd.Parameters.AddWithValue("phone", tbSDT.Text);
+
+            //Mã Hoá
+            MD5_algorithm md5 = new MD5_algorithm();
+            cmd.Parameters.AddWithValue("student_id", md5.MaHoaString(tbMaSV.Text, "NguyenKhaDang"));
+            cmd.Parameters.AddWithValue("studentname", md5.MaHoaString(tbTenSV.Text, "NguyenKhaDang"));
+            cmd.Parameters.AddWithValue("phone", md5.MaHoaString(tbSDT.Text, "NguyenKhaDang"));
             cmd.ExecuteNonQuery();
             HienThi();
         }
@@ -148,104 +171,33 @@ namespace QLThuVien.APP
 
         }
 
-        DataTableCollection tables;
-        private void btTimFile_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel File|*.xls;*.xlsx" })
-            {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    tbFileName.Text = ofd.FileName;
-                    using (var stream = File.Open(ofd.FileName, FileMode.Open, FileAccess.Read))
-                    {
-                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
-                        {
-                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                            {
-                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-                                {
-                                    UseHeaderRow = true
-                                }
-                            });
-                            tables = result.Tables;
-                            cbbSheet.Items.Clear();
-
-                            foreach (DataTable table in tables)
-                                cbbSheet.Items.Add(table.TableName);//add sheet
-
-                            this.cbbSheet.Text = "student";//Mặc định
-                        }
-                    }
-                }
-            }
-        }
-
-        private void sbbSheet_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataTable dt = tables[cbbSheet.SelectedItem.ToString()];
-            if (dt != null)
-            {
-                List<DTO_student> list = new List<DTO_student>();
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    DTO_student obj = new DTO_student();
-                    obj.student_id = dt.Rows[i]["student_id"].ToString();
-                    obj.studentname = dt.Rows[i]["studentname"].ToString();
-                    obj.phone = dt.Rows[i]["phone"].ToString();
-                    list.Add(obj);
-                }
-                studentBindingSource.DataSource = list;
-            }
-        }
-
-        private void btImport_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(tbFileName.Text))
-            {
-                MessageBox.Show("Bạn phải chọn tệp dữ liệu để nhập vào");
-                return;
-            }
-
-            try
-            {
-                string connecionString = "Server=DG;Database=QLThuVien;User Id=sa;Password=a12345678;";
-                DapperPlusManager.Entity<DTO_student>().Table("student");
-                List<DTO_student> Students = studentBindingSource.DataSource as List<DTO_student>;
-                if (Students != null)
-                {
-                    using (IDbConnection db = new SqlConnection(connecionString))
-                    {
-                        db.BulkInsert(Students);
-                    }
-                    MessageBox.Show("Imported thành công");
-                    HienThi();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btExport_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel File|*.xlsx" })
+            // creating Excel Application  
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            // creating new WorkBook within Excel application  
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            // creating new Excelsheet in workbook  
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            // see the excel sheet behind the program  
+            app.Visible = true;
+            // get the reference of first sheet. By default its name is Sheet1.  
+            // store its reference to worksheet  
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            // changing the name of active sheet  
+            worksheet.Name = "student";
+            // storing header part in Excel  
+            for (int i = 1; i < dataView.Columns.Count + 1; i++)
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
+                worksheet.Cells[1, i] = dataView.Columns[i - 1].HeaderText;
+            }
+            // storing Each row and column value to excel sheet  
+            for (int i = 0; i < dataView.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataView.Columns.Count; j++)
                 {
-                    try
-                    {
-                        using (XLWorkbook workbook = new XLWorkbook())
-                        {
-                            workbook.Worksheets.Add(this.qLThuVienDataSet.student.CopyToDataTable(), "student");
-                            workbook.SaveAs(sfd.FileName);
-                        }
-                        MessageBox.Show("Xuất tệp Excel thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    worksheet.Cells[i + 2, j + 1] = dataView.Rows[i].Cells[j].Value.ToString();
                 }
             }
         }
@@ -255,7 +207,6 @@ namespace QLThuVien.APP
             this.tbMaSV.Clear();
             this.tbTenSV.Clear();
             this.tbSDT.Clear();
-            this.tbFileName.Clear();
             HienThi();
         }
 

@@ -134,10 +134,10 @@ namespace QLThuVien.APP
 
             string sqlThem = "SELECT * " +
                                     "FROM type " +
-                                    "WHERE type_id=@type_id";
+                                    "WHERE type_id like N'%" + tbNoiDungTimKiem.Text + "%' or type_name like N'%" + tbNoiDungTimKiem.Text + "%'";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("type_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("type_name", tbTenLoai.Text);
+            cmd.Parameters.AddWithValue("type_name", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -224,23 +224,31 @@ namespace QLThuVien.APP
 
         private void btExport_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel File|*.xlsx" })
+            // creating Excel Application  
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            // creating new WorkBook within Excel application  
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            // creating new Excelsheet in workbook  
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            // see the excel sheet behind the program  
+            app.Visible = true;
+            // get the reference of first sheet. By default its name is Sheet1.  
+            // store its reference to worksheet  
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            // changing the name of active sheet  
+            worksheet.Name = "staff";
+            // storing header part in Excel  
+            for (int i = 1; i < dataView.Columns.Count + 1; i++)
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
+                worksheet.Cells[1, i] = dataView.Columns[i - 1].HeaderText;
+            }
+            // storing Each row and column value to excel sheet  
+            for (int i = 0; i < dataView.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataView.Columns.Count; j++)
                 {
-                    try
-                    {
-                        using (XLWorkbook workbook = new XLWorkbook())
-                        {
-                            workbook.Worksheets.Add(this.qLThuVienDataSet.type.CopyToDataTable(), "type");
-                            workbook.SaveAs(sfd.FileName);
-                        }
-                        MessageBox.Show("Xuất tệp Excel thành công", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    worksheet.Cells[i + 2, j + 1] = dataView.Rows[i].Cells[j].Value.ToString();
                 }
             }
         }

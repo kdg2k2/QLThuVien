@@ -32,14 +32,7 @@
             this.btExport = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.btRefresh = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btImport = new System.Windows.Forms.Button();
-            this.btTimFile = new System.Windows.Forms.Button();
-            this.cbbSheet = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbFileName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btTimKiem = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
@@ -68,7 +61,7 @@
             // 
             // btExport
             // 
-            this.btExport.Location = new System.Drawing.Point(132, 193);
+            this.btExport.Location = new System.Drawing.Point(129, 113);
             this.btExport.Name = "btExport";
             this.btExport.Size = new System.Drawing.Size(75, 23);
             this.btExport.TabIndex = 201;
@@ -79,7 +72,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 198);
+            this.label20.Location = new System.Drawing.Point(5, 118);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(120, 13);
             this.label20.TabIndex = 200;
@@ -96,15 +89,6 @@
             this.btRefresh.UseVisualStyleBackColor = true;
             this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 13);
-            this.label2.TabIndex = 198;
-            this.label2.Text = "Thêm dữ liệu bằng file Excel";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -113,61 +97,6 @@
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 197;
             this.label1.Text = "Nội dung tìm:";
-            // 
-            // btImport
-            // 
-            this.btImport.Location = new System.Drawing.Point(210, 157);
-            this.btImport.Name = "btImport";
-            this.btImport.Size = new System.Drawing.Size(75, 23);
-            this.btImport.TabIndex = 196;
-            this.btImport.Text = "Import";
-            this.btImport.UseVisualStyleBackColor = true;
-            this.btImport.Click += new System.EventHandler(this.btImport_Click);
-            // 
-            // btTimFile
-            // 
-            this.btTimFile.Location = new System.Drawing.Point(289, 131);
-            this.btTimFile.Name = "btTimFile";
-            this.btTimFile.Size = new System.Drawing.Size(37, 23);
-            this.btTimFile.TabIndex = 195;
-            this.btTimFile.Text = "...";
-            this.btTimFile.UseVisualStyleBackColor = true;
-            this.btTimFile.Click += new System.EventHandler(this.btTimFile_Click);
-            // 
-            // cbbSheet
-            // 
-            this.cbbSheet.FormattingEnabled = true;
-            this.cbbSheet.Location = new System.Drawing.Point(65, 159);
-            this.cbbSheet.Name = "cbbSheet";
-            this.cbbSheet.Size = new System.Drawing.Size(121, 21);
-            this.cbbSheet.TabIndex = 194;
-            this.cbbSheet.SelectedIndexChanged += new System.EventHandler(this.cbbSheet_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 162);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 193;
-            this.label3.Text = "Sheet";
-            // 
-            // tbFileName
-            // 
-            this.tbFileName.Location = new System.Drawing.Point(65, 133);
-            this.tbFileName.Name = "tbFileName";
-            this.tbFileName.ReadOnly = true;
-            this.tbFileName.Size = new System.Drawing.Size(220, 20);
-            this.tbFileName.TabIndex = 192;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 191;
-            this.label4.Text = "File Name";
             // 
             // label6
             // 
@@ -261,7 +190,7 @@
             this.dataView.Location = new System.Drawing.Point(351, 12);
             this.dataView.Name = "dataView";
             this.dataView.ReadOnly = true;
-            this.dataView.Size = new System.Drawing.Size(243, 374);
+            this.dataView.Size = new System.Drawing.Size(243, 292);
             this.dataView.TabIndex = 174;
             // 
             // dataGridViewTextBoxColumn3
@@ -320,17 +249,10 @@
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.btTimKiem);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.tbFileName);
-            this.groupBox2.Controls.Add(this.btImport);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.btTimFile);
-            this.groupBox2.Controls.Add(this.cbbSheet);
             this.groupBox2.Location = new System.Drawing.Point(12, 161);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 225);
+            this.groupBox2.Size = new System.Drawing.Size(333, 143);
             this.groupBox2.TabIndex = 204;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " ";
@@ -353,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 386);
+            this.ClientSize = new System.Drawing.Size(604, 307);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
@@ -380,14 +302,7 @@
         private System.Windows.Forms.Button btExport;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btRefresh;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btImport;
-        private System.Windows.Forms.Button btTimFile;
-        private System.Windows.Forms.ComboBox cbbSheet;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbFileName;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btTimKiem;
         private System.Windows.Forms.Button btDelete;

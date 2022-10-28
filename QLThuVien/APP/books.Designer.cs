@@ -95,7 +95,6 @@
             this.label20.Size = new System.Drawing.Size(120, 13);
             this.label20.TabIndex = 172;
             this.label20.Text = "Xuất dữ liệu ra file Excel";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // btRefresh
             // 
@@ -116,7 +115,6 @@
             this.label2.Size = new System.Drawing.Size(140, 13);
             this.label2.TabIndex = 170;
             this.label2.Text = "Thêm dữ liệu bằng file Excel";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -126,7 +124,6 @@
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 169;
             this.label1.Text = "Nội dung tìm:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btImport
             // 
@@ -165,7 +162,6 @@
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 165;
             this.label3.Text = "Sheet";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // tbFileName
             // 
@@ -174,7 +170,6 @@
             this.tbFileName.ReadOnly = true;
             this.tbFileName.Size = new System.Drawing.Size(220, 20);
             this.tbFileName.TabIndex = 164;
-            this.tbFileName.TextChanged += new System.EventHandler(this.tbFileName_TextChanged);
             // 
             // label4
             // 
@@ -184,7 +179,6 @@
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 163;
             this.label4.Text = "File Name";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label6
             // 
@@ -194,7 +188,6 @@
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 162;
             this.label6.Text = "Tìm Kiếm";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btTimKiem
             // 
@@ -222,7 +215,6 @@
             this.tbNoiDungTimKiem.Name = "tbNoiDungTimKiem";
             this.tbNoiDungTimKiem.Size = new System.Drawing.Size(124, 20);
             this.tbNoiDungTimKiem.TabIndex = 161;
-            this.tbNoiDungTimKiem.TextChanged += new System.EventHandler(this.tbNoiDungTimKiem_TextChanged);
             // 
             // btUpdate
             // 
@@ -242,7 +234,6 @@
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 156;
             this.label7.Text = "Mã Loại";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // tbTenSach
             // 
@@ -250,7 +241,6 @@
             this.tbTenSach.Name = "tbTenSach";
             this.tbTenSach.Size = new System.Drawing.Size(124, 20);
             this.tbTenSach.TabIndex = 1;
-            this.tbTenSach.TextChanged += new System.EventHandler(this.tbTenSach_TextChanged);
             // 
             // btInsert
             // 
@@ -268,7 +258,6 @@
             this.tbMaSach.Name = "tbMaSach";
             this.tbMaSach.Size = new System.Drawing.Size(124, 20);
             this.tbMaSach.TabIndex = 0;
-            this.tbMaSach.TextChanged += new System.EventHandler(this.tbMaSach_TextChanged);
             // 
             // label10
             // 
@@ -278,7 +267,6 @@
             this.label10.Size = new System.Drawing.Size(50, 13);
             this.label10.TabIndex = 151;
             this.label10.Text = "Mã Sách";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // dataView
             // 
@@ -350,7 +338,6 @@
             this.tbMaLoai.Name = "tbMaLoai";
             this.tbMaLoai.Size = new System.Drawing.Size(124, 20);
             this.tbMaLoai.TabIndex = 2;
-            this.tbMaLoai.TextChanged += new System.EventHandler(this.tbMaLoai_TextChanged);
             // 
             // label9
             // 
@@ -360,7 +347,6 @@
             this.label9.Size = new System.Drawing.Size(54, 13);
             this.label9.TabIndex = 154;
             this.label9.Text = "Tên Sách";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // tbamount
             // 
@@ -368,7 +354,6 @@
             this.tbamount.Name = "tbamount";
             this.tbamount.Size = new System.Drawing.Size(124, 20);
             this.tbamount.TabIndex = 3;
-            this.tbamount.TextChanged += new System.EventHandler(this.tbISBN_TextChanged);
             // 
             // label5
             // 
@@ -378,7 +363,6 @@
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 156;
             this.label5.Text = "Số lượng";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // tbTenTacGia
             // 
@@ -386,7 +370,6 @@
             this.tbTenTacGia.Name = "tbTenTacGia";
             this.tbTenTacGia.Size = new System.Drawing.Size(124, 20);
             this.tbTenTacGia.TabIndex = 4;
-            this.tbTenTacGia.TextChanged += new System.EventHandler(this.tbTenTacGia_TextChanged);
             // 
             // label8
             // 
@@ -396,7 +379,6 @@
             this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 156;
             this.label8.Text = "Tên Tác Giả";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // groupBox1
             // 
@@ -463,7 +445,6 @@
             this.label11.Size = new System.Drawing.Size(185, 31);
             this.label11.TabIndex = 151;
             this.label11.Text = "Quản Lý Sách";
-            this.label11.Click += new System.EventHandler(this.label10_Click);
             // 
             // booksTableAdapter
             // 
