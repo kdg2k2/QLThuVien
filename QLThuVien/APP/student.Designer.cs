@@ -177,9 +177,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(4, 72);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 13);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 138;
-            this.label6.Text = "Tìm Kiếm ( theo mã )";
+            this.label6.Text = "Tìm Kiếm";
             // 
             // btTimKiem
             // 

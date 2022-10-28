@@ -182,13 +182,13 @@ namespace QLThuVien.APP
 
             string sqlThem = "SELECT * " +
                                     "FROM giveback " +
-                                    "WHERE return_id=@return_id";
+                                    "WHERE return_id like N'%" + tbNoiDungTimKiem.Text + "%' or issue_id like N'%" + tbNoiDungTimKiem.Text + "%' or staff_id like N'%" + tbNoiDungTimKiem.Text + "%' or book_id like N'%" + tbNoiDungTimKiem.Text + "%'";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("return_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
-            cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
-            cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
-            cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
+            cmd.Parameters.AddWithValue("issue_id", tbNoiDungTimKiem.Text);
+            //cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
+            cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
+            cmd.Parameters.AddWithValue("book_id", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

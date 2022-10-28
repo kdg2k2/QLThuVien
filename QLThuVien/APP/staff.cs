@@ -193,14 +193,14 @@ namespace QLThuVien.APP
             //                        "WHERE staff_id=@staff_id";
             string sqlThem = "SELECT * " +
                                     "FROM staff " +
-                                    "WHERE staff_id like N'%" + tbNoiDungTimKiem.Text + "%' or name like N'%" + tbNoiDungTimKiem.Text + "%'";
+                                    "WHERE staff_id like N'%" + tbNoiDungTimKiem.Text + "%' or name like N'%" + tbNoiDungTimKiem.Text + "%' or gender like N'%" + tbNoiDungTimKiem.Text + "%' or designation_id like N'%" + tbNoiDungTimKiem.Text + "%' or address like N'%" + tbNoiDungTimKiem.Text + "%' or phone like N'%" + tbNoiDungTimKiem.Text + "%'";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("name", tbNoiDungTimKiem.Text);
-            //cmd.Parameters.AddWithValue("gender", tbGender.Text);
-            //cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
-            //cmd.Parameters.AddWithValue("address", tbAddress.Text);
-            //cmd.Parameters.AddWithValue("phone", tbPhone.Text);
+            cmd.Parameters.AddWithValue("gender", tbNoiDungTimKiem.Text);
+            cmd.Parameters.AddWithValue("designation_id", tbNoiDungTimKiem.Text);
+            cmd.Parameters.AddWithValue("address", tbNoiDungTimKiem.Text);
+            cmd.Parameters.AddWithValue("phone", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

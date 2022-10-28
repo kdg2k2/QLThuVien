@@ -135,11 +135,11 @@ namespace QLThuVien.APP
             }
             string sqlTimKiem = "SELECT * " +
                                     "FROM student " +
-                                    "WHERE student_id like @student_id";
+                                    "WHERE student_id like N'%" + tbNoiDungTimKiem.Text + "%' or studentname like N'%" + tbNoiDungTimKiem.Text + "%' or phone like N'%" + tbNoiDungTimKiem.Text + "%'";
             SqlCommand cmd = new SqlCommand(sqlTimKiem, con);
             cmd.Parameters.AddWithValue("student_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("studentname", tbTenSV.Text);
-            cmd.Parameters.AddWithValue("phone", tbSDT.Text);
+            cmd.Parameters.AddWithValue("studentname", tbNoiDungTimKiem.Text);
+            cmd.Parameters.AddWithValue("phone", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

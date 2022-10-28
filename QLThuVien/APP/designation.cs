@@ -139,10 +139,10 @@ namespace QLThuVien.APP
 
             string sqlThem = "SELECT * " +
                                 "FROM designation " +
-                                "WHERE designation_id=@designation_id";
+                                "WHERE designation_id like N'%" + tbNoiDungTimKiem.Text + "%' or designation like N'%" + tbNoiDungTimKiem.Text + "%'";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("designation_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("designation", tbDesignation.Text);
+            cmd.Parameters.AddWithValue("designation", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

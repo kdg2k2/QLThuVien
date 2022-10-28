@@ -88,7 +88,7 @@
             // 
             // btExport
             // 
-            this.btExport.Location = new System.Drawing.Point(247, 149);
+            this.btExport.Location = new System.Drawing.Point(138, 148);
             this.btExport.Name = "btExport";
             this.btExport.Size = new System.Drawing.Size(75, 23);
             this.btExport.TabIndex = 262;
@@ -99,7 +99,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(123, 154);
+            this.label20.Location = new System.Drawing.Point(14, 153);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(120, 13);
             this.label20.TabIndex = 261;
@@ -108,9 +108,9 @@
             // btRefresh
             // 
             this.btRefresh.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btRefresh.Location = new System.Drawing.Point(309, 77);
+            this.btRefresh.Location = new System.Drawing.Point(343, 19);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(154, 133);
+            this.btRefresh.Size = new System.Drawing.Size(112, 147);
             this.btRefresh.TabIndex = 260;
             this.btRefresh.Text = "Refresh";
             this.btRefresh.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(123, 67);
+            this.label2.Location = new System.Drawing.Point(14, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 13);
             this.label2.TabIndex = 259;
@@ -128,7 +128,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(122, 28);
+            this.label1.Location = new System.Drawing.Point(13, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 258;
@@ -136,7 +136,7 @@
             // 
             // btImport
             // 
-            this.btImport.Location = new System.Drawing.Point(328, 113);
+            this.btImport.Location = new System.Drawing.Point(202, 114);
             this.btImport.Name = "btImport";
             this.btImport.Size = new System.Drawing.Size(75, 23);
             this.btImport.TabIndex = 257;
@@ -146,7 +146,7 @@
             // 
             // btTimFile
             // 
-            this.btTimFile.Location = new System.Drawing.Point(409, 93);
+            this.btTimFile.Location = new System.Drawing.Point(297, 86);
             this.btTimFile.Name = "btTimFile";
             this.btTimFile.Size = new System.Drawing.Size(37, 23);
             this.btTimFile.TabIndex = 256;
@@ -157,7 +157,7 @@
             // cbbSheet
             // 
             this.cbbSheet.FormattingEnabled = true;
-            this.cbbSheet.Location = new System.Drawing.Point(183, 115);
+            this.cbbSheet.Location = new System.Drawing.Point(74, 114);
             this.cbbSheet.Name = "cbbSheet";
             this.cbbSheet.Size = new System.Drawing.Size(121, 21);
             this.cbbSheet.TabIndex = 255;
@@ -166,7 +166,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(123, 118);
+            this.label3.Location = new System.Drawing.Point(14, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 254;
@@ -174,7 +174,7 @@
             // 
             // tbFileName
             // 
-            this.tbFileName.Location = new System.Drawing.Point(183, 89);
+            this.tbFileName.Location = new System.Drawing.Point(74, 88);
             this.tbFileName.Name = "tbFileName";
             this.tbFileName.ReadOnly = true;
             this.tbFileName.Size = new System.Drawing.Size(220, 20);
@@ -183,7 +183,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(123, 92);
+            this.label4.Location = new System.Drawing.Point(14, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 252;
@@ -192,15 +192,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(122, 8);
+            this.label6.Location = new System.Drawing.Point(13, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 13);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 251;
-            this.label6.Text = "Tìm Kiếm ( theo mã )";
+            this.label6.Text = "Tìm Kiếm";
             // 
             // btTimKiem
             // 
-            this.btTimKiem.Location = new System.Drawing.Point(329, 24);
+            this.btTimKiem.Location = new System.Drawing.Point(220, 23);
             this.btTimKiem.Name = "btTimKiem";
             this.btTimKiem.Size = new System.Drawing.Size(115, 20);
             this.btTimKiem.TabIndex = 249;
@@ -210,7 +210,7 @@
             // 
             // btDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(13, 108);
+            this.btDelete.Location = new System.Drawing.Point(312, 100);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(103, 37);
             this.btDelete.TabIndex = 248;
@@ -220,14 +220,14 @@
             // 
             // tbNoiDungTimKiem
             // 
-            this.tbNoiDungTimKiem.Location = new System.Drawing.Point(198, 24);
+            this.tbNoiDungTimKiem.Location = new System.Drawing.Point(89, 23);
             this.tbNoiDungTimKiem.Name = "tbNoiDungTimKiem";
             this.tbNoiDungTimKiem.Size = new System.Drawing.Size(124, 20);
             this.tbNoiDungTimKiem.TabIndex = 250;
             // 
             // btUpdate
             // 
-            this.btUpdate.Location = new System.Drawing.Point(13, 59);
+            this.btUpdate.Location = new System.Drawing.Point(312, 57);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(103, 37);
             this.btUpdate.TabIndex = 247;
@@ -255,7 +255,7 @@
             // 
             // btInsert
             // 
-            this.btInsert.Location = new System.Drawing.Point(13, 7);
+            this.btInsert.Location = new System.Drawing.Point(312, 14);
             this.btInsert.Name = "btInsert";
             this.btInsert.Size = new System.Drawing.Size(103, 37);
             this.btInsert.TabIndex = 236;
@@ -385,10 +385,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbBook_id);
+            this.groupBox1.Controls.Add(this.btInsert);
             this.groupBox1.Controls.Add(this.dateReturn);
+            this.groupBox1.Controls.Add(this.btUpdate);
             this.groupBox1.Controls.Add(this.tbIssue_id);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbStaff);
+            this.groupBox1.Controls.Add(this.btDelete);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.tbReturn_id);
             this.groupBox1.Controls.Add(this.label7);
@@ -396,7 +399,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(8, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 147);
+            this.groupBox1.Size = new System.Drawing.Size(455, 147);
             this.groupBox1.TabIndex = 264;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
@@ -404,12 +407,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cbbSheet);
-            this.groupBox2.Controls.Add(this.btInsert);
+            this.groupBox2.Controls.Add(this.btRefresh);
             this.groupBox2.Controls.Add(this.btExport);
-            this.groupBox2.Controls.Add(this.btUpdate);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.tbNoiDungTimKiem);
-            this.groupBox2.Controls.Add(this.btDelete);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btTimKiem);
             this.groupBox2.Controls.Add(this.label1);
@@ -429,7 +430,6 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.groupBox2);
-            this.groupBox3.Controls.Add(this.btRefresh);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);

@@ -48,7 +48,6 @@ namespace QLThuVien.APP
             SqlDataAdapter da = new SqlDataAdapter(strSQL, con);
             da.Fill(ds, TenBang);
             DataTable table = ds.Tables[0];
-
             foreach (DataRow row in table.Rows)
             {
                 dieuKien++;
@@ -201,14 +200,14 @@ namespace QLThuVien.APP
 
             string sqlThem = "SELECT * " +
                                     "FROM borrow " +
-                                    "WHERE issue_id=@issue_id";
+                                    "WHERE issue_id like N'%" + tbNoiDungTimKiem.Text + "%' or book_id like N'%" + tbNoiDungTimKiem.Text + "%' or student_id like N'%" + tbNoiDungTimKiem.Text + "%' or staff_id like N'%" + tbNoiDungTimKiem.Text + "%'";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("issue_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
-            cmd.Parameters.AddWithValue("date_issue", dateIssue.Value);
-            cmd.Parameters.AddWithValue("date_expirary", dateExpirary.Value);
-            cmd.Parameters.AddWithValue("student_id", tbStudent_id.Text);
-            cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
+            cmd.Parameters.AddWithValue("book_id", tbNoiDungTimKiem.Text);
+            //cmd.Parameters.AddWithValue("date_issue", dateIssue.Value);
+            //cmd.Parameters.AddWithValue("date_expirary", dateExpirary.Value);
+            cmd.Parameters.AddWithValue("student_id", tbNoiDungTimKiem.Text);
+            cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

@@ -51,9 +51,16 @@
             this.tbMaSach = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbMaLoai = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbISBN = new System.Windows.Forms.TextBox();
+            this.tbamount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbTenTacGia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -61,20 +68,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
-            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.booksTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.booksTableAdapter();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btExport
@@ -191,9 +191,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(165, 21);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 13);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 162;
-            this.label6.Text = "Tìm Kiếm ( theo mã )";
+            this.label6.Text = "Tìm Kiếm";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btTimKiem
@@ -299,6 +299,51 @@
             this.dataView.Size = new System.Drawing.Size(626, 159);
             this.dataView.TabIndex = 150;
             // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "book_id";
+            this.dataGridViewTextBoxColumn6.HeaderText = "book_id";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "book_name";
+            this.dataGridViewTextBoxColumn7.HeaderText = "book_name";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "type_id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "type_id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "amount";
+            this.amountDataGridViewTextBoxColumn.HeaderText = "amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "author_name";
+            this.dataGridViewTextBoxColumn9.HeaderText = "author_name";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // booksBindingSource
+            // 
+            this.booksBindingSource.DataMember = "books";
+            this.booksBindingSource.DataSource = this.qLThuVienDataSet;
+            // 
+            // qLThuVienDataSet
+            // 
+            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
+            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tbMaLoai
             // 
             this.tbMaLoai.Location = new System.Drawing.Point(97, 88);
@@ -317,22 +362,22 @@
             this.label9.Text = "Tên Sách";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // tbISBN
+            // tbamount
             // 
-            this.tbISBN.Location = new System.Drawing.Point(97, 114);
-            this.tbISBN.Name = "tbISBN";
-            this.tbISBN.Size = new System.Drawing.Size(124, 20);
-            this.tbISBN.TabIndex = 3;
-            this.tbISBN.TextChanged += new System.EventHandler(this.tbISBN_TextChanged);
+            this.tbamount.Location = new System.Drawing.Point(97, 114);
+            this.tbamount.Name = "tbamount";
+            this.tbamount.Size = new System.Drawing.Size(124, 20);
+            this.tbamount.TabIndex = 3;
+            this.tbamount.TextChanged += new System.EventHandler(this.tbISBN_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(22, 117);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 156;
-            this.label5.Text = "ISBN";
+            this.label5.Text = "Số lượng";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // tbTenTacGia
@@ -392,7 +437,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.tbISBN);
+            this.groupBox2.Controls.Add(this.tbamount);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.tbTenSach);
             this.groupBox2.Controls.Add(this.label9);
@@ -420,54 +465,9 @@
             this.label11.Text = "Quản Lý Sách";
             this.label11.Click += new System.EventHandler(this.label10_Click);
             // 
-            // qLThuVienDataSet
-            // 
-            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
-            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // booksBindingSource
-            // 
-            this.booksBindingSource.DataMember = "books";
-            this.booksBindingSource.DataSource = this.qLThuVienDataSet;
-            // 
             // booksTableAdapter
             // 
             this.booksTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "book_id";
-            this.dataGridViewTextBoxColumn6.HeaderText = "book_id";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "book_name";
-            this.dataGridViewTextBoxColumn7.HeaderText = "book_name";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "type_id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "type_id";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "author_name";
-            this.dataGridViewTextBoxColumn9.HeaderText = "author_name";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // books
             // 
@@ -483,14 +483,14 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.books_FormClosing);
             this.Load += new System.EventHandler(this.books_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -520,7 +520,7 @@
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.TextBox tbMaLoai;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbISBN;
+        private System.Windows.Forms.TextBox tbamount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbTenTacGia;
         private System.Windows.Forms.Label label8;
