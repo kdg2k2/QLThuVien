@@ -189,25 +189,7 @@ namespace QLThuVien.APP
                 MessageBox.Show("Bạn phải nhập dữ liệu cần tìm vào");
                 return;
             }
-
-            //string sqlThem = "SELECT * " +
-            //                        "FROM staff " +
-            //                        "WHERE staff_id=@staff_id";
-            string sqlThem = "SELECT * " +
-                                    "FROM staff " +
-                                    "WHERE staff_id like N'%" + tbNoiDungTimKiem.Text + "%' or name like N'%" + tbNoiDungTimKiem.Text + "%' or gender like N'%" + tbNoiDungTimKiem.Text + "%' or designation_id like N'%" + tbNoiDungTimKiem.Text + "%' or address like N'%" + tbNoiDungTimKiem.Text + "%' or phone like N'%" + tbNoiDungTimKiem.Text + "%'";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("name", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("gender", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("designation_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("address", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("phone", tbNoiDungTimKiem.Text);
-            cmd.ExecuteNonQuery();
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataView.DataSource = dt;
+            (dataView.DataSource as DataTable).DefaultView.RowFilter = String.Format("staff_id like '%" + tbNoiDungTimKiem.Text + "%' or name like '%" + tbNoiDungTimKiem.Text + "%' or gender like '%" + tbNoiDungTimKiem.Text + "%' or designation_id like '%" + tbNoiDungTimKiem.Text + "%' or address like '%" + tbNoiDungTimKiem.Text + "%' or phone like '%" + tbNoiDungTimKiem.Text + "%'");
         }
         private void btExport_Click(object sender, EventArgs e)
         {
@@ -250,5 +232,7 @@ namespace QLThuVien.APP
             this.tbPhone.Clear();
             HienThi();
         }
+
+        
     }
 }

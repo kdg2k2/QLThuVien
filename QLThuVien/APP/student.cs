@@ -156,19 +156,7 @@ namespace QLThuVien.APP
                 MessageBox.Show("Bạn phải nhập dữ liệu cần tìm vào");
                 return;
             }
-            string sqlTimKiem = "SELECT * " +
-                                    "FROM student " +
-                                    "WHERE student_id like N'%" + tbNoiDungTimKiem.Text + "%' or studentname like N'%" + tbNoiDungTimKiem.Text + "%' or phone like N'%" + tbNoiDungTimKiem.Text + "%'";
-            SqlCommand cmd = new SqlCommand(sqlTimKiem, con);
-            cmd.Parameters.AddWithValue("student_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("studentname", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("phone", tbNoiDungTimKiem.Text);
-            cmd.ExecuteNonQuery();
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataView.DataSource = dt;
-
+            (dataView.DataSource as DataTable).DefaultView.RowFilter = String.Format("student_id like '%" + tbNoiDungTimKiem.Text + "%' or studentname like '%" + tbNoiDungTimKiem.Text + "%' or phone like '%" + tbNoiDungTimKiem.Text + "%'");
         }
 
         private void btExport_Click(object sender, EventArgs e)
