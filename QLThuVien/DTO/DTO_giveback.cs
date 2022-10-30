@@ -13,5 +13,6 @@ namespace QLThuVien.DTO
         public string date_return { get; set; }
         public string staff_id { get; set; }
         public string book_id { get; set; }
+        public string date_expirary { get; set; }
     }
 }

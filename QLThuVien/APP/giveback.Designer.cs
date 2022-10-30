@@ -52,11 +52,6 @@
             this.tbReturn_id = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.givebackBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbBook_id = new System.Windows.Forms.TextBox();
@@ -69,6 +64,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
+            this.label12 = new System.Windows.Forms.Label();
+            this.date_expirary = new System.Windows.Forms.DateTimePicker();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateexpiraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -290,48 +293,14 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.dateexpiraryDataGridViewTextBoxColumn});
             this.dataView.DataSource = this.givebackBindingSource;
             this.dataView.Location = new System.Drawing.Point(483, 12);
             this.dataView.Name = "dataView";
             this.dataView.ReadOnly = true;
-            this.dataView.Size = new System.Drawing.Size(545, 399);
+            this.dataView.Size = new System.Drawing.Size(643, 425);
             this.dataView.TabIndex = 233;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "return_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "return_id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "issue_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "issue_id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "date_return";
-            this.dataGridViewTextBoxColumn3.HeaderText = "date_return";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "staff_id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "staff_id";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "book_id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "book_id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // givebackBindingSource
             // 
@@ -384,6 +353,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.date_expirary);
             this.groupBox1.Controls.Add(this.tbBook_id);
             this.groupBox1.Controls.Add(this.btInsert);
             this.groupBox1.Controls.Add(this.dateReturn);
@@ -393,13 +363,14 @@
             this.groupBox1.Controls.Add(this.tbStaff);
             this.groupBox1.Controls.Add(this.btDelete);
             this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.tbReturn_id);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(8, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(455, 147);
+            this.groupBox1.Size = new System.Drawing.Size(455, 174);
             this.groupBox1.TabIndex = 264;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
@@ -420,7 +391,7 @@
             this.groupBox2.Controls.Add(this.btTimFile);
             this.groupBox2.Controls.Add(this.tbFileName);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(8, 216);
+            this.groupBox2.Location = new System.Drawing.Point(8, 243);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(457, 176);
             this.groupBox2.TabIndex = 265;
@@ -434,7 +405,7 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(469, 399);
+            this.groupBox3.Size = new System.Drawing.Size(469, 425);
             this.groupBox3.TabIndex = 266;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " ";
@@ -443,21 +414,81 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(109, 16);
+            this.label11.Location = new System.Drawing.Point(161, 16);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(233, 31);
+            this.label11.Size = new System.Drawing.Size(124, 31);
             this.label11.TabIndex = 234;
-            this.label11.Text = "Quản Lý Trả Sách";
+            this.label11.Text = "Trả Sách";
             // 
             // givebackTableAdapter
             // 
             this.givebackTableAdapter.ClearBeforeFill = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 150);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 13);
+            this.label12.TabIndex = 242;
+            this.label12.Text = "Hạn Trả";
+            // 
+            // date_expirary
+            // 
+            this.date_expirary.CustomFormat = "dd/MM/yyyy";
+            this.date_expirary.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_expirary.Location = new System.Drawing.Point(87, 147);
+            this.date_expirary.Name = "date_expirary";
+            this.date_expirary.Size = new System.Drawing.Size(190, 20);
+            this.date_expirary.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "return_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "return_id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "issue_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "issue_id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "date_return";
+            this.dataGridViewTextBoxColumn3.HeaderText = "date_return";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "staff_id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "staff_id";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "book_id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "book_id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dateexpiraryDataGridViewTextBoxColumn
+            // 
+            this.dateexpiraryDataGridViewTextBoxColumn.DataPropertyName = "date_expirary";
+            this.dateexpiraryDataGridViewTextBoxColumn.HeaderText = "date_expirary";
+            this.dateexpiraryDataGridViewTextBoxColumn.Name = "dateexpiraryDataGridViewTextBoxColumn";
+            this.dateexpiraryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // @return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 413);
+            this.ClientSize = new System.Drawing.Size(1135, 447);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataView);
             this.Name = "@return";
@@ -519,10 +550,13 @@
         private QLThuVienDataSet qLThuVienDataSet;
         private System.Windows.Forms.BindingSource givebackBindingSource;
         private QLThuVienDataSetTableAdapters.givebackTableAdapter givebackTableAdapter;
+        private System.Windows.Forms.DateTimePicker date_expirary;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateexpiraryDataGridViewTextBoxColumn;
     }
 }

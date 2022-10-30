@@ -104,18 +104,41 @@ namespace QLThuVien.APP
                 return;
             }
 
+            //dieuKien = 0;
+            //DataSet ds = new DataSet();
+            //string strSQL = "select * from borrow where issue_id in( select issue_id from giveback where borrow.date_expirary="+date_expirary.Value+")";
+            //SqlDataAdapter da = new SqlDataAdapter(strSQL, con);
+            //da.Fill(ds, "borrow");
+            //DataTable table = ds.Tables[0];
+            //foreach (DataRow row in table.Rows)
+            //{
+            //    dieuKien++;
+            //}
+
             else
             {
                 string sqlThem = "INSERT INTO giveback " +
-                                "VALUES (@return_id, @issue_id, @date_return, @staff_id, @book_id)";
+                                "VALUES (@return_id, @issue_id, @date_return, @staff_id, @book_id, @date_expirary)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("return_id", tbReturn_id.Text);
                 cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
                 cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
                 cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
                 cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
+                cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
                 cmd.ExecuteNonQuery();
                 HienThi();
+            }
+
+            DateTime ngayhentra = date_expirary.Value;
+            DateTime ngaytra = dateReturn.Value;
+            if (ngaytra <= ngayhentra)
+            {
+                MessageBox.Show("Đúng hạn");
+            }
+            else
+            {
+                MessageBox.Show("Quá hạn !");
             }
         }
 
@@ -151,7 +174,7 @@ namespace QLThuVien.APP
             else
             {
                 string sqlThem = "update giveback " +
-                                    "set return_id=@return_id, issue_id=@issue_id, date_return=@date_return, staff_id=@staff_id, book_id=@book_id " +
+                                    "set return_id=@return_id, issue_id=@issue_id, date_return=@date_return, staff_id=@staff_id, book_id=@book_id, date_expirary=@date_expirary " +
                                     "where return_id=@return_id";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("return_id", tbReturn_id.Text);
@@ -159,6 +182,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
                 cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
                 cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
+                cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
                 cmd.ExecuteNonQuery();
                 HienThi();
                 dieuKien = 0;
@@ -181,6 +205,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
             cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
             cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
+            cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
             cmd.ExecuteNonQuery();
             HienThi();
         }
@@ -202,6 +227,7 @@ namespace QLThuVien.APP
             //cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
             cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("book_id", tbNoiDungTimKiem.Text);
+            //cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -255,6 +281,8 @@ namespace QLThuVien.APP
                     obj.date_return = dt.Rows[i]["date_return"].ToString();
                     obj.staff_id = dt.Rows[i]["staff_id"].ToString();
                     obj.book_id = dt.Rows[i]["book_id"].ToString();
+                    obj.date_expirary = dt.Rows[i]["date_expirary"].ToString();
+
                     list.Add(obj);
                 }
                 givebackBindingSource.DataSource = list;

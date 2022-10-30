@@ -1455,6 +1455,8 @@ namespace QLThuVien {
             
             private global::System.Data.DataColumn columnbook_id;
             
+            private global::System.Data.DataColumn columndate_expirary;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public givebackDataTable() {
@@ -1530,6 +1532,14 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn date_expiraryColumn {
+                get {
+                    return this.columndate_expirary;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1565,14 +1575,15 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public givebackRow AddgivebackRow(string return_id, string issue_id, System.DateTime date_return, string staff_id, string book_id) {
+            public givebackRow AddgivebackRow(string return_id, string issue_id, System.DateTime date_return, string staff_id, string book_id, System.DateTime date_expirary) {
                 givebackRow rowgivebackRow = ((givebackRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         return_id,
                         issue_id,
                         date_return,
                         staff_id,
-                        book_id};
+                        book_id,
+                        date_expirary};
                 rowgivebackRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgivebackRow);
                 return rowgivebackRow;
@@ -1607,6 +1618,7 @@ namespace QLThuVien {
                 this.columndate_return = base.Columns["date_return"];
                 this.columnstaff_id = base.Columns["staff_id"];
                 this.columnbook_id = base.Columns["book_id"];
+                this.columndate_expirary = base.Columns["date_expirary"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1622,6 +1634,8 @@ namespace QLThuVien {
                 base.Columns.Add(this.columnstaff_id);
                 this.columnbook_id = new global::System.Data.DataColumn("book_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbook_id);
+                this.columndate_expirary = new global::System.Data.DataColumn("date_expirary", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate_expirary);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnreturn_id}, true));
                 this.columnreturn_id.AllowDBNull = false;
@@ -3408,6 +3422,22 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime date_expirary {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablegiveback.date_expiraryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'date_expirary\' in table \'giveback\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegiveback.date_expiraryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isissue_idNull() {
                 return this.IsNull(this.tablegiveback.issue_idColumn);
             }
@@ -3452,6 +3482,18 @@ namespace QLThuVien {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setbook_idNull() {
                 this[this.tablegiveback.book_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdate_expiraryNull() {
+                return this.IsNull(this.tablegiveback.date_expiraryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdate_expiraryNull() {
+                this[this.tablegiveback.date_expiraryColumn] = global::System.Convert.DBNull;
             }
         }
         
