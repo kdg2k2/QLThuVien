@@ -148,10 +148,10 @@
     <Compile Include="APP\student.Designer.cs">
       <DependentUpon>student.cs</DependentUpon>
     </Compile>
-    <Compile Include="basicForm.cs">
+    <Compile Include="APP\basicForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="basicForm.Designer.cs">
+    <Compile Include="APP\basicForm.Designer.cs">
       <DependentUpon>basicForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\DBConnect.cs" />
@@ -163,10 +163,10 @@
     <Compile Include="DTO\DTO_giveback.cs" />
     <Compile Include="DTO\DTO_staff.cs" />
     <Compile Include="DTO\DTO_student.cs" />
-    <Compile Include="adminForm.cs">
+    <Compile Include="APP\adminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminForm.Designer.cs">
+    <Compile Include="APP\adminForm.Designer.cs">
       <DependentUpon>adminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -209,10 +209,10 @@
     <EmbeddedResource Include="APP\student.resx">
       <DependentUpon>student.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="adminForm.resx">
+    <EmbeddedResource Include="APP\adminForm.resx">
       <DependentUpon>adminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="basicForm.resx">
+    <EmbeddedResource Include="APP\basicForm.resx">
       <DependentUpon>basicForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
