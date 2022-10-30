@@ -238,7 +238,7 @@ namespace QLThuVien.APP
         {
             if (String.IsNullOrEmpty(tbFileName.Text))
             {
-                MessageBox.Show("Bạn phải chọn tệp dữ liệu để nhập vào");
+                MessageBox.Show("Bạn phải chọn tệp excel để nhập vào");
                 return;
             }
 
@@ -253,7 +253,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported thành công");
+                    MessageBox.Show("Import thành công");
                     HienThi();
                 }
             }
