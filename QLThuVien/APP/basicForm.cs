@@ -54,5 +54,11 @@ namespace QLThuVien
             designation b = new designation();
             b.ShowDialog();
         }
+
+        private void picBaoCao_Click(object sender, EventArgs e)
+        {
+            report_muontra b = new report_muontra();
+            b.ShowDialog();
+        }
     }
 }

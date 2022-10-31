@@ -40,18 +40,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.PicStudent = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.picBaoCao = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGiveback)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBaoCao)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(88, 147);
+            this.label8.Location = new System.Drawing.Point(26, 136);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 16);
             this.label8.TabIndex = 10;
@@ -61,7 +64,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(225, 147);
+            this.label7.Location = new System.Drawing.Point(163, 136);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 16);
             this.label7.TabIndex = 11;
@@ -100,7 +103,7 @@
             // picGiveback
             // 
             this.picGiveback.Image = ((System.Drawing.Image)(resources.GetObject("picGiveback.Image")));
-            this.picGiveback.Location = new System.Drawing.Point(207, 82);
+            this.picGiveback.Location = new System.Drawing.Point(145, 71);
             this.picGiveback.Name = "picGiveback";
             this.picGiveback.Size = new System.Drawing.Size(65, 62);
             this.picGiveback.TabIndex = 7;
@@ -120,7 +123,7 @@
             // picBorrow
             // 
             this.picBorrow.Image = ((System.Drawing.Image)(resources.GetObject("picBorrow.Image")));
-            this.picBorrow.Location = new System.Drawing.Point(76, 82);
+            this.picBorrow.Location = new System.Drawing.Point(14, 71);
             this.picBorrow.Name = "picBorrow";
             this.picBorrow.Size = new System.Drawing.Size(65, 62);
             this.picBorrow.TabIndex = 9;
@@ -157,11 +160,33 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Quản Lý Sách";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(277, 138);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 16);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Thống Kê";
+            // 
+            // picBaoCao
+            // 
+            this.picBaoCao.Image = ((System.Drawing.Image)(resources.GetObject("picBaoCao.Image")));
+            this.picBaoCao.Location = new System.Drawing.Point(275, 71);
+            this.picBaoCao.Name = "picBaoCao";
+            this.picBaoCao.Size = new System.Drawing.Size(65, 62);
+            this.picBaoCao.TabIndex = 17;
+            this.picBaoCao.TabStop = false;
+            this.picBaoCao.Click += new System.EventHandler(this.picBaoCao_Click);
+            // 
             // basicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 261);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.picBaoCao);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PicStudent);
@@ -182,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBaoCao)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +226,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox PicStudent;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox picBaoCao;
     }
 }
