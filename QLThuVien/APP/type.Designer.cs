@@ -126,7 +126,7 @@
             // 
             // btTimFile
             // 
-            this.btTimFile.Location = new System.Drawing.Point(301, 177);
+            this.btTimFile.Location = new System.Drawing.Point(302, 148);
             this.btTimFile.Name = "btTimFile";
             this.btTimFile.Size = new System.Drawing.Size(37, 23);
             this.btTimFile.TabIndex = 195;

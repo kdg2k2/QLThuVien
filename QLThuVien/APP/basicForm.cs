@@ -51,7 +51,7 @@ namespace QLThuVien
 
         private void picType_Click(object sender, EventArgs e)
         {
-            designation b = new designation();
+            type b = new type();
             b.ShowDialog();
         }
 

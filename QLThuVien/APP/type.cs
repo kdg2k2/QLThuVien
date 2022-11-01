@@ -237,7 +237,7 @@ namespace QLThuVien.APP
             worksheet = workbook.Sheets["Sheet1"];
             worksheet = workbook.ActiveSheet;
             // changing the name of active sheet  
-            worksheet.Name = "staff";
+            worksheet.Name = "type";
             // storing header part in Excel  
             for (int i = 1; i < dataView.Columns.Count + 1; i++)
             {

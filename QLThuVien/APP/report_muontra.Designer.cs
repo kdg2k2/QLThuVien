@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.borrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.givebackBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.borrowTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.borrowTableAdapter();
             this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
             this.dataView_ChuaTraSach = new System.Windows.Forms.DataGridView();
@@ -44,12 +41,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView_BangTra = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
+            this.dataView_MuonNhieuNhat = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataView_ChuaTraSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangMuon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangTra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView_MuonNhieuNhat)).BeginInit();
             this.SuspendLayout();
             // 
             // borrowBindingSource
@@ -66,21 +66,6 @@
             // 
             this.givebackBindingSource.DataMember = "giveback";
             this.givebackBindingSource.DataSource = this.qLThuVienDataSet;
-            // 
-            // reportViewer1
-            // 
-            reportDataSource5.Name = "DataSet_borrow";
-            reportDataSource5.Value = this.borrowBindingSource;
-            reportDataSource6.Name = "DataSet_giveback";
-            reportDataSource6.Value = this.givebackBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource6);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "QLThuVien.APP.Report_Muon_Tra.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(385, 4);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(240, 103);
-            this.reportViewer1.TabIndex = 0;
             // 
             // borrowTableAdapter
             // 
@@ -138,9 +123,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 18);
+            this.label3.Size = new System.Drawing.Size(69, 18);
             this.label3.TabIndex = 176;
-            this.label3.Text = "Bảng Mượn";
+            this.label3.Text = "Đã Mượn";
             // 
             // dataGridView_BangTra
             // 
@@ -159,15 +144,35 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(331, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 18);
+            this.label4.Size = new System.Drawing.Size(53, 18);
             this.label4.TabIndex = 179;
-            this.label4.Text = "Bảng Mượn";
+            this.label4.Text = "Đã Trả";
+            // 
+            // dataView_MuonNhieuNhat
+            // 
+            this.dataView_MuonNhieuNhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView_MuonNhieuNhat.Location = new System.Drawing.Point(372, 39);
+            this.dataView_MuonNhieuNhat.Name = "dataView_MuonNhieuNhat";
+            this.dataView_MuonNhieuNhat.Size = new System.Drawing.Size(254, 72);
+            this.dataView_MuonNhieuNhat.TabIndex = 180;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(369, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(186, 18);
+            this.label5.TabIndex = 181;
+            this.label5.Text = "Mã Sách Mượn Nhiều Nhất";
             // 
             // report_muontra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 543);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dataView_MuonNhieuNhat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView_BangTra);
             this.Controls.Add(this.label2);
@@ -175,7 +180,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_BangMuon);
             this.Controls.Add(this.dataView_ChuaTraSach);
-            this.Controls.Add(this.reportViewer1);
             this.Name = "report_muontra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "report_muontra";
@@ -187,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataView_ChuaTraSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangMuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangTra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView_MuonNhieuNhat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,7 +199,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private QLThuVienDataSet qLThuVienDataSet;
         private System.Windows.Forms.BindingSource borrowBindingSource;
         private QLThuVienDataSetTableAdapters.borrowTableAdapter borrowTableAdapter;
@@ -207,5 +211,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView_BangTra;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataView_MuonNhieuNhat;
+        private System.Windows.Forms.Label label5;
     }
 }

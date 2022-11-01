@@ -22,15 +22,11 @@ namespace QLThuVien.APP
 
         private void report_muontra_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLThuVienDataSet.giveback' table. You can move, or remove it, as needed.
-            this.givebackTableAdapter.Fill(this.qLThuVienDataSet.giveback);
-            // TODO: This line of code loads data into the 'qLThuVienDataSet.borrow' table. You can move, or remove it, as needed.
-            this.borrowTableAdapter.Fill(this.qLThuVienDataSet.borrow);
-            this.reportViewer1.RefreshReport();
             con.Open();
             SinhVienChuaTraSach();
             BangMuon();
             BangTra();
+            BangMuonNhieuNhat();
         }
         SqlConnection con = DBConnect.GetDBConnection();
         public void SinhVienChuaTraSach()
@@ -68,6 +64,16 @@ namespace QLThuVien.APP
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Load(dr);
             dataGridView_BangTra.DataSource = dt;
+        }
+
+        public void BangMuonNhieuNhat()
+        {
+            string sqlSelect = "select TOP 1 T.book_id, max(T.mycount) as max   FROM(SELECT book_id, count(student_id) as mycount   FROM borrow GROUP BY book_id) AS T  group by t.book_id, mycount order by mycount desc";
+            SqlCommand cmd = new SqlCommand(sqlSelect, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt.Load(dr);
+            dataView_MuonNhieuNhat.DataSource = dt;
         }
 
         private void report_muontra_FormClosing(object sender, FormClosingEventArgs e)
