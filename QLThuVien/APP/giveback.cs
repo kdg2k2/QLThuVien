@@ -1,5 +1,6 @@
 ﻿using ClosedXML.Excel;
 using ExcelDataReader;
+using QLThuVien.BLL;
 using QLThuVien.DAL;
 using QLThuVien.DTO;
 using System;
@@ -25,7 +26,7 @@ namespace QLThuVien.APP
         }
 
         SqlConnection con = DBConnect.GetDBConnection();
-
+        SLSach sl = new SLSach();
         public void HienThi()
         {
             string sqlSelect = "select * from giveback";
@@ -104,17 +105,6 @@ namespace QLThuVien.APP
                 return;
             }
 
-            //dieuKien = 0;
-            //DataSet ds = new DataSet();
-            //string strSQL = "select * from borrow where issue_id in( select issue_id from giveback where borrow.date_expirary="+date_expirary.Value+")";
-            //SqlDataAdapter da = new SqlDataAdapter(strSQL, con);
-            //da.Fill(ds, "borrow");
-            //DataTable table = ds.Tables[0];
-            //foreach (DataRow row in table.Rows)
-            //{
-            //    dieuKien++;
-            //}
-
             else
             {
                 string sqlThem = "INSERT INTO giveback " +
@@ -127,6 +117,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
                 cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
                 cmd.ExecuteNonQuery();
+                sl.SLGiam(tbBook_id.Text);
                 HienThi();
             }
 
@@ -191,14 +182,14 @@ namespace QLThuVien.APP
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(tbReturn_id.Text))
+            if (String.IsNullOrEmpty(tbReturn_id.Text) || String.IsNullOrEmpty(tbBook_id.Text))
             {
-                MessageBox.Show("Bạn phải nhập mã trả vào");
+                MessageBox.Show("Bạn phải nhập mã trả & mã sách");
                 return;
             }
 
             string sqlThem = "delete from giveback " +
-                                "where return_id=@return_id";
+                                "where return_id=@return_id and book_id=@book_id";
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("return_id", tbReturn_id.Text);
             cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
@@ -207,6 +198,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
             cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
             cmd.ExecuteNonQuery();
+            sl.SLTang(tbBook_id.Text);
             HienThi();
         }
 

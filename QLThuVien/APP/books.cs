@@ -70,7 +70,7 @@ namespace QLThuVien.APP
         
         private void btInsert_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(tbMaSach.Text) || String.IsNullOrEmpty(tbTenSach.Text) || String.IsNullOrEmpty(tbMaLoai.Text) || String.IsNullOrEmpty(tbamount.Text) || String.IsNullOrEmpty(tbTenTacGia.Text))
+            if (String.IsNullOrEmpty(tbMaSach.Text) || String.IsNullOrEmpty(tbTenSach.Text) || String.IsNullOrEmpty(tbMaLoai.Text) || String.IsNullOrEmpty(tbquantity.Text) || String.IsNullOrEmpty(tbTenTacGia.Text))
             {
                 MessageBox.Show("Bạn phải nhập đầy đủ dữ liệu vào");
                 return;
@@ -93,12 +93,12 @@ namespace QLThuVien.APP
             else
             {
                 string sqlThem = "INSERT INTO books " +
-                                                "VALUES (@book_id, @book_name, @type_id, @amount, @author_name)";
+                                                "VALUES (@book_id, @book_name, @type_id, @quantity, @author_name)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
                 cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
                 cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-                cmd.Parameters.AddWithValue("amount", tbamount.Text);
+                cmd.Parameters.AddWithValue("quantity", tbquantity.Text);
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
@@ -108,7 +108,7 @@ namespace QLThuVien.APP
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(tbMaSach.Text) || String.IsNullOrEmpty(tbTenSach.Text) || String.IsNullOrEmpty(tbMaLoai.Text) || String.IsNullOrEmpty(tbamount.Text) || String.IsNullOrEmpty(tbTenTacGia.Text))
+            if (String.IsNullOrEmpty(tbMaSach.Text) || String.IsNullOrEmpty(tbTenSach.Text) || String.IsNullOrEmpty(tbMaLoai.Text) || String.IsNullOrEmpty(tbquantity.Text) || String.IsNullOrEmpty(tbTenTacGia.Text))
             {
                 MessageBox.Show("Bạn phải nhập đầy đủ dữ liệu vào");
                 return;
@@ -124,13 +124,13 @@ namespace QLThuVien.APP
             else
             {
                 string sqlThem = "update books " +
-                                "set book_id=@book_id, book_name=@book_name, type_id=@type_id, amount=@amount, author_name=@author_name " +
+                                "set book_id=@book_id, book_name=@book_name, type_id=@type_id, quantity=@quantity, author_name=@author_name " +
                                 "where book_id=@book_id";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
                 cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
                 cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-                cmd.Parameters.AddWithValue("amount", tbamount.Text);
+                cmd.Parameters.AddWithValue("quantity", tbquantity.Text);
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
                 HienThi();
@@ -152,7 +152,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("book_id", tbMaSach.Text);
             cmd.Parameters.AddWithValue("book_name", tbTenSach.Text);
             cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
-            cmd.Parameters.AddWithValue("amount", tbamount.Text);
+            cmd.Parameters.AddWithValue("quantity", tbquantity.Text);
             cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
             cmd.ExecuteNonQuery();
             HienThi();
@@ -167,13 +167,13 @@ namespace QLThuVien.APP
             }
             string sqlTimKiem = "SELECT * " +
                                     "FROM books " +
-                                    "WHERE book_id like N'%" + tbNoiDungTimKiem.Text + "%' or book_name like N'%" + tbNoiDungTimKiem.Text + "%' or type_id like N'%" + tbNoiDungTimKiem.Text + "%' or amount like N'%" + tbNoiDungTimKiem.Text + "%' or author_name like N'%" + tbNoiDungTimKiem.Text + "%'";
+                                    "WHERE book_id like N'%" + tbNoiDungTimKiem.Text + "%' or book_name like N'%" + tbNoiDungTimKiem.Text + "%' or type_id like N'%" + tbNoiDungTimKiem.Text + "%' or quantity like N'%" + tbNoiDungTimKiem.Text + "%' or author_name like N'%" + tbNoiDungTimKiem.Text + "%'";
 
             SqlCommand cmd = new SqlCommand(sqlTimKiem, con);
             cmd.Parameters.AddWithValue("book_id", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("book_name", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("type_id", tbNoiDungTimKiem.Text);
-            cmd.Parameters.AddWithValue("amount", tbNoiDungTimKiem.Text);
+            cmd.Parameters.AddWithValue("quantity", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("author_name", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -226,7 +226,7 @@ namespace QLThuVien.APP
                     obj.book_id = dt.Rows[i]["book_id"].ToString();
                     obj.book_name = dt.Rows[i]["book_name"].ToString();
                     obj.type_id = dt.Rows[i]["type_id"].ToString();
-                    obj.amount = dt.Rows[i]["amount"].ToString();
+                    obj.quantity = dt.Rows[i]["quantity"].ToString();
                     obj.author_name = dt.Rows[i]["author_name"].ToString();
                     list.Add(obj);
                 }
@@ -300,7 +300,7 @@ namespace QLThuVien.APP
             this.tbTenTacGia.Clear();
             this.tbTenSach.Clear();
             this.tbFileName.Clear();
-            this.tbamount.Clear();
+            this.tbquantity.Clear();
             this.tbMaLoai.Clear();
             this.tbNoiDungTimKiem.Clear();
             HienThi();

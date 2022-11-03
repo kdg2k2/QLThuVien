@@ -73,7 +73,7 @@ SELECT book_id, book_name, type_id, amount, author_name FROM books WHERE (book_i
               <Mapping SourceColumn="book_id" DataSetColumn="book_id" />
               <Mapping SourceColumn="book_name" DataSetColumn="book_name" />
               <Mapping SourceColumn="type_id" DataSetColumn="type_id" />
-              <Mapping SourceColumn="amount" DataSetColumn="amount" />
+              <Mapping SourceColumn="amount" DataSetColumn="quantity" />
               <Mapping SourceColumn="author_name" DataSetColumn="author_name" />
             </Mappings>
             <Sources />
@@ -547,7 +547,7 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_UserColumnName="amount" msprop:Generator_ColumnVarNameInTable="columnamount" type="xs:short" minOccurs="0" />
+              <xs:element name="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_UserColumnName="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" type="xs:short" minOccurs="0" />
               <xs:element name="author_name" msprop:Generator_ColumnPropNameInTable="author_nameColumn" msprop:Generator_ColumnPropNameInRow="author_name" msprop:Generator_UserColumnName="author_name" msprop:Generator_ColumnVarNameInTable="columnauthor_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -616,7 +616,7 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="book_id" msprop:Generator_ColumnPropNameInTable="book_idColumn" msprop:Generator_ColumnPropNameInRow="book_id" msprop:Generator_UserColumnName="book_id" msprop:Generator_ColumnVarNameInTable="columnbook_id" type="xs:string" minOccurs="0" />
-              <xs:element name="date_expirary" msprop:Generator_ColumnPropNameInRow="date_expirary" msprop:Generator_ColumnPropNameInTable="date_expiraryColumn" msprop:Generator_ColumnVarNameInTable="columndate_expirary" msprop:Generator_UserColumnName="date_expirary" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_expirary" msprop:Generator_UserColumnName="date_expirary" msprop:Generator_ColumnPropNameInTable="date_expiraryColumn" msprop:Generator_ColumnPropNameInRow="date_expirary" msprop:Generator_ColumnVarNameInTable="columndate_expirary" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

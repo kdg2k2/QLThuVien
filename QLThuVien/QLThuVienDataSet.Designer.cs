@@ -530,7 +530,7 @@ namespace QLThuVien {
             
             private global::System.Data.DataColumn columntype_id;
             
-            private global::System.Data.DataColumn columnamount;
+            private global::System.Data.DataColumn columnquantity;
             
             private global::System.Data.DataColumn columnauthor_name;
             
@@ -593,9 +593,9 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn amountColumn {
+            public global::System.Data.DataColumn quantityColumn {
                 get {
-                    return this.columnamount;
+                    return this.columnquantity;
                 }
             }
             
@@ -644,13 +644,13 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public booksRow AddbooksRow(string book_id, string book_name, string type_id, short amount, string author_name) {
+            public booksRow AddbooksRow(string book_id, string book_name, string type_id, short quantity, string author_name) {
                 booksRow rowbooksRow = ((booksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         book_id,
                         book_name,
                         type_id,
-                        amount,
+                        quantity,
                         author_name};
                 rowbooksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowbooksRow);
@@ -684,7 +684,7 @@ namespace QLThuVien {
                 this.columnbook_id = base.Columns["book_id"];
                 this.columnbook_name = base.Columns["book_name"];
                 this.columntype_id = base.Columns["type_id"];
-                this.columnamount = base.Columns["amount"];
+                this.columnquantity = base.Columns["quantity"];
                 this.columnauthor_name = base.Columns["author_name"];
             }
             
@@ -697,8 +697,8 @@ namespace QLThuVien {
                 base.Columns.Add(this.columnbook_name);
                 this.columntype_id = new global::System.Data.DataColumn("type_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntype_id);
-                this.columnamount = new global::System.Data.DataColumn("amount", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnamount);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantity);
                 this.columnauthor_name = new global::System.Data.DataColumn("author_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnauthor_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -3032,17 +3032,17 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short amount {
+            public short quantity {
                 get {
                     try {
-                        return ((short)(this[this.tablebooks.amountColumn]));
+                        return ((short)(this[this.tablebooks.quantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'amount\' in table \'books\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'quantity\' in table \'books\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebooks.amountColumn] = value;
+                    this[this.tablebooks.quantityColumn] = value;
                 }
             }
             
@@ -3088,14 +3088,14 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsamountNull() {
-                return this.IsNull(this.tablebooks.amountColumn);
+            public bool IsquantityNull() {
+                return this.IsNull(this.tablebooks.quantityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetamountNull() {
-                this[this.tablebooks.amountColumn] = global::System.Convert.DBNull;
+            public void SetquantityNull() {
+                this[this.tablebooks.quantityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4275,7 +4275,7 @@ namespace QLThuVien.QLThuVienDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("book_id", "book_id");
             tableMapping.ColumnMappings.Add("book_name", "book_name");
             tableMapping.ColumnMappings.Add("type_id", "type_id");
-            tableMapping.ColumnMappings.Add("amount", "amount");
+            tableMapping.ColumnMappings.Add("amount", "quantity");
             tableMapping.ColumnMappings.Add("author_name", "author_name");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
