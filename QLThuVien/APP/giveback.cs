@@ -308,7 +308,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported thành công");
+                    MessageBox.Show("Import thành công");
                     HienThi();
                 }
             }

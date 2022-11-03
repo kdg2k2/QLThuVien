@@ -212,7 +212,7 @@ namespace QLThuVien.APP
                     {
                         db.BulkInsert(temp);
                     }
-                    MessageBox.Show("Imported thành công");
+                    MessageBox.Show("Import thành công");
                     HienThi();
                 }
             }
@@ -224,26 +224,26 @@ namespace QLThuVien.APP
 
         private void btExport_Click(object sender, EventArgs e)
         {
-            // creating Excel Application  
+            // khởi tạo Excel Application  
             Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            // creating new WorkBook within Excel application  
+            // tạo WorkBook mới trong Excel Application 
             Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            // creating new Excelsheet in workbook  
+            // tạo Excelsheet mới  
             Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            // see the excel sheet behind the program  
+            // mở bảng excel đằng sau chương trình
             app.Visible = true;
-            // get the reference of first sheet. By default its name is Sheet1.  
-            // store its reference to worksheet  
+            // lấy tham chiếu của trang tính đầu tiên. Theo mặc định, tên của nó là Sheet1  
             worksheet = workbook.Sheets["Sheet1"];
+            // lưu trữ tham chiếu của nó vào sheet 
             worksheet = workbook.ActiveSheet;
-            // changing the name of active sheet  
+            // thay đổi tên của sheet  
             worksheet.Name = "type";
-            // storing header part in Excel  
+            // lấy tên cột
             for (int i = 1; i < dataView.Columns.Count + 1; i++)
             {
                 worksheet.Cells[1, i] = dataView.Columns[i - 1].HeaderText;
             }
-            // storing Each row and column value to excel sheet  
+            // lưu trữ từng giá trị hàng và cột vào sheet 
             for (int i = 0; i < dataView.Rows.Count; i++)
             {
                 for (int j = 0; j < dataView.Columns.Count; j++)
@@ -264,16 +264,6 @@ namespace QLThuVien.APP
         private void type_FormClosing(object sender, FormClosingEventArgs e)
         {
             con.Close();
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

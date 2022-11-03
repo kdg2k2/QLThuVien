@@ -309,7 +309,6 @@
             this.groupBox1.TabIndex = 202;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
@@ -335,7 +334,6 @@
             this.groupBox2.TabIndex = 203;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " ";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label5
             // 
