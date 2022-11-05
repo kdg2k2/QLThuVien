@@ -230,6 +230,7 @@ namespace QLThuVien.APP
             this.tbDesignation_id.Clear();
             this.tbAddress.Clear();
             this.tbPhone.Clear();
+            this.tbNoiDungTimKiem.Clear();
             HienThi();
         }
 

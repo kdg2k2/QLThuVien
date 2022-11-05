@@ -97,7 +97,6 @@ namespace QLThuVien.APP
 
                 //Mã Hoá
                 MD5_algorithm md5 = new MD5_algorithm();
-                //cmd.Parameters.AddWithValue("student_id", md5.MaHoaString(tbMaSV.Text,"NguyenKhaDang"));
                 cmd.Parameters.AddWithValue("student_id", tbMaSV.Text);
                 cmd.Parameters.AddWithValue("studentname", md5.MaHoaString(tbTenSV.Text, "NguyenKhaDang"));
                 cmd.Parameters.AddWithValue("phone", md5.MaHoaString(tbSDT.Text, "NguyenKhaDang"));
@@ -124,7 +123,7 @@ namespace QLThuVien.APP
 
             //Mã Hoá
             MD5_algorithm md5 = new MD5_algorithm();
-            cmd.Parameters.AddWithValue("student_id", md5.MaHoaString(tbMaSV.Text, "NguyenKhaDang"));
+            cmd.Parameters.AddWithValue("student_id", tbMaSV.Text);
             cmd.Parameters.AddWithValue("studentname", md5.MaHoaString(tbTenSV.Text, "NguyenKhaDang"));
             cmd.Parameters.AddWithValue("phone", md5.MaHoaString(tbSDT.Text, "NguyenKhaDang"));
             cmd.ExecuteNonQuery();

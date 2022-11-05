@@ -42,7 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btTimKiem = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
             this.tbNoiDungTimKiem = new System.Windows.Forms.TextBox();
             this.btUpdate = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -52,6 +51,14 @@
             this.tbIssue_id = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbStudent_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbBook_id = new System.Windows.Forms.TextBox();
@@ -63,21 +70,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
-            this.borrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.borrowTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.borrowTableAdapter();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btExport
@@ -202,16 +201,6 @@
             this.btTimKiem.UseVisualStyleBackColor = true;
             this.btTimKiem.Click += new System.EventHandler(this.btTimKiem_Click);
             // 
-            // btDelete
-            // 
-            this.btDelete.Location = new System.Drawing.Point(6, 126);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(103, 37);
-            this.btDelete.TabIndex = 217;
-            this.btDelete.Text = "Delete";
-            this.btDelete.UseVisualStyleBackColor = true;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
-            // 
             // tbNoiDungTimKiem
             // 
             this.tbNoiDungTimKiem.Location = new System.Drawing.Point(193, 38);
@@ -221,7 +210,7 @@
             // 
             // btUpdate
             // 
-            this.btUpdate.Location = new System.Drawing.Point(6, 77);
+            this.btUpdate.Location = new System.Drawing.Point(6, 113);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(103, 37);
             this.btUpdate.TabIndex = 216;
@@ -258,7 +247,7 @@
             // 
             // btInsert
             // 
-            this.btInsert.Location = new System.Drawing.Point(6, 25);
+            this.btInsert.Location = new System.Drawing.Point(6, 43);
             this.btInsert.Name = "btInsert";
             this.btInsert.Size = new System.Drawing.Size(103, 37);
             this.btInsert.TabIndex = 205;
@@ -301,6 +290,58 @@
             this.dataView.ReadOnly = true;
             this.dataView.Size = new System.Drawing.Size(645, 194);
             this.dataView.TabIndex = 202;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "issue_id";
+            this.dataGridViewTextBoxColumn3.HeaderText = "issue_id";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "book_id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "book_id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "date_issue";
+            this.dataGridViewTextBoxColumn9.HeaderText = "date_issue";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "date_expirary";
+            this.dataGridViewTextBoxColumn10.HeaderText = "date_expirary";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "student_id";
+            this.dataGridViewTextBoxColumn11.HeaderText = "student_id";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "staff_id";
+            this.dataGridViewTextBoxColumn12.HeaderText = "staff_id";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // borrowBindingSource
+            // 
+            this.borrowBindingSource.DataMember = "borrow";
+            this.borrowBindingSource.DataSource = this.qLThuVienDataSet;
+            // 
+            // qLThuVienDataSet
+            // 
+            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
+            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbStudent_id
             // 
@@ -389,7 +430,6 @@
             this.groupBox2.Controls.Add(this.btUpdate);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.tbNoiDungTimKiem);
-            this.groupBox2.Controls.Add(this.btDelete);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btTimKiem);
             this.groupBox2.Controls.Add(this.label1);
@@ -428,61 +468,9 @@
             this.label13.TabIndex = 203;
             this.label13.Text = "Quản Lý Mượn Sách";
             // 
-            // qLThuVienDataSet
-            // 
-            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
-            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // borrowBindingSource
-            // 
-            this.borrowBindingSource.DataMember = "borrow";
-            this.borrowBindingSource.DataSource = this.qLThuVienDataSet;
-            // 
             // borrowTableAdapter
             // 
             this.borrowTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "issue_id";
-            this.dataGridViewTextBoxColumn3.HeaderText = "issue_id";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "book_id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "book_id";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "date_issue";
-            this.dataGridViewTextBoxColumn9.HeaderText = "date_issue";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "date_expirary";
-            this.dataGridViewTextBoxColumn10.HeaderText = "date_expirary";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "student_id";
-            this.dataGridViewTextBoxColumn11.HeaderText = "student_id";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "staff_id";
-            this.dataGridViewTextBoxColumn12.HeaderText = "staff_id";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // borrow
             // 
@@ -498,14 +486,14 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.issue_FormClosing);
             this.Load += new System.EventHandler(this.issue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -524,7 +512,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btTimKiem;
-        private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.TextBox tbNoiDungTimKiem;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Label label11;

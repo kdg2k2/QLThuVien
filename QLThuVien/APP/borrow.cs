@@ -177,28 +177,6 @@ namespace QLThuVien.APP
             }
         }
 
-        private void btDelete_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(tbIssue_id.Text) || String.IsNullOrEmpty(tbBook_id.Text))
-            {
-                MessageBox.Show("Bạn phải nhập mã mượn & mã sách");
-                return;
-            }
-
-            string sqlThem = "delete from borrow " +
-                                "where issue_id=@issue_id and book_id=@book_id";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
-            cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
-            cmd.Parameters.AddWithValue("date_issue", dateIssue.Value);
-            cmd.Parameters.AddWithValue("date_expirary", dateExpirary.Value);
-            cmd.Parameters.AddWithValue("student_id", tbStudent_id.Text);
-            cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
-            cmd.ExecuteNonQuery();
-            sl.SLTang(tbBook_id.Text);
-            HienThi();
-        }
-
         private void btTimKiem_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(tbNoiDungTimKiem.Text))

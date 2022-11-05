@@ -43,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btTimKiem = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
             this.tbNoiDungTimKiem = new System.Windows.Forms.TextBox();
             this.btUpdate = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,6 +51,12 @@
             this.tbReturn_id = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateexpiraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.givebackBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbBook_id = new System.Windows.Forms.TextBox();
@@ -60,18 +65,12 @@
             this.tbStaff = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.date_expirary = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
-            this.label12 = new System.Windows.Forms.Label();
-            this.date_expirary = new System.Windows.Forms.DateTimePicker();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateexpiraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -211,16 +210,6 @@
             this.btTimKiem.UseVisualStyleBackColor = true;
             this.btTimKiem.Click += new System.EventHandler(this.btTimKiem_Click);
             // 
-            // btDelete
-            // 
-            this.btDelete.Location = new System.Drawing.Point(312, 100);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(103, 37);
-            this.btDelete.TabIndex = 248;
-            this.btDelete.Text = "Delete";
-            this.btDelete.UseVisualStyleBackColor = true;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
-            // 
             // tbNoiDungTimKiem
             // 
             this.tbNoiDungTimKiem.Location = new System.Drawing.Point(89, 23);
@@ -230,7 +219,7 @@
             // 
             // btUpdate
             // 
-            this.btUpdate.Location = new System.Drawing.Point(312, 57);
+            this.btUpdate.Location = new System.Drawing.Point(312, 103);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(103, 37);
             this.btUpdate.TabIndex = 247;
@@ -258,7 +247,7 @@
             // 
             // btInsert
             // 
-            this.btInsert.Location = new System.Drawing.Point(312, 14);
+            this.btInsert.Location = new System.Drawing.Point(312, 31);
             this.btInsert.Name = "btInsert";
             this.btInsert.Size = new System.Drawing.Size(103, 37);
             this.btInsert.TabIndex = 236;
@@ -301,6 +290,48 @@
             this.dataView.ReadOnly = true;
             this.dataView.Size = new System.Drawing.Size(643, 425);
             this.dataView.TabIndex = 233;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "return_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "return_id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "issue_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "issue_id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "date_return";
+            this.dataGridViewTextBoxColumn3.HeaderText = "date_return";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "staff_id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "staff_id";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "book_id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "book_id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dateexpiraryDataGridViewTextBoxColumn
+            // 
+            this.dateexpiraryDataGridViewTextBoxColumn.DataPropertyName = "date_expirary";
+            this.dateexpiraryDataGridViewTextBoxColumn.HeaderText = "date_expirary";
+            this.dateexpiraryDataGridViewTextBoxColumn.Name = "dateexpiraryDataGridViewTextBoxColumn";
+            this.dateexpiraryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // givebackBindingSource
             // 
@@ -361,7 +392,6 @@
             this.groupBox1.Controls.Add(this.tbIssue_id);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbStaff);
-            this.groupBox1.Controls.Add(this.btDelete);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.tbReturn_id);
@@ -374,6 +404,24 @@
             this.groupBox1.TabIndex = 264;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
+            // 
+            // date_expirary
+            // 
+            this.date_expirary.CustomFormat = "dd/MM/yyyy";
+            this.date_expirary.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_expirary.Location = new System.Drawing.Point(87, 147);
+            this.date_expirary.Name = "date_expirary";
+            this.date_expirary.Size = new System.Drawing.Size(190, 20);
+            this.date_expirary.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 150);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 13);
+            this.label12.TabIndex = 242;
+            this.label12.Text = "Hạn Trả";
             // 
             // groupBox2
             // 
@@ -424,66 +472,6 @@
             // 
             this.givebackTableAdapter.ClearBeforeFill = true;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 150);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 13);
-            this.label12.TabIndex = 242;
-            this.label12.Text = "Hạn Trả";
-            // 
-            // date_expirary
-            // 
-            this.date_expirary.CustomFormat = "dd/MM/yyyy";
-            this.date_expirary.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date_expirary.Location = new System.Drawing.Point(87, 147);
-            this.date_expirary.Name = "date_expirary";
-            this.date_expirary.Size = new System.Drawing.Size(190, 20);
-            this.date_expirary.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "return_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "return_id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "issue_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "issue_id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "date_return";
-            this.dataGridViewTextBoxColumn3.HeaderText = "date_return";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "staff_id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "staff_id";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "book_id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "book_id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dateexpiraryDataGridViewTextBoxColumn
-            // 
-            this.dateexpiraryDataGridViewTextBoxColumn.DataPropertyName = "date_expirary";
-            this.dateexpiraryDataGridViewTextBoxColumn.HeaderText = "date_expirary";
-            this.dateexpiraryDataGridViewTextBoxColumn.Name = "dateexpiraryDataGridViewTextBoxColumn";
-            this.dateexpiraryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // @return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,7 +512,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btTimKiem;
-        private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.TextBox tbNoiDungTimKiem;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Label label5;

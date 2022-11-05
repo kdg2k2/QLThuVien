@@ -117,7 +117,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
                 cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
                 cmd.ExecuteNonQuery();
-                sl.SLGiam(tbBook_id.Text);
+                sl.SLTang(tbBook_id.Text);
                 HienThi();
             }
 
@@ -178,28 +178,6 @@ namespace QLThuVien.APP
                 HienThi();
                 dieuKien = 0;
             }
-        }
-
-        private void btDelete_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(tbReturn_id.Text) || String.IsNullOrEmpty(tbBook_id.Text))
-            {
-                MessageBox.Show("Bạn phải nhập mã trả & mã sách");
-                return;
-            }
-
-            string sqlThem = "delete from giveback " +
-                                "where return_id=@return_id and book_id=@book_id";
-            SqlCommand cmd = new SqlCommand(sqlThem, con);
-            cmd.Parameters.AddWithValue("return_id", tbReturn_id.Text);
-            cmd.Parameters.AddWithValue("issue_id", tbIssue_id.Text);
-            cmd.Parameters.AddWithValue("date_return", dateReturn.Value);
-            cmd.Parameters.AddWithValue("staff_id", tbStaff.Text);
-            cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
-            cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
-            cmd.ExecuteNonQuery();
-            sl.SLTang(tbBook_id.Text);
-            HienThi();
         }
 
         private void btTimKiem_Click(object sender, EventArgs e)
