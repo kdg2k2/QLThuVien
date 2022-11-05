@@ -154,9 +154,9 @@
     <Compile Include="APP\basicForm.Designer.cs">
       <DependentUpon>basicForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLL\MD5_algorithm.cs" />
     <Compile Include="BLL\SLSach.cs" />
     <Compile Include="DAL\DBConnect.cs" />
-    <Compile Include="DAL\MD5_algorithm.cs" />
     <Compile Include="DTO\DTO_books.cs" />
     <Compile Include="DTO\DTO_type.cs" />
     <Compile Include="DTO\DTO_designation.cs" />
