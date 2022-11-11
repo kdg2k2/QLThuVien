@@ -467,7 +467,7 @@ SELECT user_id, user_name, password, student_id FROM tbl_user WHERE (user_id = @
               <Mapping SourceColumn="user_id" DataSetColumn="user_id" />
               <Mapping SourceColumn="user_name" DataSetColumn="user_name" />
               <Mapping SourceColumn="password" DataSetColumn="password" />
-              <Mapping SourceColumn="student_id" DataSetColumn="student_id" />
+              <Mapping SourceColumn="student_id" DataSetColumn="email" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -616,7 +616,7 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="book_id" msprop:Generator_ColumnPropNameInTable="book_idColumn" msprop:Generator_ColumnPropNameInRow="book_id" msprop:Generator_UserColumnName="book_id" msprop:Generator_ColumnVarNameInTable="columnbook_id" type="xs:string" minOccurs="0" />
-              <xs:element name="date_expirary" msprop:Generator_UserColumnName="date_expirary" msprop:Generator_ColumnPropNameInTable="date_expiraryColumn" msprop:Generator_ColumnPropNameInRow="date_expirary" msprop:Generator_ColumnVarNameInTable="columndate_expirary" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_expirary" msprop:Generator_ColumnPropNameInTable="date_expiraryColumn" msprop:Generator_ColumnPropNameInRow="date_expirary" msprop:Generator_UserColumnName="date_expirary" msprop:Generator_ColumnVarNameInTable="columndate_expirary" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -713,7 +713,7 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="student_id" msprop:Generator_ColumnPropNameInTable="student_idColumn" msprop:Generator_ColumnPropNameInRow="student_id" msprop:Generator_UserColumnName="student_id" msprop:Generator_ColumnVarNameInTable="columnstudent_id" minOccurs="0">
+              <xs:element name="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_UserColumnName="email" msprop:Generator_ColumnVarNameInTable="columnemail" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

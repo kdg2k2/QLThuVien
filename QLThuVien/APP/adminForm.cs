@@ -71,5 +71,11 @@ namespace QLThuVien
             this.Hide();
             l.ShowDialog();
         }
+
+        private void lbdoiMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            admin_change_Password a = new admin_change_Password();
+            a.ShowDialog();
+        }
     }
 }

@@ -36,25 +36,9 @@ namespace QLThuVien.APP
             dt.Load(dr);
             dataView.DataSource = dt;
         }
-        int dieuKien = 0;
-        private void KiemTraMa(string TenBang, string TenField, string DieuKien)
-        {
-            dieuKien = 0;
-            DataSet ds = new DataSet();
-            string strSQL = " Select * From " + TenBang;
-            if (TenField != "" && DieuKien != "")
-            {
-                strSQL += " Where " + TenField + "='" + DieuKien + "'";
-            }
-            SqlDataAdapter da = new SqlDataAdapter(strSQL, con);
-            da.Fill(ds, TenBang);
-            DataTable table = ds.Tables[0];
 
-            foreach (DataRow row in table.Rows)
-            {
-                dieuKien++;
-            }
-        }
+        ID_Check dieuKien = new ID_Check();
+
         private void return_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.giveback' table. You can move, or remove it, as needed.
@@ -76,30 +60,30 @@ namespace QLThuVien.APP
                 return;
             }
 
-            KiemTraMa("giveback", "return_id", tbReturn_id.Text);
-            if (dieuKien > 0)
+            
+            if (dieuKien.KiemTraMa("giveback", "return_id", tbReturn_id.Text) > 0)
             {
                 MessageBox.Show("Mã trả đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
                 return;
             }
 
-            KiemTraMa("borrow", "issue_id", tbIssue_id.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("borrow", "issue_id", tbIssue_id.Text) == 0)
             {
                 MessageBox.Show("Mã mượn ko tồn tại");
                 return;
             }
 
-            KiemTraMa("staff", "staff_id", tbStaff.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("staff", "staff_id", tbStaff.Text) == 0)
             {
                 MessageBox.Show("Mã nhân viên ko tồn tại");
                 return;
             }
 
-            KiemTraMa("books", "book_id", tbBook_id.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("books", "book_id", tbBook_id.Text) == 0)
             {
                 MessageBox.Show("Mã sách không tồn tại");
                 return;
@@ -141,22 +125,22 @@ namespace QLThuVien.APP
                 return;
             }
 
-            KiemTraMa("borrow", "issue_id", tbIssue_id.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("borrow", "issue_id", tbIssue_id.Text) == 0)
             {
                 MessageBox.Show("Mã mượn ko tồn tại");
                 return;
             }
 
-            KiemTraMa("staff", "staff_id", tbStaff.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("staff", "staff_id", tbStaff.Text) == 0)
             {
                 MessageBox.Show("Mã nhân viên ko tồn tại");
                 return;
             }
 
-            KiemTraMa("books", "book_id", tbBook_id.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("books", "book_id", tbBook_id.Text) == 0)
             {
                 MessageBox.Show("Mã sách không tồn tại");
                 return;
@@ -176,7 +160,6 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
                 cmd.ExecuteNonQuery();
                 HienThi();
-                dieuKien = 0;
             }
         }
 

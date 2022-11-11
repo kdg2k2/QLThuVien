@@ -46,6 +46,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.picBaoCao = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.lbdoiMatKhau = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PicStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrow)).BeginInit();
@@ -226,11 +227,23 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Thống Kê";
             // 
+            // lbdoiMatKhau
+            // 
+            this.lbdoiMatKhau.AutoSize = true;
+            this.lbdoiMatKhau.Location = new System.Drawing.Point(422, 9);
+            this.lbdoiMatKhau.Name = "lbdoiMatKhau";
+            this.lbdoiMatKhau.Size = new System.Drawing.Size(73, 13);
+            this.lbdoiMatKhau.TabIndex = 6;
+            this.lbdoiMatKhau.TabStop = true;
+            this.lbdoiMatKhau.Text = "QL Tài Khoản";
+            this.lbdoiMatKhau.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbdoiMatKhau_LinkClicked);
+            // 
             // adminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 282);
+            this.Controls.Add(this.lbdoiMatKhau);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
@@ -283,6 +296,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox picBaoCao;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.LinkLabel lbdoiMatKhau;
     }
 }
 

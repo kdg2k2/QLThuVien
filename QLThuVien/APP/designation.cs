@@ -1,5 +1,6 @@
 ﻿using ClosedXML.Excel;
 using ExcelDataReader;
+using QLThuVien.BLL;
 using QLThuVien.DAL;
 using QLThuVien.DTO;
 using System;
@@ -35,25 +36,8 @@ namespace QLThuVien.APP
             dt.Load(dr);
             dataView.DataSource = dt;
         }
-        int dieuKien = 0;
-        private void KiemTraMa(string TenBang, string TenField, string DieuKien)
-        {
-            dieuKien = 0;
-            DataSet ds = new DataSet();
-            string strSQL = " Select * From " + TenBang;
-            if (TenField != "" && DieuKien != "")
-            {
-                strSQL += " Where " + TenField + "='" + DieuKien + "'";
-            }
-            SqlDataAdapter da = new SqlDataAdapter(strSQL, con);
-            da.Fill(ds, TenBang);
-            DataTable table = ds.Tables[0];
 
-            foreach (DataRow row in table.Rows)
-            {
-                dieuKien++;
-            }
-        }
+        ID_Check dieuKien = new ID_Check();
         private void designation_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.designation' table. You can move, or remove it, as needed.
@@ -75,8 +59,8 @@ namespace QLThuVien.APP
                 return;
             }
 
-            KiemTraMa("designation", "designation_id", tbDesignation_id.Text);
-            if (dieuKien > 0)
+            
+            if (dieuKien.KiemTraMa("designation", "designation_id", tbDesignation_id.Text) > 0)
             {
                 MessageBox.Show("Mã chức vụ đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");

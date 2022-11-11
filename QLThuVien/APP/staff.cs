@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using ExcelDataReader;
+using QLThuVien.BLL;
 using QLThuVien.DAL;
 using QLThuVien.DTO;
 using System;
@@ -48,25 +49,8 @@ namespace QLThuVien.APP
             }
             dataView.DataSource = dt;
         }
-        int dieuKien = 0;
-        private void KiemTraMa(string TenBang, string TenField, string DieuKien)
-        {
-            dieuKien = 0;
-            DataSet ds = new DataSet();
-            string strSQL = " Select * From " + TenBang;
-            if (TenField != "" && DieuKien != "")
-            {
-                strSQL += " Where " + TenField + "='" + DieuKien + "'";
-            }
-            SqlDataAdapter da = new SqlDataAdapter(strSQL, con);
-            da.Fill(ds, TenBang);
-            DataTable table = ds.Tables[0];
 
-            foreach (DataRow row in table.Rows)
-            {
-                dieuKien++;
-            }
-        }
+        ID_Check dieuKien = new ID_Check();
         private void staff_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.staff' table. You can move, or remove it, as needed.
@@ -88,15 +72,15 @@ namespace QLThuVien.APP
                 return;
             }
 
-            KiemTraMa("staff", "staff_id", tbStaff_id.Text);
-            if (dieuKien > 0)
+            
+            if (dieuKien.KiemTraMa("staff", "staff_id", tbStaff_id.Text) > 0)
             {
                 MessageBox.Show("Mã nhân viên đã tồn tại");
                 MessageBox.Show("Hãy nhập mã khác");
                 return;
             }
-            KiemTraMa("designation", "designation_id", tbDesignation_id.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("designation", "designation_id", tbDesignation_id.Text) == 0)
             {
                 MessageBox.Show("Mã chức vụ ko tồn tại");
                 return;
@@ -135,8 +119,8 @@ namespace QLThuVien.APP
                 return;
             }
 
-            KiemTraMa("designation", "designation_id", tbDesignation_id.Text);
-            if (dieuKien == 0)
+            
+            if (dieuKien.KiemTraMa("designation", "designation_id", tbDesignation_id.Text) == 0)
             {
                 MessageBox.Show("Mã chức vụ tồn tại");
                 return;
@@ -157,7 +141,6 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("phone", md5.MaHoaString((tbPhone.Text), "NguyenKhaDang"));
                 cmd.ExecuteNonQuery();
                 HienThi();
-                dieuKien = 0;
             }
         }
 

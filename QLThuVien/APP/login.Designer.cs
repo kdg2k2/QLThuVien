@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbpassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbForgot_pass = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +92,23 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // lbForgot_pass
+            // 
+            this.lbForgot_pass.AutoSize = true;
+            this.lbForgot_pass.Location = new System.Drawing.Point(214, 108);
+            this.lbForgot_pass.Name = "lbForgot_pass";
+            this.lbForgot_pass.Size = new System.Drawing.Size(80, 13);
+            this.lbForgot_pass.TabIndex = 4;
+            this.lbForgot_pass.TabStop = true;
+            this.lbForgot_pass.Text = "Quên mật khẩu";
+            this.lbForgot_pass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbForgot_pass_LinkClicked);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(427, 153);
+            this.Controls.Add(this.lbForgot_pass);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btDangNhap);
             this.Controls.Add(this.tbpassword);
@@ -120,5 +133,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbpassword;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel lbForgot_pass;
     }
 }

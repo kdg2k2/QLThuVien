@@ -86,5 +86,11 @@ namespace QLThuVien.APP
                 MessageBox.Show("Tài khoản hoặc mật khẩu không đúng !");
             }
         }
+
+        private void lbForgot_pass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            forgot__password a = new forgot__password();
+            a.ShowDialog();
+        }
     }
 }

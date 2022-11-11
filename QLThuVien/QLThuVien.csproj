@@ -100,6 +100,18 @@
     <Compile Include="APP\books.Designer.cs">
       <DependentUpon>books.cs</DependentUpon>
     </Compile>
+    <Compile Include="APP\admin_change_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APP\admin_change_Password.Designer.cs">
+      <DependentUpon>admin_change_Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APP\forgot_ password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APP\forgot_ password.Designer.cs">
+      <DependentUpon>forgot_ password.cs</DependentUpon>
+    </Compile>
     <Compile Include="APP\login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,7 @@
     <Compile Include="APP\basicForm.Designer.cs">
       <DependentUpon>basicForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLL\ID_Check.cs" />
     <Compile Include="BLL\MD5_algorithm.cs" />
     <Compile Include="BLL\SLSach.cs" />
     <Compile Include="DAL\DBConnect.cs" />
@@ -185,11 +198,17 @@
     <EmbeddedResource Include="APP\books.resx">
       <DependentUpon>books.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="APP\admin_change_Password.resx">
+      <DependentUpon>admin_change_Password.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="APP\designation.resx">
       <DependentUpon>designation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="APP\borrow.resx">
       <DependentUpon>borrow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APP\forgot_ password.resx">
+      <DependentUpon>forgot_ password.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="APP\giveback.resx">
       <DependentUpon>giveback.cs</DependentUpon>
