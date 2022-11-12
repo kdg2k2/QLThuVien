@@ -86,9 +86,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Mật Khẩu";
+            this.label3.Text = "Mật Khẩu Mới";
             // 
             // tbPassword
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.label1);
             this.Name = "forgot__password";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đổi Mật Khẩu";
+            this.Text = "Quên Mật Khẩu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.forgot__password_FormClosing);
             this.Load += new System.EventHandler(this.forgot__password_Load);
             this.ResumeLayout(false);

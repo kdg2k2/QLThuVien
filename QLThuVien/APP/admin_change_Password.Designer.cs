@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView_accounts = new System.Windows.Forms.DataGridView();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbluserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.tbTaiKhoan = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,22 +42,18 @@
             this.btInsert = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.btUpdate = new System.Windows.Forms.Button();
-            this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
-            this.tbluserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_userTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.tbl_userTableAdapter();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btRefresh = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_accounts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbluserBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView_accounts
             // 
+            this.dataGridView_accounts.AllowUserToAddRows = false;
             this.dataGridView_accounts.AllowUserToDeleteRows = false;
             this.dataGridView_accounts.AutoGenerateColumns = false;
             this.dataGridView_accounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -65,7 +66,38 @@
             this.dataGridView_accounts.Name = "dataGridView_accounts";
             this.dataGridView_accounts.ReadOnly = true;
             this.dataGridView_accounts.Size = new System.Drawing.Size(317, 137);
-            this.dataGridView_accounts.TabIndex = 0;
+            this.dataGridView_accounts.TabIndex = 9;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "user_name";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "user_name";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tbluserBindingSource
+            // 
+            this.tbluserBindingSource.DataMember = "tbl_user";
+            this.tbluserBindingSource.DataSource = this.qLThuVienDataSet;
+            // 
+            // qLThuVienDataSet
+            // 
+            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
+            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -130,40 +162,9 @@
             this.btUpdate.UseVisualStyleBackColor = true;
             this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
             // 
-            // qLThuVienDataSet
-            // 
-            this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
-            this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbluserBindingSource
-            // 
-            this.tbluserBindingSource.DataMember = "tbl_user";
-            this.tbluserBindingSource.DataSource = this.qLThuVienDataSet;
-            // 
             // tbl_userTableAdapter
             // 
             this.tbl_userTableAdapter.ClearBeforeFill = true;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "user_name";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "user_name";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // btRefresh
             // 
@@ -214,8 +215,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.admin_change_Password_FormClosing);
             this.Load += new System.EventHandler(this.admin_change_Password_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_accounts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbluserBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

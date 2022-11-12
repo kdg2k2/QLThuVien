@@ -37,18 +37,15 @@
             this.dataView_ChuaTraSach = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView_BangMuon = new System.Windows.Forms.DataGridView();
+            this.dataGridView_QuaHan = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView_BangTra = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.dataView_MuonNhieuNhat = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataView_ChuaTraSach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangMuon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangTra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_QuaHan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataView_MuonNhieuNhat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +77,7 @@
             this.dataView_ChuaTraSach.AllowUserToAddRows = false;
             this.dataView_ChuaTraSach.AllowUserToDeleteRows = false;
             this.dataView_ChuaTraSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView_ChuaTraSach.Location = new System.Drawing.Point(3, 373);
+            this.dataView_ChuaTraSach.Location = new System.Drawing.Point(3, 117);
             this.dataView_ChuaTraSach.Name = "dataView_ChuaTraSach";
             this.dataView_ChuaTraSach.ReadOnly = true;
             this.dataView_ChuaTraSach.Size = new System.Drawing.Size(632, 171);
@@ -90,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 354);
+            this.label1.Location = new System.Drawing.Point(16, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 18);
             this.label1.TabIndex = 176;
@@ -106,47 +103,26 @@
             this.label2.TabIndex = 177;
             this.label2.Text = "Báo Cáo Mượn Trả";
             // 
-            // dataGridView_BangMuon
+            // dataGridView_QuaHan
             // 
-            this.dataGridView_BangMuon.AllowUserToAddRows = false;
-            this.dataGridView_BangMuon.AllowUserToDeleteRows = false;
-            this.dataGridView_BangMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_BangMuon.Location = new System.Drawing.Point(3, 133);
-            this.dataGridView_BangMuon.Name = "dataGridView_BangMuon";
-            this.dataGridView_BangMuon.ReadOnly = true;
-            this.dataGridView_BangMuon.Size = new System.Drawing.Size(313, 202);
-            this.dataGridView_BangMuon.TabIndex = 175;
+            this.dataGridView_QuaHan.AllowUserToAddRows = false;
+            this.dataGridView_QuaHan.AllowUserToDeleteRows = false;
+            this.dataGridView_QuaHan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_QuaHan.Location = new System.Drawing.Point(3, 320);
+            this.dataGridView_QuaHan.Name = "dataGridView_QuaHan";
+            this.dataGridView_QuaHan.ReadOnly = true;
+            this.dataGridView_QuaHan.Size = new System.Drawing.Size(632, 150);
+            this.dataGridView_QuaHan.TabIndex = 175;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 114);
+            this.label3.Location = new System.Drawing.Point(16, 301);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 18);
+            this.label3.Size = new System.Drawing.Size(131, 18);
             this.label3.TabIndex = 176;
-            this.label3.Text = "Đã Mượn";
-            // 
-            // dataGridView_BangTra
-            // 
-            this.dataGridView_BangTra.AllowUserToAddRows = false;
-            this.dataGridView_BangTra.AllowUserToDeleteRows = false;
-            this.dataGridView_BangTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_BangTra.Location = new System.Drawing.Point(322, 133);
-            this.dataGridView_BangTra.Name = "dataGridView_BangTra";
-            this.dataGridView_BangTra.ReadOnly = true;
-            this.dataGridView_BangTra.Size = new System.Drawing.Size(313, 202);
-            this.dataGridView_BangTra.TabIndex = 178;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(331, 114);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 18);
-            this.label4.TabIndex = 179;
-            this.label4.Text = "Đã Trả";
+            this.label3.Text = "Quá Hạn Trả Sách";
             // 
             // dataView_MuonNhieuNhat
             // 
@@ -170,15 +146,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 543);
+            this.ClientSize = new System.Drawing.Size(638, 476);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataView_MuonNhieuNhat);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView_BangTra);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView_BangMuon);
+            this.Controls.Add(this.dataGridView_QuaHan);
             this.Controls.Add(this.dataView_ChuaTraSach);
             this.Name = "report_muontra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -189,8 +163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataView_ChuaTraSach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangMuon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BangTra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_QuaHan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataView_MuonNhieuNhat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,10 +180,8 @@
         private System.Windows.Forms.DataGridView dataView_ChuaTraSach;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView_BangMuon;
+        private System.Windows.Forms.DataGridView dataGridView_QuaHan;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView_BangTra;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataView_MuonNhieuNhat;
         private System.Windows.Forms.Label label5;
     }
