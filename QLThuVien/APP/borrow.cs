@@ -94,6 +94,13 @@ namespace QLThuVien.APP
                 MessageBox.Show("Vui lòng mượn sách khác!");
                 return;
             }
+            DateTime ngaymuon = dateIssue.Value;
+            DateTime hantra = dateExpirary.Value;
+            if (hantra <= ngaymuon)
+            {
+                MessageBox.Show("Hạn hạn trả ko hợp lệ !");
+                return;
+            }
             else
             {
                 string sqlThem = "INSERT INTO borrow " +
