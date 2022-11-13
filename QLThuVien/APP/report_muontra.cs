@@ -30,7 +30,7 @@ namespace QLThuVien.APP
         SqlConnection con = DBConnect.GetDBConnection();
         public void SinhVienChuaTraSach()
         {
-            string sqlSelect = "SELECT  dbo.borrow.issue_id, dbo.student.*, dbo.borrow.book_id, dbo.borrow.date_issue, dbo.borrow.date_expirary FROM    dbo.borrow INNER JOIN   dbo.giveback ON dbo.borrow.issue_id != dbo.giveback.issue_id INNER JOIN  dbo.student ON dbo.borrow.student_id = dbo.student.student_id   EXCEPT  SELECT  dbo.borrow.issue_id, dbo.student.*, dbo.borrow.book_id, dbo.borrow.date_issue, dbo.borrow.date_expirary FROM    dbo.borrow INNER JOIN   dbo.giveback ON dbo.borrow.issue_id = dbo.giveback.issue_id INNER JOIN  dbo.student ON dbo.borrow.student_id = dbo.student.student_id";
+            string sqlSelect = "SELECT dbo.borrow.issue_id, dbo.borrow.book_id, dbo.books.book_name, dbo.borrow.date_issue, dbo.borrow.date_expirary, dbo.student.* FROM dbo.books INNER JOIN dbo.borrow ON dbo.books.book_id = dbo.borrow.book_id INNER JOIN dbo.student ON dbo.borrow.student_id = dbo.student.student_id INNER JOIN dbo.giveback ON dbo.books.book_id != dbo.giveback.book_id     EXCEPT    SELECT dbo.borrow.issue_id, dbo.borrow.book_id, dbo.books.book_name, dbo.borrow.date_issue, dbo.borrow.date_expirary, dbo.student.* FROM dbo.books INNER JOIN dbo.borrow ON dbo.books.book_id = dbo.borrow.book_id INNER JOIN dbo.student ON dbo.borrow.student_id = dbo.student.student_id INNER JOIN dbo.giveback ON dbo.books.book_id = dbo.giveback.book_id";
             SqlCommand cmd = new SqlCommand(sqlSelect, con);
             SqlDataReader dr = cmd.ExecuteReader();
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -46,7 +46,7 @@ namespace QLThuVien.APP
 
         public void SinhVienMuonQuaHan()
         {
-            string sqlSelect = "SELECT  dbo.student.student_id, dbo.student.studentname, dbo.student.phone, dbo.borrow.issue_id, dbo.borrow.book_id, dbo.borrow.date_expirary   FROM    dbo.borrow INNER JOIN   dbo.student ON dbo.borrow.student_id = dbo.student.student_id   WHERE GETDATE() > dbo.borrow.date_expirary";
+            string sqlSelect = "SELECT dbo.borrow.issue_id, dbo.borrow.book_id, dbo.books.book_name, dbo.student.* FROM dbo.books INNER JOIN dbo.borrow ON dbo.books.book_id = dbo.borrow.book_id INNER JOIN dbo.student ON dbo.borrow.student_id = dbo.student.student_id WHERE GETDATE() > borrow.date_expirary";
             SqlCommand cmd = new SqlCommand(sqlSelect, con);
             SqlDataReader dr = cmd.ExecuteReader();
             System.Data.DataTable dt = new System.Data.DataTable();

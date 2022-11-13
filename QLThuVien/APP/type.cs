@@ -214,7 +214,7 @@ namespace QLThuVien.APP
             Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
             // tạo Excelsheet mới  
             Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            // mở bảng excel đằng sau chương trình
+            // mở bảng excel
             app.Visible = true;
             // lấy tham chiếu của trang tính đầu tiên. Theo mặc định, tên của nó là Sheet1  
             worksheet = workbook.Sheets["Sheet1"];

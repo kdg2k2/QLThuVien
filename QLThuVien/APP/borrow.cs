@@ -78,7 +78,8 @@ namespace QLThuVien.APP
             if (dieuKien.KiemTraMa("student", "student_id", tbStudent_id.Text) == 0)
             {
                 MessageBox.Show("Mã sinh viên ko tồn tại");
-                return;
+                student s = new student();
+                s.ShowDialog();
             }
 
             
