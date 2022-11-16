@@ -26,16 +26,7 @@ namespace QLThuVien.APP
         }
 
         SqlConnection con = DBConnect.GetDBConnection();
-
-        public void HienThi()
-        {
-            string sqlSelect = "select * from designation";
-            SqlCommand cmd = new SqlCommand(sqlSelect, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataView.DataSource = dt;
-        }
+        DBConnect db = new DBConnect();
 
         ID_Check dieuKien = new ID_Check();
         private void designation_Load(object sender, EventArgs e)
@@ -43,7 +34,7 @@ namespace QLThuVien.APP
             // TODO: This line of code loads data into the 'qLThuVienDataSet.designation' table. You can move, or remove it, as needed.
             //this.designationTableAdapter.Fill(this.qLThuVienDataSet.designation);
             con.Open();
-            HienThi();
+            db.HienThi(dataView, "designation");
         }
 
         private void designation_FormClosing(object sender, FormClosingEventArgs e)
@@ -74,7 +65,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
                 cmd.Parameters.AddWithValue("designation", tbDesignation.Text);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataView, "designation");
             }
         }
 
@@ -93,7 +84,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
             cmd.Parameters.AddWithValue("designation", tbDesignation.Text);
             cmd.ExecuteNonQuery();
-            HienThi();
+            db.HienThi(dataView, "designation");
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -110,7 +101,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("designation_id", tbDesignation_id.Text);
             cmd.Parameters.AddWithValue("designation", tbDesignation.Text);
             cmd.ExecuteNonQuery();
-            HienThi();
+            db.HienThi(dataView, "designation");
         }
 
         private void btTimKiem_Click(object sender, EventArgs e)
@@ -169,7 +160,7 @@ namespace QLThuVien.APP
         {
             this.tbDesignation_id.Clear();
             this.tbDesignation.Clear();
-            HienThi();
+            db.HienThi(dataView, "designation");
         }
     }
 }

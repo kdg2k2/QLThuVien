@@ -27,15 +27,7 @@ namespace QLThuVien.APP
 
         SqlConnection con = DBConnect.GetDBConnection();
         SLSach sl = new SLSach();
-        public void HienThi()
-        {
-            string sqlSelect = "select * from borrow";
-            SqlCommand cmd = new SqlCommand(sqlSelect, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataView.DataSource = dt;
-        }
+        DBConnect db = new DBConnect();
         ID_Check dieuKien = new ID_Check();
 
         private void issue_Load(object sender, EventArgs e)
@@ -43,7 +35,7 @@ namespace QLThuVien.APP
             // TODO: This line of code loads data into the 'qLThuVienDataSet.borrow' table. You can move, or remove it, as needed.
             //this.borrowTableAdapter.Fill(this.qLThuVienDataSet.borrow);
             con.Open();
-            HienThi();
+            db.HienThi(dataView, "borrow");
         }
 
         private void issue_FormClosing(object sender, FormClosingEventArgs e)
@@ -59,7 +51,13 @@ namespace QLThuVien.APP
                 return;
             }
 
-            
+            if (dieuKien.KiemTraMa("student", "student_id", tbStudent_id.Text) == 0)
+            {
+                MessageBox.Show("Mã sinh viên ko tồn tại");
+                student s = new student();
+                s.ShowDialog();
+            }
+
             if (dieuKien.KiemTraMa("borrow", "issue_id", tbIssue_id.Text) > 0)
             {
                 MessageBox.Show("Mã mượn đã tồn tại");
@@ -75,12 +73,7 @@ namespace QLThuVien.APP
             }
 
             
-            if (dieuKien.KiemTraMa("student", "student_id", tbStudent_id.Text) == 0)
-            {
-                MessageBox.Show("Mã sinh viên ko tồn tại");
-                student s = new student();
-                s.ShowDialog();
-            }
+            
 
             
             if (dieuKien.KiemTraMa("staff", "staff_id", tbStaff_id.Text) == 0)
@@ -116,7 +109,7 @@ namespace QLThuVien.APP
                 cmd.ExecuteNonQuery();
                 
                 sl.SLGiam(tbBook_id.Text);
-                HienThi();
+                db.HienThi(dataView, "borrow");
             }
         }
 
@@ -162,7 +155,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("student_id", tbStudent_id.Text);
                 cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataView, "borrow");
             }
         }
 
@@ -264,7 +257,7 @@ namespace QLThuVien.APP
                         db.BulkInsert(temp);
                     }
                     MessageBox.Show("Import thành công");
-                    HienThi();
+                    db.HienThi(dataView, "borrow");
                 }
             }
             catch (Exception ex)
@@ -311,7 +304,7 @@ namespace QLThuVien.APP
             this.tbStudent_id.Clear();
             this.tbStaff_id.Clear();
             this.tbNoiDungTimKiem.Clear();
-            HienThi();
+            db.HienThi(dataView, "borrow");
         }
     }
 }

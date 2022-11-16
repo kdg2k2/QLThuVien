@@ -30,16 +30,7 @@ namespace QLThuVien.APP
         }
 
         SqlConnection con = DBConnect.GetDBConnection();
-
-        public void HienThi()
-        {
-            string sqlSelect = "select * from books";
-            SqlCommand cmd = new SqlCommand(sqlSelect, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataView.DataSource = dt;
-        }
+        DBConnect db = new DBConnect();
 
         ID_Check dieuKien = new ID_Check();
         private void books_Load(object sender, EventArgs e)
@@ -47,7 +38,7 @@ namespace QLThuVien.APP
             // TODO: This line of code loads data into the 'qLThuVienDataSet.books' table. You can move, or remove it, as needed.
             //this.booksTableAdapter.Fill(this.qLThuVienDataSet.books);
             con.Open();
-            HienThi();
+            db.HienThi(dataView, "books");
         }
         
         private void btInsert_Click(object sender, EventArgs e)
@@ -83,7 +74,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("quantity", tbquantity.Text);
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataView, "books");;
             }
             
         }
@@ -115,7 +106,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("quantity", tbquantity.Text);
                 cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataView, "books");;
             }
         }
 
@@ -136,7 +127,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("quantity", tbquantity.Text);
             cmd.Parameters.AddWithValue("author_name", tbTenTacGia.Text);
             cmd.ExecuteNonQuery();
-            HienThi();
+            db.HienThi(dataView, "books");;
         } 
 
         private void btTimKiem_Click(object sender, EventArgs e)
@@ -235,7 +226,7 @@ namespace QLThuVien.APP
                         db.BulkInsert(temp);
                     }
                     MessageBox.Show("Import thành công");
-                    HienThi();
+                    db.HienThi(dataView, "books");;
                 }
             }
             catch (Exception ex)
@@ -284,7 +275,7 @@ namespace QLThuVien.APP
             this.tbquantity.Clear();
             this.tbMaLoai.Clear();
             this.tbNoiDungTimKiem.Clear();
-            HienThi();
+            db.HienThi(dataView, "books");;
         }
 
         private void books_FormClosing(object sender, FormClosingEventArgs e)

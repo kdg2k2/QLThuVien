@@ -2403,7 +2403,7 @@ namespace QLThuVien {
             
             private global::System.Data.DataColumn columnpassword;
             
-            private global::System.Data.DataColumn columnemail;
+            private global::System.Data.DataColumn columnSDT;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2464,9 +2464,9 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn emailColumn {
+            public global::System.Data.DataColumn SDTColumn {
                 get {
-                    return this.columnemail;
+                    return this.columnSDT;
                 }
             }
             
@@ -2507,13 +2507,13 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_userRow Addtbl_userRow(string user_name, string password, string email) {
+            public tbl_userRow Addtbl_userRow(string user_name, string password, string SDT) {
                 tbl_userRow rowtbl_userRow = ((tbl_userRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         user_name,
                         password,
-                        email};
+                        SDT};
                 rowtbl_userRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_userRow);
                 return rowtbl_userRow;
@@ -2546,7 +2546,7 @@ namespace QLThuVien {
                 this.columnuser_id = base.Columns["user_id"];
                 this.columnuser_name = base.Columns["user_name"];
                 this.columnpassword = base.Columns["password"];
-                this.columnemail = base.Columns["email"];
+                this.columnSDT = base.Columns["SDT"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2558,8 +2558,8 @@ namespace QLThuVien {
                 base.Columns.Add(this.columnuser_name);
                 this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpassword);
-                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemail);
+                this.columnSDT = new global::System.Data.DataColumn("SDT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSDT);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnuser_id}, true));
                 this.columnuser_id.AutoIncrement = true;
@@ -2572,7 +2572,7 @@ namespace QLThuVien {
                 this.columnuser_name.MaxLength = 50;
                 this.columnpassword.AllowDBNull = false;
                 this.columnpassword.MaxLength = 50;
-                this.columnemail.MaxLength = 50;
+                this.columnSDT.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3794,30 +3794,30 @@ namespace QLThuVien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string email {
+            public string SDT {
                 get {
                     try {
-                        return ((string)(this[this.tabletbl_user.emailColumn]));
+                        return ((string)(this[this.tabletbl_user.SDTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'tbl_user\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SDT\' in table \'tbl_user\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_user.emailColumn] = value;
+                    this[this.tabletbl_user.SDTColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsemailNull() {
-                return this.IsNull(this.tabletbl_user.emailColumn);
+            public bool IsSDTNull() {
+                return this.IsNull(this.tabletbl_user.SDTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetemailNull() {
-                this[this.tabletbl_user.emailColumn] = global::System.Convert.DBNull;
+            public void SetSDTNull() {
+                this[this.tabletbl_user.SDTColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6814,7 +6814,7 @@ SELECT student_id, studentname, phone FROM student WHERE (student_id = @student_
             tableMapping.ColumnMappings.Add("user_id", "user_id");
             tableMapping.ColumnMappings.Add("user_name", "user_name");
             tableMapping.ColumnMappings.Add("password", "password");
-            tableMapping.ColumnMappings.Add("student_id", "email");
+            tableMapping.ColumnMappings.Add("student_id", "SDT");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

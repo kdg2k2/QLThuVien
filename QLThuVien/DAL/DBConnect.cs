@@ -17,5 +17,24 @@ namespace QLThuVien.DAL
             SqlConnection con = new SqlConnection(connString);
             return con;
         }
+
+        SqlConnection con = DBConnect.GetDBConnection();
+        public void HienThi(DataGridView dataGridView, string table)
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            string query = "select * from "+table;
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dataGridView.DataSource = dt;
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+        }
     }
 }

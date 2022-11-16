@@ -467,7 +467,7 @@ SELECT user_id, user_name, password, student_id FROM tbl_user WHERE (user_id = @
               <Mapping SourceColumn="user_id" DataSetColumn="user_id" />
               <Mapping SourceColumn="user_name" DataSetColumn="user_name" />
               <Mapping SourceColumn="password" DataSetColumn="password" />
-              <Mapping SourceColumn="student_id" DataSetColumn="email" />
+              <Mapping SourceColumn="student_id" DataSetColumn="SDT" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -713,7 +713,7 @@ SELECT type_id, type_name FROM type WHERE (type_id = @type_id)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_UserColumnName="email" msprop:Generator_ColumnVarNameInTable="columnemail" minOccurs="0">
+              <xs:element name="SDT" msprop:Generator_ColumnPropNameInTable="SDTColumn" msprop:Generator_ColumnPropNameInRow="SDT" msprop:Generator_UserColumnName="SDT" msprop:Generator_ColumnVarNameInTable="columnSDT" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

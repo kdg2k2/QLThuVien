@@ -22,22 +22,14 @@ namespace QLThuVien.APP
         }
         SqlConnection con = DBConnect.GetDBConnection();
         ID_Check check = new ID_Check();
-        private void HienThi()
-        {
-            string sqlSelect = "select * from tbl_user";
-            SqlCommand cmd = new SqlCommand(sqlSelect, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataGridView_accounts.DataSource = dt;
-        }
+        DBConnect db = new DBConnect();
 
         private void admin_change_Password_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLThuVienDataSet.tbl_user' table. You can move, or remove it, as needed.
             //this.tbl_userTableAdapter.Fill(this.qLThuVienDataSet.tbl_user);
             con.Open();
-            HienThi();
+            db.HienThi(dataGridView_accounts, "tbl_user");
         }
 
         private void admin_change_Password_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,13 +41,13 @@ namespace QLThuVien.APP
         {
             this.tbTaiKhoan.Clear();
             this.tbMatKhau.Clear();
-            this.tbEmail.Clear();
-            HienThi();
+            this.tbSDT.Clear();
+            db.HienThi(dataGridView_accounts, "tbl_user");
         }
 
         private void btInsert_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(tbTaiKhoan.Text) || String.IsNullOrEmpty(tbMatKhau.Text) || String.IsNullOrEmpty(tbEmail.Text))
+            if (String.IsNullOrEmpty(tbTaiKhoan.Text) || String.IsNullOrEmpty(tbMatKhau.Text) || String.IsNullOrEmpty(tbSDT.Text))
             {
                 MessageBox.Show("Bạn phải nhập đầy đủ dữ liệu vào");
                 return;
@@ -68,27 +60,27 @@ namespace QLThuVien.APP
                 return;
             }
             
-            if (check.KiemTraMa("tbl_user", "email", tbEmail.Text) > 0)
+            if (check.KiemTraMa("tbl_user", "SDT", tbSDT.Text) > 0)
             {
-                MessageBox.Show("Email đã tồn tại");
+                MessageBox.Show("SDT đã tồn tại");
                 return;
             }
             else
             {
                 string sqlThem = "INSERT INTO tbl_user " +
-                                "VALUES (@user_name, @password, @email)";
+                                "VALUES (@user_name, @password, @SDT)";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("user_name", tbTaiKhoan.Text);
                 cmd.Parameters.AddWithValue("password", tbMatKhau.Text);
-                cmd.Parameters.AddWithValue("email", tbEmail.Text);
+                cmd.Parameters.AddWithValue("SDT", tbSDT.Text);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataGridView_accounts, "tbl_user");
             }
         }
 
         private void btUpdate_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(tbTaiKhoan.Text) || String.IsNullOrEmpty(tbMatKhau.Text) || String.IsNullOrEmpty(tbEmail.Text))
+            if(String.IsNullOrEmpty(tbTaiKhoan.Text) || String.IsNullOrEmpty(tbMatKhau.Text) || String.IsNullOrEmpty(tbSDT.Text))
             {
                 MessageBox.Show("Bạn phải nhập đầy đủ dữ liệu vào");
                 return;
@@ -96,14 +88,14 @@ namespace QLThuVien.APP
             else
             {
                 string sqlThem = "update tbl_user " +
-                                    "set password=@password, email=@email " +
+                                    "set password=@password, SDT=@SDT " +
                                     "where user_name=@user_name";
                 SqlCommand cmd = new SqlCommand(sqlThem, con);
                 cmd.Parameters.AddWithValue("user_name", tbTaiKhoan.Text);
                 cmd.Parameters.AddWithValue("password", tbMatKhau.Text);
-                cmd.Parameters.AddWithValue("email", tbEmail.Text);
+                cmd.Parameters.AddWithValue("SDT", tbSDT.Text);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataGridView_accounts, "tbl_user");
             }
         }
 
@@ -111,7 +103,7 @@ namespace QLThuVien.APP
         {
             if (String.IsNullOrEmpty(tbTaiKhoan.Text))
             {
-                MessageBox.Show("Bạn phải tài khoản cần xoá vào");
+                MessageBox.Show("Bạn phải nhập tài khoản cần xoá vào");
                 return;
             }
 
@@ -120,9 +112,9 @@ namespace QLThuVien.APP
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("user_name", tbTaiKhoan.Text);
             cmd.Parameters.AddWithValue("password", tbMatKhau.Text);
-            cmd.Parameters.AddWithValue("email", tbEmail.Text);
+            cmd.Parameters.AddWithValue("SDT", tbSDT.Text);
             cmd.ExecuteNonQuery();
-            HienThi();
+            db.HienThi(dataGridView_accounts, "tbl_user");
         }
     }
 }

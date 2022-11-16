@@ -26,17 +26,7 @@ namespace QLThuVien.APP
         }
 
         SqlConnection con = DBConnect.GetDBConnection();
-
-        public void HienThi()
-        {
-            string sqlSelect = "select * from type";
-            SqlCommand cmd = new SqlCommand(sqlSelect, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataView.DataSource = dt;
-        }
-
+        DBConnect db = new DBConnect();
         ID_Check dieuKien = new ID_Check();
 
         private void type_Load(object sender, EventArgs e)
@@ -44,7 +34,7 @@ namespace QLThuVien.APP
             // TODO: This line of code loads data into the 'qLThuVienDataSet.type' table. You can move, or remove it, as needed.
             //this.typeTableAdapter.Fill(this.qLThuVienDataSet.type);
             con.Open();
-            HienThi();
+            db.HienThi(dataView, "type");
         }
         private void btInsert_Click(object sender, EventArgs e)
         {
@@ -69,7 +59,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
                 cmd.Parameters.AddWithValue("type_name", tbTenLoai.Text);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataView, "type");
             }
         }
 
@@ -88,7 +78,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
             cmd.Parameters.AddWithValue("type_name", tbTenLoai.Text);
             cmd.ExecuteNonQuery();
-            HienThi();
+            db.HienThi(dataView, "type");
         }
 
         private void btDelete_Click(object sender, EventArgs e)
@@ -105,7 +95,7 @@ namespace QLThuVien.APP
             cmd.Parameters.AddWithValue("type_id", tbMaLoai.Text);
             cmd.Parameters.AddWithValue("type_name", tbTenLoai.Text);
             cmd.ExecuteNonQuery();
-            HienThi();
+            db.HienThi(dataView, "type");
         }
 
         private void btTimKiem_Click(object sender, EventArgs e)
@@ -197,7 +187,7 @@ namespace QLThuVien.APP
                         db.BulkInsert(temp);
                     }
                     MessageBox.Show("Import thành công");
-                    HienThi();
+                    db.HienThi(dataView, "type");
                 }
             }
             catch (Exception ex)
@@ -242,7 +232,7 @@ namespace QLThuVien.APP
             this.tbMaLoai.Clear();
             this.tbTenLoai.Clear();
             this.tbFileName.Clear();
-            HienThi();
+            db.HienThi(dataView, "type");
         }
 
         private void type_FormClosing(object sender, FormClosingEventArgs e)

@@ -27,15 +27,7 @@ namespace QLThuVien.APP
 
         SqlConnection con = DBConnect.GetDBConnection();
         SLSach sl = new SLSach();
-        public void HienThi()
-        {
-            string sqlSelect = "select * from giveback";
-            SqlCommand cmd = new SqlCommand(sqlSelect, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dataView.DataSource = dt;
-        }
+        DBConnect db = new DBConnect();
 
         ID_Check dieuKien = new ID_Check();
 
@@ -44,7 +36,7 @@ namespace QLThuVien.APP
             // TODO: This line of code loads data into the 'qLThuVienDataSet.giveback' table. You can move, or remove it, as needed.
             //this.givebackTableAdapter.Fill(this.qLThuVienDataSet.giveback);
             con.Open();
-            HienThi();
+            db.HienThi(dataView, "giveback");
         }
 
         private void return_FormClosing(object sender, FormClosingEventArgs e)
@@ -102,7 +94,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
                 cmd.ExecuteNonQuery();
                 sl.SLTang(tbBook_id.Text);
-                HienThi();
+                db.HienThi(dataView, "giveback");
             }
 
             DateTime ngayhentra = date_expirary.Value;
@@ -159,7 +151,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("book_id", tbBook_id.Text);
                 cmd.Parameters.AddWithValue("date_expirary", date_expirary.Value);
                 cmd.ExecuteNonQuery();
-                HienThi();
+                db.HienThi(dataView, "giveback");
             }
         }
 
@@ -262,7 +254,7 @@ namespace QLThuVien.APP
                         db.BulkInsert(temp);
                     }
                     MessageBox.Show("Import thành công");
-                    HienThi();
+                    db.HienThi(dataView, "giveback");
                 }
             }
             catch (Exception ex)
@@ -309,7 +301,7 @@ namespace QLThuVien.APP
             this.tbStaff.Clear();
             this.tbFileName.Clear();
             this.tbBook_id.Clear();
-            HienThi();
+            db.HienThi(dataView, "giveback");
         }
     }
 }
