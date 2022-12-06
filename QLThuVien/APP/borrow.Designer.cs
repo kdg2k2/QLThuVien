@@ -61,16 +61,16 @@
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbStudent_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbBook_id = new System.Windows.Forms.TextBox();
-            this.tbStaff_id = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dateIssue = new System.Windows.Forms.DateTimePicker();
             this.dateExpirary = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbBook_id = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.borrowTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.borrowTableAdapter();
+            this.tbStaff_id = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.borrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -360,20 +360,6 @@
             this.label9.TabIndex = 206;
             this.label9.Text = "Mã Sách";
             // 
-            // tbBook_id
-            // 
-            this.tbBook_id.Location = new System.Drawing.Point(84, 43);
-            this.tbBook_id.Name = "tbBook_id";
-            this.tbBook_id.Size = new System.Drawing.Size(190, 20);
-            this.tbBook_id.TabIndex = 1;
-            // 
-            // tbStaff_id
-            // 
-            this.tbStaff_id.Location = new System.Drawing.Point(84, 146);
-            this.tbStaff_id.Name = "tbStaff_id";
-            this.tbStaff_id.Size = new System.Drawing.Size(190, 20);
-            this.tbStaff_id.TabIndex = 5;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -403,24 +389,32 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbStaff_id);
+            this.groupBox1.Controls.Add(this.tbBook_id);
             this.groupBox1.Controls.Add(this.tbStudent_id);
             this.groupBox1.Controls.Add(this.dateExpirary);
-            this.groupBox1.Controls.Add(this.tbBook_id);
             this.groupBox1.Controls.Add(this.dateIssue);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.tbStaff_id);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.tbIssue_id);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Location = new System.Drawing.Point(10, 53);
+            this.groupBox1.Location = new System.Drawing.Point(10, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(286, 204);
             this.groupBox1.TabIndex = 233;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
+            // 
+            // tbBook_id
+            // 
+            this.tbBook_id.FormattingEnabled = true;
+            this.tbBook_id.Location = new System.Drawing.Point(84, 43);
+            this.tbBook_id.Name = "tbBook_id";
+            this.tbBook_id.Size = new System.Drawing.Size(190, 21);
+            this.tbBook_id.TabIndex = 212;
             // 
             // groupBox2
             // 
@@ -471,6 +465,13 @@
             // borrowTableAdapter
             // 
             this.borrowTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbStaff_id
+            // 
+            this.tbStaff_id.Location = new System.Drawing.Point(84, 146);
+            this.tbStaff_id.Name = "tbStaff_id";
+            this.tbStaff_id.Size = new System.Drawing.Size(190, 20);
+            this.tbStaff_id.TabIndex = 213;
             // 
             // borrow
             // 
@@ -523,8 +524,6 @@
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.TextBox tbStudent_id;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbBook_id;
-        private System.Windows.Forms.TextBox tbStaff_id;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dateIssue;
         private System.Windows.Forms.DataGridViewTextBoxColumn issueidDataGridViewTextBoxColumn;
@@ -554,5 +553,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.ComboBox tbBook_id;
+        private System.Windows.Forms.TextBox tbStaff_id;
     }
 }

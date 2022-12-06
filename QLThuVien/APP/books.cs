@@ -39,8 +39,17 @@ namespace QLThuVien.APP
             //this.booksTableAdapter.Fill(this.qLThuVienDataSet.books);
             con.Open();
             db.HienThi(dataView, "books");
+
+            SqlCommand cmd = new SqlCommand("select * from type", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            cmd.ExecuteNonQuery();
+
+            tbMaLoai.DataSource = ds.Tables[0];
+            tbMaLoai.DisplayMember = "type_id";
         }
-        
+
         private void btInsert_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(tbMaSach.Text) || String.IsNullOrEmpty(tbTenSach.Text) || String.IsNullOrEmpty(tbMaLoai.Text) || String.IsNullOrEmpty(tbquantity.Text) || String.IsNullOrEmpty(tbTenTacGia.Text))
@@ -273,7 +282,7 @@ namespace QLThuVien.APP
             this.tbTenSach.Clear();
             this.tbFileName.Clear();
             this.tbquantity.Clear();
-            this.tbMaLoai.Clear();
+            this.tbMaLoai.Refresh();
             this.tbNoiDungTimKiem.Clear();
             db.HienThi(dataView, "books");;
         }

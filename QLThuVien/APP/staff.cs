@@ -49,7 +49,7 @@ namespace QLThuVien.APP
             }
             dataView.DataSource = dt;
         }
-
+        
         ID_Check dieuKien = new ID_Check();
         private void staff_Load(object sender, EventArgs e)
         {
@@ -57,6 +57,16 @@ namespace QLThuVien.APP
             //this.staffTableAdapter.Fill(this.qLThuVienDataSet.staff);
             con.Open();
             HienThi();
+
+            SqlCommand cmd = new SqlCommand("select * from designation", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            cmd.ExecuteNonQuery();
+
+            tbDesignation_id.DataSource = ds.Tables[0];
+            tbDesignation_id.DisplayMember = "designation_id";
+            //tbDesignation_id.ValueMember = "designation_id";
         }
 
         private void staff_FormClosing(object sender, FormClosingEventArgs e)
@@ -210,7 +220,7 @@ namespace QLThuVien.APP
             this.tbStaff_id.Clear();
             this.tbName.Clear();
             this.tbGender.Clear();
-            this.tbDesignation_id.Clear();
+            this.tbDesignation_id.Refresh();
             this.tbAddress.Clear();
             this.tbPhone.Clear();
             this.tbNoiDungTimKiem.Clear();

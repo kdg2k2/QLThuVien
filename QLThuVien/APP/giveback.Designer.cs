@@ -59,9 +59,7 @@
             this.dateexpiraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.givebackBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
-            this.tbBook_id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbIssue_id = new System.Windows.Forms.TextBox();
             this.tbStaff = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -71,6 +69,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
+            this.tbIssue_id = new System.Windows.Forms.ComboBox();
+            this.tbBook_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -343,13 +343,6 @@
             this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
             this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tbBook_id
-            // 
-            this.tbBook_id.Location = new System.Drawing.Point(87, 121);
-            this.tbBook_id.Name = "tbBook_id";
-            this.tbBook_id.Size = new System.Drawing.Size(190, 20);
-            this.tbBook_id.TabIndex = 4;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -358,13 +351,6 @@
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 237;
             this.label9.Text = "Mã Mượn";
-            // 
-            // tbIssue_id
-            // 
-            this.tbIssue_id.Location = new System.Drawing.Point(87, 40);
-            this.tbIssue_id.Name = "tbIssue_id";
-            this.tbIssue_id.Size = new System.Drawing.Size(190, 20);
-            this.tbIssue_id.TabIndex = 1;
             // 
             // tbStaff
             // 
@@ -384,12 +370,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.date_expirary);
             this.groupBox1.Controls.Add(this.tbBook_id);
+            this.groupBox1.Controls.Add(this.tbIssue_id);
+            this.groupBox1.Controls.Add(this.date_expirary);
             this.groupBox1.Controls.Add(this.btInsert);
             this.groupBox1.Controls.Add(this.dateReturn);
             this.groupBox1.Controls.Add(this.btUpdate);
-            this.groupBox1.Controls.Add(this.tbIssue_id);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbStaff);
             this.groupBox1.Controls.Add(this.label10);
@@ -472,6 +458,22 @@
             // 
             this.givebackTableAdapter.ClearBeforeFill = true;
             // 
+            // tbIssue_id
+            // 
+            this.tbIssue_id.FormattingEnabled = true;
+            this.tbIssue_id.Location = new System.Drawing.Point(87, 43);
+            this.tbIssue_id.Name = "tbIssue_id";
+            this.tbIssue_id.Size = new System.Drawing.Size(190, 21);
+            this.tbIssue_id.TabIndex = 248;
+            // 
+            // tbBook_id
+            // 
+            this.tbBook_id.FormattingEnabled = true;
+            this.tbBook_id.Location = new System.Drawing.Point(87, 120);
+            this.tbBook_id.Name = "tbBook_id";
+            this.tbBook_id.Size = new System.Drawing.Size(190, 21);
+            this.tbBook_id.TabIndex = 249;
+            // 
             // @return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,9 +522,7 @@
         private System.Windows.Forms.TextBox tbReturn_id;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dataView;
-        private System.Windows.Forms.TextBox tbBook_id;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbIssue_id;
         private System.Windows.Forms.TextBox tbStaff;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn returnidDataGridViewTextBoxColumn;
@@ -545,5 +545,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateexpiraryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox tbBook_id;
+        private System.Windows.Forms.ComboBox tbIssue_id;
     }
 }

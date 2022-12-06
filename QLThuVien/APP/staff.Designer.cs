@@ -55,7 +55,6 @@
             this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
             this.tbAddress = new System.Windows.Forms.TextBox();
-            this.tbDesignation_id = new System.Windows.Forms.TextBox();
             this.tbGender = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbPhone = new System.Windows.Forms.TextBox();
@@ -65,6 +64,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.staffTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.staffTableAdapter();
+            this.tbDesignation_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -298,13 +298,6 @@
             this.tbAddress.Size = new System.Drawing.Size(124, 20);
             this.tbAddress.TabIndex = 6;
             // 
-            // tbDesignation_id
-            // 
-            this.tbDesignation_id.Location = new System.Drawing.Point(87, 91);
-            this.tbDesignation_id.Name = "tbDesignation_id";
-            this.tbDesignation_id.Size = new System.Drawing.Size(124, 20);
-            this.tbDesignation_id.TabIndex = 5;
-            // 
             // tbGender
             // 
             this.tbGender.Location = new System.Drawing.Point(87, 65);
@@ -339,11 +332,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbDesignation_id);
             this.groupBox1.Controls.Add(this.tbPhone);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbGender);
-            this.groupBox1.Controls.Add(this.tbDesignation_id);
             this.groupBox1.Controls.Add(this.tbAddress);
             this.groupBox1.Controls.Add(this.tbStaff_id);
             this.groupBox1.Controls.Add(this.tbName);
@@ -402,6 +395,14 @@
             // 
             this.staffTableAdapter.ClearBeforeFill = true;
             // 
+            // tbDesignation_id
+            // 
+            this.tbDesignation_id.FormattingEnabled = true;
+            this.tbDesignation_id.Location = new System.Drawing.Point(87, 92);
+            this.tbDesignation_id.Name = "tbDesignation_id";
+            this.tbDesignation_id.Size = new System.Drawing.Size(124, 21);
+            this.tbDesignation_id.TabIndex = 183;
+            // 
             // staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,7 +447,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.TextBox tbDesignation_id;
         private System.Windows.Forms.TextBox tbGender;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffidDataGridViewTextBoxColumn;
@@ -476,5 +476,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.ComboBox tbDesignation_id;
     }
 }

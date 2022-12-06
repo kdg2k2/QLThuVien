@@ -37,6 +37,22 @@ namespace QLThuVien.APP
             //this.givebackTableAdapter.Fill(this.qLThuVienDataSet.giveback);
             con.Open();
             db.HienThi(dataView, "giveback");
+
+            SqlCommand cmd = new SqlCommand("select * from borrow", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            cmd.ExecuteNonQuery();
+            tbIssue_id.DataSource = ds.Tables[0];
+            tbIssue_id.DisplayMember = "issue_id";
+
+            SqlCommand cmd1 = new SqlCommand("select * from books", con);
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd);
+            DataSet ds1 = new DataSet();
+            da.Fill(ds1);
+            cmd.ExecuteNonQuery();
+            tbBook_id.DataSource = ds1.Tables[0];
+            tbBook_id.DisplayMember = "book_id";
         }
 
         private void return_FormClosing(object sender, FormClosingEventArgs e)
@@ -297,10 +313,10 @@ namespace QLThuVien.APP
         private void btRefresh_Click(object sender, EventArgs e)
         {
             this.tbReturn_id.Clear();
-            this.tbIssue_id.Clear();
+            this.tbIssue_id.Refresh();
             this.tbStaff.Clear();
             this.tbFileName.Clear();
-            this.tbBook_id.Clear();
+            this.tbBook_id.Refresh();
             db.HienThi(dataView, "giveback");
         }
     }

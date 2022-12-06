@@ -51,9 +51,13 @@
             this.tbMaSach = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLThuVienDataSet = new QLThuVien.QLThuVienDataSet();
-            this.tbMaLoai = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbquantity = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,11 +68,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.booksTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.booksTableAdapter();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbMaLoai = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -287,6 +287,41 @@
             this.dataView.Size = new System.Drawing.Size(626, 159);
             this.dataView.TabIndex = 150;
             // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "book_id";
+            this.dataGridViewTextBoxColumn6.HeaderText = "book_id";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "book_name";
+            this.dataGridViewTextBoxColumn7.HeaderText = "book_name";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "type_id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "type_id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.HeaderText = "quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "author_name";
+            this.dataGridViewTextBoxColumn9.HeaderText = "author_name";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
             // booksBindingSource
             // 
             this.booksBindingSource.DataMember = "books";
@@ -296,13 +331,6 @@
             // 
             this.qLThuVienDataSet.DataSetName = "QLThuVienDataSet";
             this.qLThuVienDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbMaLoai
-            // 
-            this.tbMaLoai.Location = new System.Drawing.Point(97, 88);
-            this.tbMaLoai.Name = "tbMaLoai";
-            this.tbMaLoai.Size = new System.Drawing.Size(124, 20);
-            this.tbMaLoai.TabIndex = 2;
             // 
             // label9
             // 
@@ -384,6 +412,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbMaLoai);
             this.groupBox2.Controls.Add(this.tbquantity);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.tbTenSach);
@@ -392,7 +421,6 @@
             this.groupBox2.Controls.Add(this.tbMaSach);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.tbMaLoai);
             this.groupBox2.Controls.Add(this.tbTenTacGia);
             this.groupBox2.Location = new System.Drawing.Point(15, 45);
             this.groupBox2.Name = "groupBox2";
@@ -415,40 +443,13 @@
             // 
             this.booksTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // tbMaLoai
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "book_id";
-            this.dataGridViewTextBoxColumn6.HeaderText = "book_id";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "book_name";
-            this.dataGridViewTextBoxColumn7.HeaderText = "book_name";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "type_id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "type_id";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "quantity";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "author_name";
-            this.dataGridViewTextBoxColumn9.HeaderText = "author_name";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.tbMaLoai.FormattingEnabled = true;
+            this.tbMaLoai.Location = new System.Drawing.Point(97, 88);
+            this.tbMaLoai.Name = "tbMaLoai";
+            this.tbMaLoai.Size = new System.Drawing.Size(124, 21);
+            this.tbMaLoai.TabIndex = 174;
             // 
             // books
             // 
@@ -499,7 +500,6 @@
         private System.Windows.Forms.TextBox tbMaSach;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dataView;
-        private System.Windows.Forms.TextBox tbMaLoai;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbquantity;
         private System.Windows.Forms.Label label5;
@@ -528,5 +528,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.ComboBox tbMaLoai;
     }
 }

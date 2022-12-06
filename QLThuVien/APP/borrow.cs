@@ -36,6 +36,14 @@ namespace QLThuVien.APP
             //this.borrowTableAdapter.Fill(this.qLThuVienDataSet.borrow);
             con.Open();
             db.HienThi(dataView, "borrow");
+
+            SqlCommand cmd = new SqlCommand("select * from books", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            cmd.ExecuteNonQuery();
+            tbBook_id.DataSource = ds.Tables[0];
+            tbBook_id.DisplayMember = "book_id";
         }
 
         private void issue_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,7 +53,7 @@ namespace QLThuVien.APP
 
         private void btInsert_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(tbIssue_id.Text) || String.IsNullOrEmpty(tbBook_id.Text) ||  String.IsNullOrEmpty(tbStudent_id.Text) || String.IsNullOrEmpty(tbStaff_id.Text))
+            if (String.IsNullOrEmpty(tbIssue_id.Text) || String.IsNullOrEmpty(tbBook_id.Text) || String.IsNullOrEmpty(tbStudent_id.Text) || String.IsNullOrEmpty(tbStaff_id.Text))
             {
                 MessageBox.Show("Bạn phải nhập đầy đủ dữ liệu vào");
                 return;
@@ -65,17 +73,13 @@ namespace QLThuVien.APP
                 return;
             }
 
-            
+
             if (dieuKien.KiemTraMa("books", "book_id", tbBook_id.Text) == 0)
             {
                 MessageBox.Show("Mã sách không tồn tại");
                 return;
             }
 
-            
-            
-
-            
             if (dieuKien.KiemTraMa("staff", "staff_id", tbStaff_id.Text) == 0)
             {
                 MessageBox.Show("Mã nhân viên ko tồn tại");
@@ -107,7 +111,7 @@ namespace QLThuVien.APP
                 cmd.Parameters.AddWithValue("student_id", tbStudent_id.Text);
                 cmd.Parameters.AddWithValue("staff_id", tbStaff_id.Text);
                 cmd.ExecuteNonQuery();
-                
+
                 sl.SLGiam(tbBook_id.Text);
                 db.HienThi(dataView, "borrow");
             }
@@ -121,21 +125,21 @@ namespace QLThuVien.APP
                 return;
             }
 
-            
+
             if (dieuKien.KiemTraMa("books", "book_id", tbBook_id.Text) == 0)
             {
                 MessageBox.Show("Mã sách không tồn tại");
                 return;
             }
 
-            
+
             if (dieuKien.KiemTraMa("student", "student_id", tbStudent_id.Text) == 0)
             {
                 MessageBox.Show("Mã sinh viên tồn tại");
                 return;
             }
 
-            
+
             if (dieuKien.KiemTraMa("staff", "staff_id", tbStaff_id.Text) == 0)
             {
                 MessageBox.Show("Mã nhân viên tồn tại");
@@ -173,8 +177,8 @@ namespace QLThuVien.APP
             SqlCommand cmd = new SqlCommand(sqlThem, con);
             cmd.Parameters.AddWithValue("issue_id", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("book_id", tbNoiDungTimKiem.Text);
-            //cmd.Parameters.AddWithValue("date_issue", dateIssue.Value);
-            //cmd.Parameters.AddWithValue("date_expirary", dateExpirary.Value);
+            cmd.Parameters.AddWithValue("date_issue", dateIssue.Value);
+            cmd.Parameters.AddWithValue("date_expirary", dateExpirary.Value);
             cmd.Parameters.AddWithValue("student_id", tbNoiDungTimKiem.Text);
             cmd.Parameters.AddWithValue("staff_id", tbNoiDungTimKiem.Text);
             cmd.ExecuteNonQuery();
@@ -300,7 +304,7 @@ namespace QLThuVien.APP
         private void btRefresh_Click(object sender, EventArgs e)
         {
             this.tbIssue_id.Clear();
-            this.tbBook_id.Clear();
+            this.tbBook_id.Refresh();
             this.tbStudent_id.Clear();
             this.tbStaff_id.Clear();
             this.tbNoiDungTimKiem.Clear();
