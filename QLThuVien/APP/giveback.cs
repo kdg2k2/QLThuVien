@@ -45,6 +45,7 @@ namespace QLThuVien.APP
             cmd.ExecuteNonQuery();
             tbIssue_id.DataSource = ds.Tables[0];
             tbIssue_id.DisplayMember = "issue_id";
+            tbIssue_id.Text = "";
 
             SqlCommand cmd1 = new SqlCommand("select * from books", con);
             SqlDataAdapter da1 = new SqlDataAdapter(cmd);
@@ -53,6 +54,7 @@ namespace QLThuVien.APP
             cmd.ExecuteNonQuery();
             tbBook_id.DataSource = ds1.Tables[0];
             tbBook_id.DisplayMember = "book_id";
+            tbBook_id.Text = "";
         }
 
         private void return_FormClosing(object sender, FormClosingEventArgs e)
@@ -317,6 +319,8 @@ namespace QLThuVien.APP
             this.tbStaff.Clear();
             this.tbFileName.Clear();
             this.tbBook_id.Refresh();
+            tbIssue_id.Text = "";
+            tbBook_id.Text = "";
             db.HienThi(dataView, "giveback");
         }
     }

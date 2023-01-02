@@ -30,7 +30,7 @@ namespace QLThuVien.APP
         SqlConnection con = DBConnect.GetDBConnection();
         public void SinhVienChuaTraSach()
         {
-            string sqlSelect = "SELECT dbo.borrow.issue_id, dbo.borrow.book_id, dbo.books.book_name, dbo.borrow.date_issue, dbo.borrow.date_expirary, dbo.student.* FROM dbo.books INNER JOIN dbo.borrow ON dbo.books.book_id = dbo.borrow.book_id INNER JOIN dbo.student ON dbo.borrow.student_id = dbo.student.student_id INNER JOIN dbo.giveback ON dbo.books.book_id != dbo.giveback.book_id     EXCEPT    SELECT dbo.borrow.issue_id, dbo.borrow.book_id, dbo.books.book_name, dbo.borrow.date_issue, dbo.borrow.date_expirary, dbo.student.* FROM dbo.books INNER JOIN dbo.borrow ON dbo.books.book_id = dbo.borrow.book_id INNER JOIN dbo.student ON dbo.borrow.student_id = dbo.student.student_id INNER JOIN dbo.giveback ON dbo.books.book_id = dbo.giveback.book_id";
+            string sqlSelect = "SELECT m.issue_id, s.book_id, s.book_name, m.date_issue, m.date_expirary, sv.student_id, sv.studentname, sv.phone FROM borrow m INNER JOIN books s ON m.book_id = s.book_id INNER JOIN student sv ON m.student_id = sv.student_id WHERE m.issue_id not in(select issue_id from giveback)";
             SqlCommand cmd = new SqlCommand(sqlSelect, con);
             SqlDataReader dr = cmd.ExecuteReader();
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -46,7 +46,7 @@ namespace QLThuVien.APP
 
         public void SinhVienMuonQuaHan()
         {
-            string sqlSelect = "SELECT dbo.borrow.issue_id, dbo.borrow.book_id, dbo.books.book_name, dbo.student.* FROM dbo.books INNER JOIN dbo.borrow ON dbo.books.book_id = dbo.borrow.book_id INNER JOIN dbo.student ON dbo.borrow.student_id = dbo.student.student_id WHERE GETDATE() > borrow.date_expirary";
+            string sqlSelect = "SELECT dbo.borrow.issue_id, dbo.borrow.book_id, dbo.books.book_name, dbo.student.* FROM dbo.books INNER JOIN dbo.borrow ON dbo.books.book_id = dbo.borrow.book_id INNER JOIN dbo.student ON dbo.borrow.student_id = dbo.student.student_id WHERE GETDATE() > borrow.date_expirary AND borrow.issue_id NOT IN (SELECT giveback.issue_id FROM giveback)";
             SqlCommand cmd = new SqlCommand(sqlSelect, con);
             SqlDataReader dr = cmd.ExecuteReader();
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -62,7 +62,7 @@ namespace QLThuVien.APP
 
         public void BangMuonNhieuNhat()
         {
-            string sqlSelect = "select TOP 1 T.book_id, max(T.mycount) as max   FROM(SELECT book_id, count(student_id) as mycount   FROM borrow GROUP BY book_id) AS T  group by t.book_id, mycount order by mycount desc";
+            string sqlSelect = "select TOP 3 T.book_id, max(T.mycount) as max   FROM(SELECT book_id, count(student_id) as mycount   FROM borrow GROUP BY book_id) AS T  group by t.book_id, mycount order by mycount desc";
             SqlCommand cmd = new SqlCommand(sqlSelect, con);
             SqlDataReader dr = cmd.ExecuteReader();
             System.Data.DataTable dt = new System.Data.DataTable();

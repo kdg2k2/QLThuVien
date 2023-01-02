@@ -77,7 +77,7 @@
             this.dataView_ChuaTraSach.AllowUserToAddRows = false;
             this.dataView_ChuaTraSach.AllowUserToDeleteRows = false;
             this.dataView_ChuaTraSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView_ChuaTraSach.Location = new System.Drawing.Point(3, 117);
+            this.dataView_ChuaTraSach.Location = new System.Drawing.Point(3, 162);
             this.dataView_ChuaTraSach.Name = "dataView_ChuaTraSach";
             this.dataView_ChuaTraSach.ReadOnly = true;
             this.dataView_ChuaTraSach.Size = new System.Drawing.Size(632, 171);
@@ -87,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 98);
+            this.label1.Location = new System.Drawing.Point(16, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 18);
             this.label1.TabIndex = 176;
@@ -97,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(86, 39);
+            this.label2.Location = new System.Drawing.Point(82, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(215, 29);
             this.label2.TabIndex = 177;
@@ -108,7 +108,7 @@
             this.dataGridView_QuaHan.AllowUserToAddRows = false;
             this.dataGridView_QuaHan.AllowUserToDeleteRows = false;
             this.dataGridView_QuaHan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_QuaHan.Location = new System.Drawing.Point(3, 320);
+            this.dataGridView_QuaHan.Location = new System.Drawing.Point(3, 355);
             this.dataGridView_QuaHan.Name = "dataGridView_QuaHan";
             this.dataGridView_QuaHan.ReadOnly = true;
             this.dataGridView_QuaHan.Size = new System.Drawing.Size(632, 150);
@@ -118,7 +118,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 301);
+            this.label3.Location = new System.Drawing.Point(16, 336);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 18);
             this.label3.TabIndex = 176;
@@ -129,7 +129,7 @@
             this.dataView_MuonNhieuNhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView_MuonNhieuNhat.Location = new System.Drawing.Point(372, 39);
             this.dataView_MuonNhieuNhat.Name = "dataView_MuonNhieuNhat";
-            this.dataView_MuonNhieuNhat.Size = new System.Drawing.Size(254, 72);
+            this.dataView_MuonNhieuNhat.Size = new System.Drawing.Size(254, 98);
             this.dataView_MuonNhieuNhat.TabIndex = 180;
             // 
             // label5
@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 476);
+            this.ClientSize = new System.Drawing.Size(638, 507);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataView_MuonNhieuNhat);
             this.Controls.Add(this.label2);

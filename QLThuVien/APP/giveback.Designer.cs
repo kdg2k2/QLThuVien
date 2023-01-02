@@ -63,14 +63,14 @@
             this.tbStaff = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbBook_id = new System.Windows.Forms.ComboBox();
+            this.tbIssue_id = new System.Windows.Forms.ComboBox();
             this.date_expirary = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.givebackTableAdapter = new QLThuVien.QLThuVienDataSetTableAdapters.givebackTableAdapter();
-            this.tbIssue_id = new System.Windows.Forms.ComboBox();
-            this.tbBook_id = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.givebackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLThuVienDataSet)).BeginInit();
@@ -391,6 +391,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
             // 
+            // tbBook_id
+            // 
+            this.tbBook_id.FormattingEnabled = true;
+            this.tbBook_id.Location = new System.Drawing.Point(87, 120);
+            this.tbBook_id.Name = "tbBook_id";
+            this.tbBook_id.Size = new System.Drawing.Size(190, 21);
+            this.tbBook_id.TabIndex = 249;
+            // 
+            // tbIssue_id
+            // 
+            this.tbIssue_id.FormattingEnabled = true;
+            this.tbIssue_id.Location = new System.Drawing.Point(87, 43);
+            this.tbIssue_id.Name = "tbIssue_id";
+            this.tbIssue_id.Size = new System.Drawing.Size(190, 21);
+            this.tbIssue_id.TabIndex = 248;
+            // 
             // date_expirary
             // 
             this.date_expirary.CustomFormat = "dd/MM/yyyy";
@@ -457,22 +473,6 @@
             // givebackTableAdapter
             // 
             this.givebackTableAdapter.ClearBeforeFill = true;
-            // 
-            // tbIssue_id
-            // 
-            this.tbIssue_id.FormattingEnabled = true;
-            this.tbIssue_id.Location = new System.Drawing.Point(87, 43);
-            this.tbIssue_id.Name = "tbIssue_id";
-            this.tbIssue_id.Size = new System.Drawing.Size(190, 21);
-            this.tbIssue_id.TabIndex = 248;
-            // 
-            // tbBook_id
-            // 
-            this.tbBook_id.FormattingEnabled = true;
-            this.tbBook_id.Location = new System.Drawing.Point(87, 120);
-            this.tbBook_id.Name = "tbBook_id";
-            this.tbBook_id.Size = new System.Drawing.Size(190, 21);
-            this.tbBook_id.TabIndex = 249;
             // 
             // @return
             // 

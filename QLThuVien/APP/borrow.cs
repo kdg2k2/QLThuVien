@@ -44,6 +44,8 @@ namespace QLThuVien.APP
             cmd.ExecuteNonQuery();
             tbBook_id.DataSource = ds.Tables[0];
             tbBook_id.DisplayMember = "book_id";
+
+            tbBook_id.Text = "";
         }
 
         private void issue_FormClosing(object sender, FormClosingEventArgs e)
@@ -308,6 +310,7 @@ namespace QLThuVien.APP
             this.tbStudent_id.Clear();
             this.tbStaff_id.Clear();
             this.tbNoiDungTimKiem.Clear();
+            tbBook_id.Text = "";
             db.HienThi(dataView, "borrow");
         }
     }
